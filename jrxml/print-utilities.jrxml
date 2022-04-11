@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="utilities" language="groovy" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="20" bottomMargin="20" uuid="3c254fa5-bc94-4088-9925-a423c414d1c8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="heading" class="java.lang.String"/>
+	<parameter name="copyright" class="java.lang.String"/>
+	<parameter name="poweredlink" class="java.lang.String"/>
+	<parameter name="info_app_address" class="java.lang.String"/>
+	<parameter name="info_app_contact" class="java.lang.String"/>
+	<parameter name="utility_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="wc_hazardous_waste_licence_number" class="java.lang.String"/>
+	<parameter name="wc_environment_permit" class="java.lang.String"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="carrier_vat_number" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM `app_utilities` WHERE `utility_id` = '$P{utility_id}']]>
+	</queryString>
+	<field name="utility_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_description" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_used_by" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_managed_by" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_owner" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_location" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_risk" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_cia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_impact" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_risk_rating" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_contract_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_person_to_contact" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_contact_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_overview" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_key_security_tool" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_potential_action" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_action_plan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_created_date" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="utility_status" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="current_year" class="java.lang.String">
+		<variableExpression><![CDATA[(new SimpleDateFormat("yyyy")).format(new Date())]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="83" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="58" width="573" height="20" uuid="4a5ebb3a-ae97-4a2b-b4a8-d36715e83a05"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="1" y="6" width="159" height="42" forecolor="#FFFFFF" uuid="fb953fcd-8a8d-4697-9d0f-125df5203e70"/>
+			</rectangle>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Top" isUsingCache="true">
+				<reportElement x="1" y="6" width="159" height="42" uuid="0510fd79-b86c-4617-a9ba-8b6062feef98"/>
+				<imageExpression><![CDATA[$P{headerimage}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="1" y="57" width="574" height="1" uuid="ade5aa04-444f-49e3-8a4c-5b8cd1b46cfe"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="202" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="4" width="575" height="1" uuid="c0e5723e-932c-4cf4-9255-17a6c16f4a9c"/>
+			</line>
+			<line>
+				<reportElement x="1" y="23" width="573" height="1" uuid="c08f1afc-6223-4644-8ad5-966d72f61843"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="4" width="88" height="19" uuid="c928804d-3a6d-41a1-9de8-846e9d22c1ce"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Assets Owner :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="91" y="5" width="482" height="18" isPrintWhenDetailOverflows="true" uuid="21176326-0c0f-45bf-b20d-6c9d22b5f833"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_owner}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="379" y="24" width="194" height="18" isPrintWhenDetailOverflows="true" uuid="a629bd51-d350-4f56-ad8c-c4f44ece26c2"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_managed_by}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="291" y="23" width="88" height="19" uuid="0b1eea1b-d359-47e9-9ceb-4c8fb7349635"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Managed By :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="42" width="573" height="1" uuid="62bb0c51-b082-4f2f-a541-62a009e87ef1"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="75" y="24" width="216" height="18" isPrintWhenDetailOverflows="true" uuid="2821cb7f-379d-4e21-878c-6d44ebb407d0"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_used_by}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="23" width="575" height="1" uuid="60805231-b51d-46b4-bd48-4baf25fcc33c"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="25" width="74" height="20" uuid="c16dbd5d-4dc4-4791-ad99-67b4c78ecd14"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Used By :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="68" width="106" height="18" uuid="1cba1b8a-d4ed-428d-9d88-cbe792932899"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[CIA :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="86" width="106" height="18" uuid="12f80446-0ed3-4d11-8a8d-ff508c472eb0"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Risk :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="124" width="106" height="18" uuid="cac2cd71-936b-45df-8ccb-d41e87529c4a"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Key security tool :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="68" width="170" height="18" uuid="05b0a160-83bd-4c3b-a281-3741d822fbf1"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_cia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="86" width="170" height="18" uuid="ed8344d6-8c06-40ec-9170-f3c8b30428cc"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_risk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="123" width="466" height="19" uuid="93db6303-7c26-46d5-9c0b-268f3a213338"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_key_security_tool}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="50" width="170" height="18" uuid="c23370cc-d191-4c0a-8857-4b5674153756"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_risk_rating}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="50" width="106" height="18" uuid="c19f22a8-782e-4648-b014-52a72fd5e1b9"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Risk rating :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="143" width="466" height="18" uuid="8acc0c4d-63f5-463b-942e-e2e196460d7e"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_overview}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="143" width="106" height="18" uuid="7844d789-821f-4d0c-8608-41654e334db9"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Overview :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="162" width="466" height="18" uuid="24464a70-a581-4189-9a8a-81cc325b3c25"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_potential_action}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="162" width="106" height="18" uuid="aeecedd2-ecf6-4fcd-b00c-8edf6c714532"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Potential Action :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="181" width="466" height="18" uuid="638bba54-2e17-4836-89d2-339d72a24f81"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="181" width="106" height="18" uuid="0929c3ae-eee6-440d-bac1-8716eb0e71f0"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Description :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="68" width="106" height="18" uuid="6cd9e20d-5974-4ae2-8271-93c2e92169b2"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Person to contact :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="50" width="170" height="18" uuid="5fd27d27-8e2c-4f55-93e8-10d9fb5a5b15"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Contact person :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="50" width="184" height="18" uuid="74418cbf-b78c-4590-9adf-413e9107ac41"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_contact_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="68" width="184" height="18" uuid="2516ce2c-09ba-4078-8e0f-ce911fee8a22"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_person_to_contact}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="104" width="466" height="19" uuid="9ddd6e7d-490f-4df9-a395-4bbfc6ada408"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_action_plan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="105" width="106" height="18" uuid="11843b9f-68f6-4c1a-8d5d-9f2267a29cb1"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Action Plan :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="87" width="184" height="18" uuid="ec458d9e-e27a-4073-aa30-6d6491049e18"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{utility_location}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="87" width="106" height="18" uuid="988c6790-50f2-4189-941d-152ed87bc6eb"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Location :]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="280" splitType="Prevent">
+			<textField>
+				<reportElement x="290" y="260" width="284" height="20" uuid="b063b0c7-edc6-4e2c-a4e8-52de078e7d5f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{copyright}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="260" width="290" height="20" uuid="2a5790ec-df22-4442-83ea-0c5c94a96d47"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{poweredlink}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="36" width="378" height="18" uuid="4da194e0-d81d-4ef3-9bab-cef22c440372"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_environment_permit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="36" width="157" height="18" uuid="7dd1405a-e567-4d7e-b13a-924c1e831246"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Environmental permit number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="17" width="323" height="18" uuid="a7a47a3f-005a-4774-9970-8b91da8a68b3"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Registered under the controll of polution (Amandment) Act 1989 :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="55" width="208" height="18" uuid="15a5f580-97aa-4f53-823d-1365ace830bd"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Hazardous waste producer licence number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="17" width="212" height="18" uuid="aa521ade-69a4-468a-a1c7-d8e5b120294d"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carrier_poc_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="74" width="449" height="18" uuid="8f672e3c-7fff-44c8-8795-54b6277963d4"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carrier_vat_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="55" width="326" height="18" uuid="7b9734ef-c66e-4904-ac47-17e7ea6f1cca"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_hazardous_waste_licence_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="74" width="85" height="18" uuid="e92e2c88-0d38-4b22-8ca7-0ba6b3fe4b19"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Vat registration :]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="207" width="574" height="1" uuid="e3051c93-115e-48c7-9c0a-fc50d2f5b052"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="1" y="162" width="574" height="45" isPrintWhenDetailOverflows="true" forecolor="#003399" uuid="c30fe030-bb19-4d90-80e7-6dcbf6e02acf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{info_app_contact}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="161" width="574" height="1" uuid="3079c9a1-f1db-4c83-9af9-1b351c0c761a"/>
+			</line>
+			<line>
+				<reportElement x="1" y="6" width="573" height="1" uuid="c19befe2-cacc-4bcb-8606-de6d2c39a775"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

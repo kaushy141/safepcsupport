@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="product_label_print" language="groovy" pageWidth="200" pageHeight="100" columnWidth="180" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="66fa4bb4-8937-44ca-9d26-9f13e86b83a6">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="query" class="java.lang.String"/>
+	<parameter name="barcode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[$P{query}]]>
+	</queryString>
+	<field name="product_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="product_number" class="java.lang.Integer"/>
+	<field name="product_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="product_price" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="product_type_name" class="java.lang.String"/>
+	<detail>
+		<band height="80" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="1" y="2" width="177" height="24" isPrintWhenDetailOverflows="true" uuid="1b0b2e1e-1994-4bcf-be4d-2a52d1044bd9"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="40" width="49" height="20" uuid="a4efcf31-56af-40a8-8409-4e0d12fb1853"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="60" width="90" height="15" uuid="87ea6edb-72a6-47ab-94ef-38c255b380b4"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="27" width="177" height="12" uuid="9363cfab-abca-48be-88e9-a19c27a69cf9"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_type_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="118" y="60" width="60" height="15" uuid="678d1723-8587-4129-92ef-246214901835"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(inc. vat & tax)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="119" y="41" width="11" height="20" forecolor="#333333" uuid="f7d7a7f7-f6c4-461b-b9e2-d000989519bf"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["£"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="4" y="40" width="87" height="20" uuid="a6fa5a72-a022-41a0-b1b8-ca184f3fa4e6"/>
+				<imageExpression><![CDATA[$P{barcode}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

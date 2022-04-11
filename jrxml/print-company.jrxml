@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="print-company" language="groovy" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="20" bottomMargin="20" uuid="3c254fa5-bc94-4088-9925-a423c414d1c8">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="194"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="heading" class="java.lang.String"/>
+	<parameter name="copyright" class="java.lang.String"/>
+	<parameter name="poweredlink" class="java.lang.String"/>
+	<parameter name="info_app_address" class="java.lang.String"/>
+	<parameter name="info_app_contact" class="java.lang.String"/>
+	<parameter name="company_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="wc_hazardous_waste_licence_number" class="java.lang.String"/>
+	<parameter name="wc_environment_permit" class="java.lang.String"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="carrier_vat_number" class="java.lang.String"/>
+	<parameter name="company_bank_details" class="java.lang.String"/>
+	<parameter name="company_trademark" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT `company_id`, `company_name`, `company_address`, `company_contact`, `company_carrier_licence_number`, `company_environment_permit_number`, `company_hazardous_waste_licence_number`, `company_bank_details`, `company_vehicle_reg_number`, `company_registered_trademark`, `company_ico_registration_number`, `company_iso_9001`, `company_iso_14001`, `company_registered_in_england_and_wales`, `company_vat_registration_number`, `company_trademark`, `company_status`, `company_created_date` FROM `app_company_record` WHERE `company_id` = $P{company_id}]]>
+	</queryString>
+	<field name="company_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_address" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_contact" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_carrier_licence_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_environment_permit_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_hazardous_waste_licence_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_bank_details" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_vehicle_reg_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_registered_trademark" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_ico_registration_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_iso_9001" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_iso_14001" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_registered_in_england_and_wales" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_vat_registration_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_trademark" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_status" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_created_date" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="company_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="current_year" class="java.lang.String">
+		<variableExpression><![CDATA[(new SimpleDateFormat("yyyy")).format(new Date())]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="83" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="58" width="573" height="20" uuid="4a5ebb3a-ae97-4a2b-b4a8-d36715e83a05"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="1" y="6" width="159" height="42" forecolor="#FFFFFF" uuid="fb953fcd-8a8d-4697-9d0f-125df5203e70"/>
+			</rectangle>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Top" isUsingCache="true">
+				<reportElement x="1" y="6" width="159" height="42" uuid="0510fd79-b86c-4617-a9ba-8b6062feef98"/>
+				<imageExpression><![CDATA[$P{headerimage}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="1" y="57" width="574" height="1" uuid="ade5aa04-444f-49e3-8a4c-5b8cd1b46cfe"/>
+			</line>
+			<image>
+				<reportElement x="491" y="5" width="75" height="52" uuid="e1f3959c-ec26-4786-aa81-ac027f64f821"/>
+				<imageExpression><![CDATA[$P{company_trademark}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="79" width="574" height="1" uuid="2be87fb1-bbf8-4579-8e9a-61ecabcc4e70"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="284" splitType="Stretch">
+			<textField>
+				<reportElement x="160" y="118" width="411" height="18" uuid="e4df1a56-9f89-43f7-9ee2-c0c6934ef7e3"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{company_vehicle_reg_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="136" width="136" height="18" uuid="5c6692ae-1e34-4ffd-9281-953250927293"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[ICO registration number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="118" width="135" height="18" uuid="98f11b79-29b2-4f91-8917-551d982b021d"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Vehicle reg number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="136" width="411" height="18" uuid="ab59f00b-7f78-4f9a-a18c-cd5144490330"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{company_ico_registration_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="24" width="136" height="18" uuid="1cba1b8a-d4ed-428d-9d88-cbe792932899"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Company address :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="43" width="136" height="18" uuid="942b04c2-f865-45d5-91f8-da35de07d21e"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Company  contact :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="62" width="136" height="18" uuid="12f80446-0ed3-4d11-8a8d-ff508c472eb0"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Carrier licence number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="81" width="136" height="18" uuid="cac2cd71-936b-45df-8ccb-d41e87529c4a"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Environment permit number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="24" width="412" height="18" uuid="05b0a160-83bd-4c3b-a281-3741d822fbf1"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{company_address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="43" width="412" height="18" uuid="766eda17-6586-4da6-ae6b-a4160f4d7d22"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{company_contact}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="62" width="412" height="18" uuid="ed8344d6-8c06-40ec-9170-f3c8b30428cc"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{company_carrier_licence_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="81" width="412" height="19" uuid="93db6303-7c26-46d5-9c0b-268f3a213338"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{company_environment_permit_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="6" width="412" height="18" uuid="c23370cc-d191-4c0a-8857-4b5674153756"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{company_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="6" width="136" height="18" uuid="c19f22a8-782e-4648-b014-52a72fd5e1b9"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Company name :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="100" width="412" height="18" uuid="8acc0c4d-63f5-463b-942e-e2e196460d7e"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{company_hazardous_waste_licence_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="100" width="136" height="18" uuid="7844d789-821f-4d0c-8608-41654e334db9"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[H.W. licence number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="155" width="136" height="18" uuid="6ca1bd63-b91b-4e83-8e97-842df6ef1723"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[ISO 9001 number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="155" width="411" height="18" uuid="20e97b14-eb19-47d7-894b-b6533a8592b1"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{company_iso_9001}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="173" width="136" height="18" uuid="44415b24-05a9-4642-891f-6d2e03e1e4bf"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[ISO 14001 number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="173" width="411" height="18" uuid="3dbedde8-b00a-49c2-9714-66de68344af4"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{company_iso_14001}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="210" width="136" height="18" uuid="84347e2b-655c-40a4-9f49-84d9a9fe62cd"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[VAT registration number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="210" width="387" height="18" uuid="80276e04-e234-4c79-9cdf-e9e2eb6a2acb"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{company_vat_registration_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="228" width="387" height="18" uuid="77a8c3c8-6c84-43a1-9b51-d8914199301c"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{company_registered_in_england_and_wales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="228" width="159" height="18" uuid="8038ddc0-c138-4154-8bc9-95d03328c32a"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Registered in england and wales :]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="160" y="246" width="411" height="36" isPrintWhenDetailOverflows="true" uuid="3b61522b-3771-41f4-906e-016c7593d096"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{company_bank_details}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="246" width="136" height="36" uuid="f31f01ed-ca90-4588-8809-a64ad4372f21"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Bank details :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="192" width="136" height="18" uuid="4b264995-28d2-407a-85d3-fd8ef17f561e"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Company number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="192" width="411" height="18" uuid="58ac8ae2-e19e-4cdd-acaa-ccfbf3ac55fb"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{company_number}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="188" splitType="Prevent">
+			<textField>
+				<reportElement x="291" y="168" width="284" height="20" uuid="b063b0c7-edc6-4e2c-a4e8-52de078e7d5f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{copyright}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="168" width="290" height="20" uuid="2a5790ec-df22-4442-83ea-0c5c94a96d47"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{poweredlink}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="36" width="378" height="18" uuid="4da194e0-d81d-4ef3-9bab-cef22c440372"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_environment_permit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="36" width="157" height="18" uuid="7dd1405a-e567-4d7e-b13a-924c1e831246"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Environmental permit number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="17" width="323" height="18" uuid="a7a47a3f-005a-4774-9970-8b91da8a68b3"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Registered under the controll of polution (Amandment) Act 1989 :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="55" width="208" height="18" uuid="15a5f580-97aa-4f53-823d-1365ace830bd"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Hazardous waste producer licence number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="17" width="212" height="18" uuid="aa521ade-69a4-468a-a1c7-d8e5b120294d"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carrier_poc_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="74" width="449" height="18" uuid="8f672e3c-7fff-44c8-8795-54b6277963d4"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carrier_vat_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="55" width="326" height="18" uuid="7b9734ef-c66e-4904-ac47-17e7ea6f1cca"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_hazardous_waste_licence_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="74" width="85" height="18" uuid="e92e2c88-0d38-4b22-8ca7-0ba6b3fe4b19"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Vat registration :]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="141" width="574" height="1" uuid="e3051c93-115e-48c7-9c0a-fc50d2f5b052"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="1" y="96" width="574" height="45" isPrintWhenDetailOverflows="true" forecolor="#003399" uuid="c30fe030-bb19-4d90-80e7-6dcbf6e02acf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{info_app_contact}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="95" width="574" height="1" uuid="3079c9a1-f1db-4c83-9af9-1b351c0c761a"/>
+			</line>
+			<line>
+				<reportElement x="1" y="6" width="573" height="1" uuid="c19befe2-cacc-4bcb-8606-de6d2c39a775"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

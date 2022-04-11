@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="complaint-invoice" language="groovy" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="20" bottomMargin="20" uuid="3c254fa5-bc94-4088-9925-a423c414d1c8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="89"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="pay_slip_heading" class="java.lang.String"/>
+	<parameter name="pay_slip_date" class="java.lang.String"/>
+	<parameter name="employee_name" class="java.lang.String"/>
+	<parameter name="employee_designation" class="java.lang.String"/>
+	<parameter name="joining_date" class="java.lang.String"/>
+	<parameter name="basic_salary" class="java.lang.String"/>
+	<parameter name="total_sale" class="java.lang.String"/>
+	<parameter name="commission_rate" class="java.lang.String"/>
+	<parameter name="commission_amount" class="java.lang.String"/>
+	<parameter name="leaves" class="java.lang.String"/>
+	<parameter name="net_salary" class="java.lang.String"/>
+	<parameter name="company_name" class="java.lang.String"/>
+	<parameter name="account_manager" class="java.lang.String"/>
+	<parameter name="account_signature" class="java.lang.String"/>
+	<parameter name="paidimage" class="java.lang.String"/>
+	<parameter name="vat" class="java.lang.String"/>
+	<parameter name="sub_total" class="java.lang.String"/>
+	<parameter name="vat_total" class="java.lang.String"/>
+	<parameter name="total" class="java.lang.String"/>
+	<parameter name="poweredlink" class="java.lang.String"/>
+	<parameter name="copyright" class="java.lang.String"/>
+	<parameter name="headerimage" class="java.lang.String"/>
+	<parameter name="watermark" class="java.lang.String"/>
+	<parameter name="creator" class="java.lang.String"/>
+	<parameter name="reportdate" class="java.lang.String"/>
+	<parameter name="pay_mode" class="java.lang.String"/>
+	<parameter name="pay_status" class="java.lang.String"/>
+	<parameter name="pay_date" class="java.lang.String"/>
+	<parameter name="pay_remark" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 1]]>
+	</queryString>
+	<field name="1" class="java.lang.Long"/>
+	<variable name="current_year" class="java.lang.String">
+		<variableExpression><![CDATA[(new SimpleDateFormat("yyyy")).format(new Date())]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="224" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="127" y="102" width="447" height="20" isPrintWhenDetailOverflows="true" uuid="e3c03ea3-5cb7-4e7f-8196-16613750a2b1"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{employee_name}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="81" width="575" height="1" uuid="c0e5723e-932c-4cf4-9255-17a6c16f4a9c"/>
+			</line>
+			<textField>
+				<reportElement x="1" y="58" width="573" height="20" uuid="4a5ebb3a-ae97-4a2b-b4a8-d36715e83a05"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="101" width="573" height="1" uuid="c08f1afc-6223-4644-8ad5-966d72f61843"/>
+			</line>
+			<rectangle>
+				<reportElement x="1" y="6" width="159" height="42" forecolor="#FFFFFF" uuid="fb953fcd-8a8d-4697-9d0f-125df5203e70"/>
+			</rectangle>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Top" isUsingCache="true">
+				<reportElement x="1" y="6" width="159" height="42" uuid="0510fd79-b86c-4617-a9ba-8b6062feef98"/>
+				<imageExpression><![CDATA[$P{headerimage}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="380" y="6" width="192" height="18" uuid="257cc7eb-e0f0-4c44-9814-d54a46b333e7"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pay Slip Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="25" width="192" height="23" uuid="ffb9c28f-1ff2-47ad-ada9-8530ca5b907c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{pay_slip_date}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="57" width="574" height="1" uuid="ade5aa04-444f-49e3-8a4c-5b8cd1b46cfe"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="1" y="82" width="573" height="18" isPrintWhenDetailOverflows="true" uuid="25f79f0a-940d-4446-8133-af397887125d"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pay_slip_heading}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="102" width="126" height="20" uuid="233e96bb-d491-4150-8ff1-1afb66c8ad86"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employee Name - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="122" width="126" height="20" uuid="21c20a9c-a77b-42b1-987e-fdc7ea7fe3a6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Designation - ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="127" y="122" width="447" height="20" isPrintWhenDetailOverflows="true" uuid="22b5593e-3c47-4d9e-aebe-e1b60c845bbf"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{employee_designation}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="142" width="126" height="20" uuid="2ff227cc-a3c8-45e0-818b-aa915e4c06b8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Joining Date - ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="127" y="142" width="447" height="20" isPrintWhenDetailOverflows="true" uuid="750c2ee0-0cc4-4eea-b6ca-98e20c448457"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{joining_date}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="127" y="162" width="447" height="20" isPrintWhenDetailOverflows="true" uuid="b2e10b3b-9a8e-4caa-b14b-913164ac76eb"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{pay_slip_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="162" width="126" height="20" uuid="55177167-3d14-4070-ab66-51024d6c3dc9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pay Slip Month -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="180" width="126" height="20" uuid="b5c640ba-36da-4046-87b6-619da68020c4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment Status -]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="127" y="180" width="447" height="20" isPrintWhenDetailOverflows="true" uuid="bb530063-ba76-4a72-aee5-de502b1438e3"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{pay_status}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="200" width="126" height="20" uuid="c4176e99-9713-40f3-90f3-658a51e8751b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment Remark -]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="127" y="200" width="447" height="20" isPrintWhenDetailOverflows="true" uuid="c0f8e953-acf3-4e2b-8f06-1dd80a047e54"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{pay_remark}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="317" splitType="Stretch">
+			<staticText>
+				<reportElement x="317" y="181" width="112" height="20" uuid="e732e0d1-6af5-46f9-98e9-e69f31d77ba9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Company Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="319" y="201" width="110" height="20" uuid="c906f0d2-a400-4fda-8fe7-d456065dc39a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="221" width="64" height="20" uuid="76073659-4f07-4c52-be11-c5878bd310d9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<line>
+				<reportElement x="438" y="198" width="135" height="1" forecolor="#666666" uuid="2018319d-fa84-43f1-9c54-b720139a0e5f"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="438" y="219" width="135" height="1" forecolor="#666666" uuid="8afd7f30-bae3-4dcc-970b-8328aa1dc0e0"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="1" y="84" width="574" height="1" forecolor="#333333" uuid="59758888-954d-4f40-82b8-e5dc3be2baf2"/>
+			</line>
+			<textField>
+				<reportElement x="113" y="51" width="97" height="32" uuid="b3a91ec8-e552-43aa-9ea1-80ec0b78e896"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{total_sale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="31" width="112" height="20" uuid="8968a9fa-25f1-4c08-87a6-476003ce8aac"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Basic Salary]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="211" y="52" width="106" height="31" uuid="88f4be77-50d1-4568-a473-46e8c7e7b5f0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{commission_rate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="51" width="68" height="32" uuid="ee57f433-2d52-4509-bfe7-724d30608009"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{leaves}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="483" y="51" width="90" height="32" uuid="349d826d-b362-48d5-963f-4805b44fcf58"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{net_salary}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="113" y="31" width="97" height="21" uuid="33efd1a0-94b1-444f-aaa3-abcc61e5e62e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Sale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="31" width="106" height="21" uuid="ffd430d6-7291-4e09-b7b5-b777909b97a0"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sale Commission %]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="319" y="31" width="95" height="20" uuid="2a4ffca1-e799-48ed-93db-026af94396c6"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Commission]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="483" y="31" width="92" height="20" uuid="30cc6438-b52f-4088-87ac-2ba172c7110b"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net Salary]]></text>
+			</staticText>
+			<line>
+				<reportElement x="210" y="28" width="1" height="56" forecolor="#666666" uuid="07240c21-d5c3-4033-b2c3-7529bf6cafe0"/>
+			</line>
+			<line>
+				<reportElement x="317" y="28" width="1" height="55" forecolor="#666666" uuid="05475185-05ec-4163-b383-8b3ef3490de6"/>
+			</line>
+			<line>
+				<reportElement x="482" y="26" width="1" height="57" forecolor="#666666" uuid="91843c3c-213f-4364-b355-c8131ecb31a9"/>
+			</line>
+			<line>
+				<reportElement x="112" y="28" width="1" height="55" forecolor="#666666" uuid="8755a914-071c-47f0-a1c3-4dd98f1d69a5"/>
+			</line>
+			<line>
+				<reportElement x="1" y="51" width="574" height="1" uuid="e2d5edad-0e48-4cad-bc79-eb8a30615364"/>
+			</line>
+			<line>
+				<reportElement x="438" y="241" width="135" height="1" forecolor="#666666" uuid="e9e90777-5b7a-4d22-873d-49809744bb18"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="415" y="31" width="67" height="20" uuid="5241365f-3939-4bf0-87f3-9fc8de481da8"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Leaves]]></text>
+			</staticText>
+			<line>
+				<reportElement x="414" y="28" width="1" height="56" forecolor="#666666" uuid="a5126c36-9e7b-4ee0-b654-d66a2077ffa3"/>
+			</line>
+			<textField>
+				<reportElement x="319" y="52" width="95" height="32" uuid="215a12a9-d593-4902-8d99-5774dbb79fda"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{commission_amount}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="27" width="574" height="1" uuid="7bf4a301-dc2a-421e-9794-486c275bb1c6"/>
+			</line>
+			<textField>
+				<reportElement x="438" y="181" width="134" height="17" uuid="dfc15b81-3b17-4481-85b3-09202bb8fad7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{company_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="438" y="201" width="134" height="18" uuid="28a2efdd-a288-456b-8c45-39e87f53966c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{account_manager}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="438" y="221" width="134" height="18" uuid="581d0655-d2af-4cfa-b6ef-539538289592"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{pay_date}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Top" isUsingCache="true">
+				<reportElement x="47" y="143" width="113" height="55" uuid="2b0fed02-6755-4c55-a812-c3b28ebcf902"/>
+				<imageExpression><![CDATA[$P{paidimage}]]></imageExpression>
+			</image>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Top" isUsingCache="true">
+				<reportElement x="438" y="122" width="134" height="41" uuid="f23045a0-82bc-4f8b-b7f4-fb07e43bcd82"/>
+				<imageExpression><![CDATA[$P{account_signature}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="1" y="52" width="111" height="32" uuid="66e8ca34-4b74-4075-9086-998feebe9e59"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{basic_salary}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="291" y="0" width="284" height="20" uuid="b063b0c7-edc6-4e2c-a4e8-52de078e7d5f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{copyright}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="0" width="290" height="20" uuid="2a5790ec-df22-4442-83ea-0c5c94a96d47"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{poweredlink}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

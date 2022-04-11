@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="complaint-invoice" language="groovy" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="20" bottomMargin="20" uuid="3c254fa5-bc94-4088-9925-a423c414d1c8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="reportdate" class="java.lang.String"/>
+	<parameter name="copyright" class="java.lang.String"/>
+	<parameter name="poweredlink" class="java.lang.String"/>
+	<parameter name="watermark" class="java.lang.String"/>
+	<parameter name="query" class="java.lang.String"/>
+	<parameter name="relevant_information" class="java.lang.String"/>
+	<parameter name="emp_signature" class="java.lang.String"/>
+	<parameter name="hr_signature" class="java.lang.String"/>
+	<parameter name="emp_sign_date" class="java.lang.String"/>
+	<parameter name="hr_sign_date" class="java.lang.String"/>
+	<parameter name="html" class="java.lang.String"/>
+	<parameter name="emp_name" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 1]]>
+	</queryString>
+	<field name="checklist_item_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="checklist_item_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="checklist_item_category" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eili_checklist_item_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eili_comment" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eili_completed_date" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eili_completed" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="current_year" class="java.lang.String">
+		<variableExpression><![CDATA[(new SimpleDateFormat("yyyy")).format(new Date())]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="24" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="3" y="0" width="570" height="18" isPrintWhenDetailOverflows="true" uuid="20176d35-a71f-4123-a4bd-e3575aa284cf"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["LEAVER CHECKLIST FOR "+$P{emp_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="4">
+			<textField isStretchWithOverflow="true" evaluationTime="Page" pattern="">
+				<reportElement style="table" x="1" y="1" width="574" height="0" isPrintWhenDetailOverflows="true" uuid="4e29e447-af7e-4fba-80a8-8905e1b39f77"/>
+				<textElement verticalAlignment="Top" markup="html">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{html}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="669">
+			<line>
+				<reportElement x="422" y="578" width="134" height="1" forecolor="#666666" uuid="887f4885-2e39-4763-a27a-03bd72f80219"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="431" y="631" width="91" height="18" isPrintWhenDetailOverflows="true" uuid="1fffc5e5-4c69-4d17-85c3-3ee69468a866"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$P{hr_sign_date}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="3" y="468" width="570" height="53" isPrintWhenDetailOverflows="true" uuid="fc1bd1ca-ac00-41ff-b020-9b60ea84aad1"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{relevant_information}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Top" isUsingCache="true">
+				<reportElement x="145" y="545" width="75" height="33" uuid="d9a441ce-f527-4845-aef3-842dd80fdc21"/>
+				<imageExpression><![CDATA[$P{emp_signature}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="5" y="562" width="107" height="20" uuid="636bd347-8b40-461c-9000-aa64e95b5a80"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employee Signature]]></text>
+			</staticText>
+			<line>
+				<reportElement x="173" y="651" width="135" height="1" forecolor="#666666" uuid="01e30541-13bf-41ca-8f98-f8ab547362da"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="431" y="560" width="91" height="18" isPrintWhenDetailOverflows="true" uuid="ddbba659-8d6b-4d0b-b4c2-92c38767f25d"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$P{emp_sign_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="594" width="570" height="20" uuid="39598475-3278-456b-99bd-cd230cc83222"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[I confirm I have completed the above termination process with the employee]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="521" width="574" height="1" forecolor="#333333" uuid="2431ac57-448c-4b12-a011-8970eff45029"/>
+			</line>
+			<staticText>
+				<reportElement x="358" y="559" width="64" height="20" uuid="82b063b9-4d54-4c0f-a915-73f03ef3808f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="614" width="168" height="40" uuid="51ceb958-8c50-4696-aaba-7c25a398c3e8"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature of
+HR / Management Representative
+]]></text>
+			</staticText>
+			<line>
+				<reportElement x="124" y="580" width="133" height="1" forecolor="#666666" uuid="964e370e-fbff-458e-99fa-852915b71405"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="5" y="524" width="570" height="20" uuid="d9b24dd5-34d4-4191-adbf-90a63b60fdf4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[I have been informed about and understand the above items.]]></text>
+			</staticText>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Top" isUsingCache="true">
+				<reportElement x="197" y="618" width="75" height="33" uuid="fb1540d3-0080-473a-9c89-77c64e4bb130"/>
+				<imageExpression><![CDATA[$P{hr_signature}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement mode="Opaque" x="5" y="448" width="568" height="20" backcolor="#FFFFFF" uuid="4db63962-1984-4da4-b01f-6dbc511a8a8c"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[OTHER RELEVANT ISSUES SPECIFIC TO THE DEPARTMENT -]]></text>
+			</staticText>
+			<line>
+				<reportElement x="422" y="650" width="134" height="1" forecolor="#666666" uuid="d015b0ad-3ace-444d-845c-4994d0796fde"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="358" y="631" width="64" height="20" uuid="528f9297-8505-4ff3-a416-991bd9476d7b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date -]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="588" width="572" height="1" forecolor="#333333" uuid="c5ee78b0-5a25-40c3-b2f5-edda7472d80d"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

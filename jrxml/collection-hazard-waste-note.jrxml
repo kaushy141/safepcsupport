@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="collection-waste-transfer-note" language="groovy" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="20" bottomMargin="20" uuid="3c254fa5-bc94-4088-9925-a423c414d1c8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="687"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="f5b59ead-397d-402b-bed3-5851e572f9e9"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="heading" class="java.lang.String"/>
+	<parameter name="reportdate" class="java.lang.String"/>
+	<parameter name="creator" class="java.lang.String"/>
+	<parameter name="copyright" class="java.lang.String"/>
+	<parameter name="poweredlink" class="java.lang.String"/>
+	<parameter name="headerimage" class="java.lang.String"/>
+	<parameter name="watermark" class="java.lang.String"/>
+	<parameter name="info_app_address" class="java.lang.String"/>
+	<parameter name="info_app_contact" class="java.lang.String"/>
+	<parameter name="wc_consignment_note_code" class="java.lang.String"/>
+	<parameter name="wc_waste_removed_from" class="java.lang.String"/>
+	<parameter name="wc_waste_taken_to" class="java.lang.String"/>
+	<parameter name="wc_ewc_identification_html" class="java.lang.String"/>
+	<parameter name="wc_carrier_certificate_text" class="java.lang.String"/>
+	<parameter name="wc_consigner_certificate_text" class="java.lang.String"/>
+	<parameter name="carrier_address" class="java.lang.String"/>
+	<parameter name="wc_carrier_licence_number" class="java.lang.String"/>
+	<parameter name="carrier_hazardous_waste_licence_number" class="java.lang.String"/>
+	<parameter name="carrier_environment_number" class="java.lang.String"/>
+	<parameter name="carrier_vehicle_reg_number" class="java.lang.String"/>
+	<parameter name="wc_consignor_name" class="java.lang.String"/>
+	<parameter name="wc_on_behalf_of_authority_name" class="java.lang.String"/>
+	<parameter name="wc_declaration_text" class="java.lang.String"/>
+	<parameter name="wc_collection_manager_name" class="java.lang.String"/>
+	<parameter name="wc_collection_code_number" class="java.lang.String"/>
+	<parameter name="wc_on_behalf_of_user" class="java.lang.String"/>
+	<parameter name="wc_collection_manager_signature" class="java.lang.String"/>
+	<parameter name="barcode" class="java.lang.String"/>
+	<parameter name="vehicle_registration_number" class="java.lang.String"/>
+	<parameter name="completion_date" class="java.lang.String"/>
+	<parameter name="arrival_time" class="java.lang.String"/>
+	<parameter name="driver_name" class="java.lang.String"/>
+	<parameter name="completion_date_time" class="java.lang.String"/>
+	<parameter name="driver_signature" class="java.lang.String"/>
+	<parameter name="consigner_signature" class="java.lang.String"/>
+	<parameter name="collection_date" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 1]]>
+	</queryString>
+	<field name="1" class="java.lang.Long"/>
+	<variable name="current_year" class="java.lang.String">
+		<variableExpression><![CDATA[(new SimpleDateFormat("yyyy")).format(new Date())]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="159" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="3" width="146" height="30" forecolor="#FFFFFF" uuid="fb953fcd-8a8d-4697-9d0f-125df5203e70"/>
+			</rectangle>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Top" isUsingCache="true">
+				<reportElement x="1" y="3" width="146" height="30" uuid="0510fd79-b86c-4617-a9ba-8b6062feef98"/>
+				<imageExpression><![CDATA[$P{headerimage}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="147" y="3" width="325" height="30" uuid="257cc7eb-e0f0-4c44-9814-d54a46b333e7"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="16" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Hazardous Waste Consignment Note]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="33" width="574" height="18" backcolor="#DCDCDC" uuid="64dcb814-7cd6-4f60-91f4-210163433a30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Part A - Notification Details]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="51" width="574" height="1" forecolor="#333333" uuid="59758888-954d-4f40-82b8-e5dc3be2baf2"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="70" width="287" height="16" uuid="d843cc17-5e1e-4872-94b5-5b1c795cba6a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2. The waste described below is to be removed from :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="288" y="52" width="1" height="88" uuid="a7fa0127-7da5-4043-970e-289438a29051"/>
+			</line>
+			<staticText>
+				<reportElement x="290" y="51" width="284" height="16" uuid="96642138-bd3c-454a-ac06-6683ed844b78"/>
+				<textElement verticalAlignment="Top">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[3. The waste will be taken to :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="1" y="86" width="286" height="54" isPrintWhenDetailOverflows="true" uuid="9cc84c4e-5445-464e-ba63-fd45d68053eb"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_waste_removed_from}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="290" y="66" width="284" height="30" isPrintWhenDetailOverflows="true" uuid="883a18c5-3315-4cad-a597-f9d3ccd89bbd"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_waste_taken_to}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="51" width="125" height="19" uuid="d9c0601f-fb9e-4e96-a348-1b96634bdd13"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1. Consignment Note Code:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="126" y="51" width="161" height="19" isPrintWhenDetailOverflows="true" forecolor="#CC0000" uuid="16b37a63-3074-40eb-aab3-a1182f653f18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_consignment_note_code}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="96" width="284" height="16" uuid="5fb3aadb-d794-4252-a0eb-433bbfdf159e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4. The waste producer was (if different from 2) :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="70" width="287" height="1" forecolor="#333333" uuid="257a89a6-21c2-46e7-a8c8-54426cebeb11"/>
+			</line>
+			<line>
+				<reportElement x="289" y="96" width="284" height="1" forecolor="#333333" uuid="fa0e3062-9a4b-4cc4-b501-0b41f241bd08"/>
+			</line>
+			<line>
+				<reportElement x="1" y="158" width="574" height="1" forecolor="#333333" uuid="ff549c1b-4895-4913-a84e-dd4df4f4d628"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="140" width="574" height="16" backcolor="#DCDCDC" uuid="18675e7c-67df-4ccc-8a2e-99cff2f2ccd5"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Part B - Description of Waste]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="140" width="574" height="1" forecolor="#333333" uuid="5bbb3795-ffd1-4e2e-9914-9674203bc9bc"/>
+			</line>
+			<line>
+				<reportElement x="1" y="33" width="574" height="1" forecolor="#333333" uuid="2ea033a3-7b70-42bb-9f20-8875f2573edf"/>
+			</line>
+			<image>
+				<reportElement x="473" y="0" width="103" height="16" uuid="4f120914-ad7d-4a8b-9b62-4877982af0a8"/>
+				<imageExpression><![CDATA[$P{barcode}]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="473" y="14" width="101" height="15" isPrintWhenDetailOverflows="true" forecolor="#CC0000" uuid="6c2fac3d-56a8-4905-b90c-ae0e5f366bfe"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_collection_code_number}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="5" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="574" height="5" isPrintWhenDetailOverflows="true" uuid="8d30d294-a616-4d29-b43d-bc0bc13def29"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_ewc_identification_html}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="604" splitType="Stretch">
+			<textField>
+				<reportElement x="270" y="583" width="306" height="20" uuid="b063b0c7-edc6-4e2c-a4e8-52de078e7d5f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{copyright}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="583" width="269" height="20" uuid="2a5790ec-df22-4442-83ea-0c5c94a96d47"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{poweredlink}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="184" width="288" height="16" backcolor="#DCDCDC" uuid="59451ab2-8d20-4ba0-841c-4df767d3cc54"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Part C - Carriers Certificate]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="185" width="574" height="1" forecolor="#333333" uuid="32339600-a45c-46b4-b208-86bfee7a3f64"/>
+			</line>
+			<line>
+				<reportElement x="1" y="201" width="574" height="1" forecolor="#333333" uuid="bfb0e545-47ba-4401-9dd8-c441553f0cc8"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="289" y="184" width="287" height="15" backcolor="#DCDCDC" uuid="75d66c54-9a0c-4757-848a-da44bc7d481a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Part D - Consignor's Certificate]]></text>
+			</staticText>
+			<line>
+				<reportElement x="288" y="185" width="1" height="180" uuid="fdde5471-b83a-4039-b9c2-f57035de879d"/>
+			</line>
+			<line>
+				<reportElement x="0" y="366" width="574" height="1" forecolor="#333333" uuid="b90ff63a-36c9-44f1-9402-462537afdbad"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="385" width="60" height="18" uuid="697aa3ef-2fa3-441d-9bb7-c1463cdca389"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[EWC Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="366" width="574" height="18" backcolor="#DCDCDC" uuid="66e3f00a-9ca4-4359-bfae-9ebe75d80a70"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Part E - Consignee's Certificate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="289" y="385" width="99" height="18" uuid="f48b499e-d58c-4f41-9bab-64dd5582096c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Accepted/Rejected]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="385" width="227" height="18" uuid="150a1680-53e1-4bd9-af0e-9210062a7544"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Quantity for each EWC Code received (kg)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="384" width="574" height="1" forecolor="#333333" uuid="086baff7-1008-481a-841b-b9fba6c6c3bd"/>
+			</line>
+			<staticText>
+				<reportElement x="389" y="385" width="185" height="18" uuid="e3997c58-ab78-43c5-ad12-10815ef92bba"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Waste Management Operation (R or D)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="444" width="573" height="18" backcolor="#DCDCDC" uuid="ea2cfa81-287a-4349-8d21-89156efe3f45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Declaration]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="444" width="574" height="1" forecolor="#333333" uuid="e9d59b32-022c-427e-b9ea-9aa0427a6419"/>
+			</line>
+			<line>
+				<reportElement x="1" y="462" width="574" height="1" forecolor="#333333" uuid="dae722ef-aa1e-4240-a691-329e81db7a7b"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="462" width="216" height="18" uuid="6f736f9a-4076-4758-8813-987db3139805"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[I received this waste at the address given in A3 on: Date -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="463" width="34" height="17" uuid="5c3a3622-7762-49b4-9d03-dfab42e32988"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Time -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="403" y="463" width="90" height="17" uuid="603b6a47-43c8-4a8b-b5bc-9487bdde78ce"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vehicle Registration :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="479" width="135" height="17" uuid="3a2cb35e-11f9-436c-8df6-d7c010665ae1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Waste Rejected? Details :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="136" y="495" width="438" height="1" forecolor="#666666" uuid="01e084dd-281f-4464-8bab-f3d5d08f0813"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="3" y="510" width="571" height="1" forecolor="#666666" uuid="ccf310ad-eb6c-4c9f-b298-8471c45c23b9"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="1" y="543" width="45" height="18" uuid="cc82d7f3-7254-472c-95e4-fd10585ad877"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Name: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="543" width="67" height="18" uuid="ec27e4b0-d8da-4b2b-a67b-2800a0163151"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[On behalf of:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="46" y="543" width="116" height="18" uuid="17eb854e-5bdf-4bb6-b979-77f33cccff7b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{driver_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="561" width="45" height="18" uuid="1332b04a-ce93-49cc-8d2f-134642c19b96"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Signature : ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="50" y="579" width="112" height="1" forecolor="#666666" uuid="c5189e39-4857-4892-80cb-743e01810251"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="174" y="562" width="72" height="18" uuid="18017252-4938-4f1c-a2b6-db50365e4448"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Date / Time : ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="246" y="579" width="142" height="1" forecolor="#666666" uuid="70729dfb-3d80-45b5-aaa0-fb81899a76f8"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="1" y="250" width="60" height="24" uuid="4cc06657-31b1-43a4-add2-394a2c9fe608"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Carrier Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="274" width="146" height="16" uuid="7e4898c2-abe2-4703-9e44-060575e4b46f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Waste Carriers Licence :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="62" y="250" width="225" height="24" isPrintWhenDetailOverflows="true" forecolor="#003399" uuid="9de775ad-c88f-4986-bbfc-995920fff9f6"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carrier_address}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="290" width="146" height="16" uuid="69d9bf14-3f02-4b83-b9e7-e6499ccbf9c3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hazardous Waste Licence No:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="147" y="274" width="140" height="16" uuid="bbed4b1d-8827-4356-bbf1-115e7b7e3312"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_carrier_licence_number}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="306" width="146" height="16" uuid="8474cb7c-fa34-423e-aa14-e50bec4fe42b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Environmental Permit :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="147" y="290" width="140" height="16" uuid="166167db-caea-40b1-8f2a-402d8bad64e5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carrier_hazardous_waste_licence_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="306" width="140" height="16" uuid="8b38e6cc-6282-486f-9fba-548d4811fbcb"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carrier_environment_number}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="147" y="322" width="140" height="16" uuid="af6d3894-2abc-4b4b-8f87-be6e521a4df7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vehicle Registration :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="322" width="59" height="23" uuid="185280dd-3d64-4e98-8841-b320932ec422"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="345" width="59" height="16" uuid="b212394e-82a2-4ea8-8e8b-f6b12c01484f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date/Time : ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="60" y="345" width="87" height="1" forecolor="#666666" uuid="f2804c3c-8d2b-48d9-a6e5-4779bf4a354c"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="289" y="295" width="86" height="16" uuid="a9d2cf13-5291-4718-84c3-fe3e8210d007"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[1. Consignor Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="375" y="295" width="199" height="16" uuid="3a541cb1-19e1-4947-826a-453481806aaf"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_consignor_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="289" y="311" width="86" height="16" uuid="185d5078-7aa2-4917-a75c-25c087e9e3d5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[On behalf of:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="375" y="311" width="199" height="16" uuid="834faf28-b1aa-4ac4-8875-5230bb96ff25"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_on_behalf_of_user}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="348" y="358" width="86" height="1" forecolor="#666666" uuid="d16a3f1e-2b8e-4e25-90b4-269414540a6a"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="432" y="333" width="44" height="26" uuid="3f726090-7cd8-44d8-a6f6-edebfaad4242"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date/Time : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="289" y="333" width="59" height="26" uuid="3edf59a1-fee8-49dd-ad0e-538b1ba964ee"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Signature : ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="249" width="284" height="1" forecolor="#666666" uuid="82d53da4-67c2-4f80-ac06-ff0e9a5b30fd"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="202" width="287" height="47" isPrintWhenDetailOverflows="true" uuid="4b07aa12-e446-451e-adf5-17a36c2f24fb"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_carrier_certificate_text}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement isPrintRepeatedValues="false" x="289" y="202" width="287" height="93" isPrintWhenDetailOverflows="true" uuid="27e9c39e-d9c5-4998-910b-8aecee8f1fb2"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_consigner_certificate_text}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="417" width="574" height="1" forecolor="#666666" uuid="a3edc7cb-d7fd-43fe-b6b2-a6b0efe693c8"/>
+			</line>
+			<line>
+				<reportElement x="1" y="430" width="574" height="1" forecolor="#666666" uuid="c2b1125e-ffaa-4196-87a8-ad421538b203"/>
+			</line>
+			<line>
+				<reportElement x="61" y="385" width="1" height="59" uuid="a8f2f566-3e15-4fb4-9047-410c0b67aa19"/>
+			</line>
+			<line>
+				<reportElement x="289" y="385" width="1" height="59" uuid="3fa6e8bf-2c0b-4b99-a66c-f75c3dc18f8c"/>
+			</line>
+			<line>
+				<reportElement x="387" y="385" width="1" height="59" uuid="65cba7b4-20e6-4c34-8a32-0d9704eee727"/>
+			</line>
+			<line>
+				<reportElement x="1" y="403" width="574" height="1" forecolor="#666666" uuid="b4cae8e3-c913-433d-91a8-e7cd6868a7fe"/>
+			</line>
+			<line>
+				<reportElement x="493" y="357" width="80" height="1" forecolor="#666666" uuid="33a1ac3c-83af-40fe-990a-6818f46a86f1"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement isPrintRepeatedValues="false" x="1" y="511" width="573" height="32" isPrintWhenDetailOverflows="true" uuid="11fc156d-3126-42b8-b730-3efae2c9ce0b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_declaration_text}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="229" y="543" width="344" height="18" isPrintWhenDetailOverflows="true" forecolor="#000000" uuid="178449ff-0b0a-455a-8420-423471b07a0c"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_on_behalf_of_authority_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="493" y="463" width="81" height="17" uuid="63d41834-057a-4ad2-8357-408b3aa82303"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{vehicle_registration_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="338" width="140" height="20" uuid="7aaf0521-08ac-46b8-93b3-ac7b0090da44"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carrier_vehicle_reg_number}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="60" y="562" width="66" height="21" isPrintWhenDetailOverflows="true" uuid="052ab8e0-6885-416d-8f73-4d95e1e4355d"/>
+				<imageExpression><![CDATA[$P{driver_signature}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="217" y="463" width="91" height="17" uuid="0e13db46-4c39-458b-88bb-d0384ef51fbe"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{completion_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="342" y="463" width="61" height="17" uuid="ef49bca7-5604-4e62-8690-de880d35832d"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{departure_time}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="246" y="561" width="157" height="17" uuid="2f294717-7b64-4801-beb5-fe30201f4ad9"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{completion_date_time}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="348" y="334" width="76" height="24" isPrintWhenDetailOverflows="true" uuid="a8c903d0-c69e-4f4d-8773-7378fc277eaa"/>
+				<imageExpression><![CDATA[$P{consigner_signature}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="476" y="333" width="97" height="25" uuid="12defe72-2cd2-4fc9-aafe-7527a15123e4"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{completion_date_time}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="60" y="322" width="87" height="22" isPrintWhenDetailOverflows="true" uuid="9c379a15-9bc3-4cf4-a401-d2b595225421"/>
+				<imageExpression><![CDATA[$P{driver_signature}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="60" y="347" width="87" height="14" uuid="3cb903c9-d8c9-4e0f-8f41-0f31ed9ff7de"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{collection_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

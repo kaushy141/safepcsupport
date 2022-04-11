@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="equipment-disposal" language="groovy" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="20" bottomMargin="20" uuid="3c254fa5-bc94-4088-9925-a423c414d1c8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="heading" class="java.lang.String"/>
+	<parameter name="copyright" class="java.lang.String"/>
+	<parameter name="poweredlink" class="java.lang.String"/>
+	<parameter name="info_app_address" class="java.lang.String"/>
+	<parameter name="info_app_contact" class="java.lang.String"/>
+	<parameter name="eqipment_disposal_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="wc_hazardous_waste_licence_number" class="java.lang.String"/>
+	<parameter name="wc_environment_permit" class="java.lang.String"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="carrier_vat_number" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT a.*, DATE_FORMAT(a.`eqipment_disposal_destroyed_date`, '%d/%b/%Y %h:%i%p') as eqipment_disposal_destroyed_date,  b.`hardware_name` FROM `app_equipment_dosposal` as a INNEr JOIN `app_hardware_type` as b ON a.`eqipment_disposal_hardware_id` = b.`hardware_id`  WHERE  `eqipment_disposal_id` = '$P{eqipment_disposal_id}']]>
+	</queryString>
+	<field name="eqipment_disposal_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eqipment_disposal_hardware_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eqipment_disposal_manufacturer" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eqipment_disposal_model" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eqipment_disposal_serial_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eqipment_disposal_log_no" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eqipment_disposal_disposed_to" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eqipment_disposal_reason" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eqipment_disposal_destruction_method" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eqipment_disposal_destroyed_date" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eqipment_disposal_destroyed_by" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eqipment_disposal_created_user_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eqipment_disposal_created_date" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="eqipment_disposal_status" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hardware_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="current_year" class="java.lang.String">
+		<variableExpression><![CDATA[(new SimpleDateFormat("yyyy")).format(new Date())]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="83" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="58" width="573" height="20" uuid="4a5ebb3a-ae97-4a2b-b4a8-d36715e83a05"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="1" y="6" width="159" height="42" forecolor="#FFFFFF" uuid="fb953fcd-8a8d-4697-9d0f-125df5203e70"/>
+			</rectangle>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Top" isUsingCache="true">
+				<reportElement x="1" y="6" width="159" height="42" uuid="0510fd79-b86c-4617-a9ba-8b6062feef98"/>
+				<imageExpression><![CDATA[$P{headerimage}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="1" y="57" width="574" height="1" uuid="ade5aa04-444f-49e3-8a4c-5b8cd1b46cfe"/>
+			</line>
+			<image>
+				<reportElement x="466" y="5" width="100" height="25" uuid="e1f3959c-ec26-4786-aa81-ac027f64f821"/>
+				<imageExpression><![CDATA[$P{barcode}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="434" y="32" width="137" height="20" forecolor="#CC0000" uuid="4e540bd7-d1cc-4784-ab52-23b331886cb7"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{eqipment_disposal_log_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="202" splitType="Stretch">
+			<textField>
+				<reportElement x="391" y="102" width="180" height="18" uuid="e4df1a56-9f89-43f7-9ee2-c0c6934ef7e3"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{eqipment_disposal_destroyed_by}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="391" y="83" width="180" height="18" uuid="d80feefd-afdc-40e3-81d8-9e6a947becc7"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{eqipment_disposal_destroyed_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="391" y="65" width="180" height="18" uuid="6cc43ae7-77e6-44b5-aa38-4567d1ad905b"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{eqipment_disposal_destruction_method}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="102" width="110" height="18" uuid="98f11b79-29b2-4f91-8917-551d982b021d"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Destroyed by :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="65" width="110" height="18" uuid="14e71b68-9a76-428f-a60e-2062148a1c84"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Distruction method :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="83" width="110" height="18" uuid="a4e059e1-d55f-40a8-b90e-03c3215d029d"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Distroyed date :]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="89" y="5" width="482" height="18" isPrintWhenDetailOverflows="true" uuid="e3c03ea3-5cb7-4e7f-8196-16613750a2b1"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{eqipment_disposal_log_no}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="4" width="575" height="1" uuid="c0e5723e-932c-4cf4-9255-17a6c16f4a9c"/>
+			</line>
+			<line>
+				<reportElement x="1" y="23" width="573" height="1" uuid="c08f1afc-6223-4644-8ad5-966d72f61843"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="5" width="85" height="20" uuid="b9772930-e007-4e73-89f1-23533b2bbb9a"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Log number :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="42" width="573" height="1" uuid="62bb0c51-b082-4f2f-a541-62a009e87ef1"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="89" y="24" width="482" height="18" isPrintWhenDetailOverflows="true" uuid="2821cb7f-379d-4e21-878c-6d44ebb407d0"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{eqipment_disposal_destroyed_by}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="23" width="575" height="1" uuid="60805231-b51d-46b4-bd48-4baf25fcc33c"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="25" width="86" height="20" uuid="c16dbd5d-4dc4-4791-ad99-67b4c78ecd14"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Destroyed By :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="83" width="106" height="18" uuid="1cba1b8a-d4ed-428d-9d88-cbe792932899"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Manufaturer :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="102" width="106" height="18" uuid="942b04c2-f865-45d5-91f8-da35de07d21e"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Model :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="121" width="106" height="18" uuid="12f80446-0ed3-4d11-8a8d-ff508c472eb0"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Serial number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="140" width="106" height="18" uuid="cac2cd71-936b-45df-8ccb-d41e87529c4a"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Disposed to :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="83" width="170" height="18" uuid="05b0a160-83bd-4c3b-a281-3741d822fbf1"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{eqipment_disposal_manufacturer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="102" width="170" height="18" uuid="766eda17-6586-4da6-ae6b-a4160f4d7d22"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{eqipment_disposal_model}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="121" width="459" height="18" uuid="ed8344d6-8c06-40ec-9170-f3c8b30428cc"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{eqipment_disposal_serial_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="140" width="459" height="19" uuid="93db6303-7c26-46d5-9c0b-268f3a213338"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{eqipment_disposal_disposed_to}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="65" width="170" height="18" uuid="c23370cc-d191-4c0a-8857-4b5674153756"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{hardware_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="65" width="106" height="18" uuid="c19f22a8-782e-4648-b014-52a72fd5e1b9"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Equipment media :]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="107" y="159" width="459" height="37" isPrintWhenDetailOverflows="true" uuid="8acc0c4d-63f5-463b-942e-e2e196460d7e"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{eqipment_disposal_reason}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="159" width="106" height="18" uuid="7844d789-821f-4d0c-8608-41654e334db9"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[Disposed Region :]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="280" splitType="Prevent">
+			<textField>
+				<reportElement x="290" y="260" width="284" height="20" uuid="b063b0c7-edc6-4e2c-a4e8-52de078e7d5f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{copyright}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="260" width="290" height="20" uuid="2a5790ec-df22-4442-83ea-0c5c94a96d47"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{poweredlink}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="36" width="378" height="18" uuid="4da194e0-d81d-4ef3-9bab-cef22c440372"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_environment_permit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="36" width="157" height="18" uuid="7dd1405a-e567-4d7e-b13a-924c1e831246"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Environmental permit number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="17" width="323" height="18" uuid="a7a47a3f-005a-4774-9970-8b91da8a68b3"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Registered under the controll of polution (Amandment) Act 1989 :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="55" width="208" height="18" uuid="15a5f580-97aa-4f53-823d-1365ace830bd"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Hazardous waste producer licence number :]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="17" width="212" height="18" uuid="aa521ade-69a4-468a-a1c7-d8e5b120294d"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carrier_poc_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="74" width="449" height="18" uuid="8f672e3c-7fff-44c8-8795-54b6277963d4"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{carrier_vat_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="55" width="326" height="18" uuid="7b9734ef-c66e-4904-ac47-17e7ea6f1cca"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{wc_hazardous_waste_licence_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="74" width="85" height="18" uuid="e92e2c88-0d38-4b22-8ca7-0ba6b3fe4b19"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Vat registration :]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="207" width="574" height="1" uuid="e3051c93-115e-48c7-9c0a-fc50d2f5b052"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="1" y="162" width="574" height="45" isPrintWhenDetailOverflows="true" forecolor="#003399" uuid="c30fe030-bb19-4d90-80e7-6dcbf6e02acf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{info_app_contact}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="161" width="574" height="1" uuid="3079c9a1-f1db-4c83-9af9-1b351c0c761a"/>
+			</line>
+			<line>
+				<reportElement x="1" y="6" width="573" height="1" uuid="c19befe2-cacc-4bcb-8606-de6d2c39a775"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

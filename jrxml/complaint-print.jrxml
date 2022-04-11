@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="complaint-print" language="groovy" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="20" bottomMargin="20" uuid="3c254fa5-bc94-4088-9925-a423c414d1c8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="397"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="heading" class="java.lang.String"/>
+	<parameter name="reportdate" class="java.lang.String"/>
+	<parameter name="creator" class="java.lang.String"/>
+	<parameter name="copyright" class="java.lang.String"/>
+	<parameter name="poweredlink" class="java.lang.String"/>
+	<parameter name="headerimage" class="java.lang.String"/>
+	<parameter name="watermark" class="java.lang.String"/>
+	<parameter name="info_app_address" class="java.lang.String"/>
+	<parameter name="info_disclaimer" class="java.lang.String"/>
+	<parameter name="invoice_number" class="java.lang.String"/>
+	<parameter name="invoice_ticket" class="java.lang.String"/>
+	<parameter name="complaint_description" class="java.lang.String"/>
+	<parameter name="complaint_problem_details" class="java.lang.String"/>
+	<parameter name="complaint_product_hardware_not_working" class="java.lang.String"/>
+	<parameter name="complaint_due_date" class="java.lang.String"/>
+	<parameter name="request_date" class="java.lang.String"/>
+	<parameter name="serial_no" class="java.lang.String"/>
+	<parameter name="model_no" class="java.lang.String"/>
+	<parameter name="complaint_is_backup" class="java.lang.String"/>
+	<parameter name="password" class="java.lang.String"/>
+	<parameter name="disk_provided" class="java.lang.String"/>
+	<parameter name="under_waranty" class="java.lang.String"/>
+	<parameter name="os" class="java.lang.String"/>
+	<parameter name="antivirus" class="java.lang.String"/>
+	<parameter name="product_condition" class="java.lang.String"/>
+	<parameter name="cuctomer_name" class="java.lang.String"/>
+	<parameter name="complaint_status" class="java.lang.String"/>
+	<parameter name="technician_name" class="java.lang.String"/>
+	<parameter name="problem_list" class="java.lang.String"/>
+	<parameter name="bookedby" class="java.lang.String"/>
+	<parameter name="disclaimer" class="java.lang.String"/>
+	<parameter name="print_date" class="java.lang.String"/>
+	<parameter name="hardware_not_working" class="java.lang.String"/>
+	<parameter name="barcode" class="java.lang.String"/>
+	<parameter name="estimated_cost" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[Select 1]]>
+	</queryString>
+	<field name="1" class="java.lang.Long"/>
+	<variable name="current_year" class="java.lang.String">
+		<variableExpression><![CDATA[(new SimpleDateFormat("yyyy")).format(new Date())]]></variableExpression>
+	</variable>
+	<background>
+		<band height="802" splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="113" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="6" width="160" height="42" forecolor="#FFFFFF" uuid="fb953fcd-8a8d-4697-9d0f-125df5203e70"/>
+			</rectangle>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Top" isUsingCache="true">
+				<reportElement x="1" y="1" width="160" height="42" uuid="0510fd79-b86c-4617-a9ba-8b6062feef98"/>
+				<imageExpression><![CDATA[$P{headerimage}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="322" y="52" width="115" height="20" uuid="112e897f-4ed6-49d1-bc15-94395db47702"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Invoice Number :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="52" width="109" height="20" uuid="257cc7eb-e0f0-4c44-9814-d54a46b333e7"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Booked By : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="111" y="52" width="206" height="20" uuid="ffb9c28f-1ff2-47ad-ada9-8530ca5b907c"/>
+				<textFieldExpression><![CDATA[$P{bookedby}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="50" width="574" height="1" uuid="ade5aa04-444f-49e3-8a4c-5b8cd1b46cfe"/>
+			</line>
+			<line>
+				<reportElement x="319" y="51" width="1" height="61" uuid="51d3d340-3433-45a7-8589-dd88269040b3"/>
+			</line>
+			<staticText>
+				<reportElement x="368" y="1" width="206" height="42" uuid="d3bfd33f-75e3-4e7b-9056-1ee23861fd8a"/>
+				<textElement textAlignment="Right">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Repair Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="72" width="109" height="20" uuid="444f5e47-52a4-4f29-91d4-8e56738cf7c6"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Complaint Status : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="111" y="72" width="206" height="20" uuid="1d8a57c5-6a67-4faf-94d0-44a829f7b5fd"/>
+				<textFieldExpression><![CDATA[$P{complaint_status}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="92" width="109" height="20" uuid="40cd3732-a4b9-43be-8404-1f714326d93f"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Alloted Technician :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="111" y="92" width="206" height="20" uuid="d9246895-1274-4e22-b1b9-37aff53cf818"/>
+				<textFieldExpression><![CDATA[$P{technician_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="322" y="72" width="115" height="20" uuid="de9fb197-749a-41c0-8fd9-abc18fb9fcc1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Job Number :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="92" width="115" height="20" uuid="484ca06e-2966-4fc6-86d5-73630b97adb4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Request Date & Time :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="438" y="52" width="137" height="20" forecolor="#CC0000" uuid="445e10a2-be8c-4193-92db-0182131512de"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{invoice_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="438" y="72" width="137" height="20" forecolor="#0066CC" uuid="ee4eaab4-6c98-46f7-98de-40f48b7747e0"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{invoice_ticket}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="438" y="92" width="137" height="20" uuid="7b7c37ab-7833-4add-9378-0f15902ab26d"/>
+				<textFieldExpression><![CDATA[$P{request_date}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="112" width="575" height="1" uuid="9733c8af-41bf-413f-a038-dda09671ae7f"/>
+			</line>
+			<image>
+				<reportElement x="268" y="6" width="100" height="25" uuid="a423a9b2-e417-4548-adf4-9036709f3051"/>
+				<imageExpression><![CDATA[$P{barcode}]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="616" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="414" width="575" height="19" backcolor="#DCDCDC" uuid="64dcb814-7cd6-4f60-91f4-210163433a30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Shop Information]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="588" width="55" height="20" uuid="c5f36a68-1981-49f1-88ff-bebb34055d67"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date: ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="1" y="436" width="575" height="19" isPrintWhenDetailOverflows="true" forecolor="#003399" uuid="643854a6-03c0-425a-98bf-f758782dd167"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{info_app_address}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="413" width="575" height="1" forecolor="#333333" uuid="af3a5612-8258-4198-9f37-f5b999985a07"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="22" width="145" height="82" uuid="8968a9fa-25f1-4c08-87a6-476003ce8aac"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Description : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="147" y="22" width="428" height="82" isPrintWhenDetailOverflows="true" uuid="2244256a-40a0-40de-960b-41f9253af7d4"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{complaint_description}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="104" width="145" height="84" uuid="5c28fa89-482b-4106-8c62-fef57d0954d9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Details about the problem : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="147" y="104" width="428" height="84" isPrintWhenDetailOverflows="true" uuid="2b3fc9cd-d894-49a9-88bd-8714b650ca26"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{complaint_problem_details}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="228" width="100" height="20" uuid="d73ada48-4112-443d-954c-1d847d13c405"/>
+				<textFieldExpression><![CDATA[$P{antivirus}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="228" width="145" height="20" uuid="ea05b943-ac3f-4aeb-86c1-87215f7b6440"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Operating System :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="228" width="141" height="20" uuid="196da750-76d6-4a02-a761-0cbffa7028f4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recovery Disc Provided :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="188" width="145" height="20" uuid="9d2fdc32-5d69-43ca-a285-170d968a621b"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Due date of Product :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="147" y="188" width="181" height="20" uuid="fa264da1-c31c-478e-add8-4659316272de"/>
+				<textFieldExpression><![CDATA[$P{complaint_due_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="208" width="181" height="20" uuid="4327658f-e4e3-4c95-9d6d-6c21427b6b2d"/>
+				<textFieldExpression><![CDATA[$P{model_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="332" y="208" width="141" height="20" uuid="3bddd06a-6749-4371-8ae5-f7666f650683"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Password of Computer :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="147" y="228" width="181" height="20" uuid="1ad6e35d-c92c-4176-a1fd-ae029d63dd3e"/>
+				<textFieldExpression><![CDATA[$P{os}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="208" width="100" height="20" uuid="ac4bdd80-5ad5-46a3-b025-4d645cc8957e"/>
+				<textFieldExpression><![CDATA[$P{password}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="188" width="100" height="20" uuid="f86d4881-79a0-40b9-a2ac-bd97cc727300"/>
+				<textFieldExpression><![CDATA[$P{complaint_is_backup}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="208" width="145" height="20" uuid="0054edf9-10fd-44ea-b3e0-4ab53080d645"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Model Number of the PC :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="188" width="141" height="20" uuid="d8f96777-82ec-40b9-8502-dc5f9184040f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Have you Backup Data :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="248" width="145" height="20" uuid="476e7323-b9d2-4307-b2b2-3d53c2c94308"/>
+				<textElement verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Antivirus on PC :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="147" y="248" width="181" height="20" uuid="f3c4a1f6-50d1-49ba-bae2-cee13a6b5f46"/>
+				<textFieldExpression><![CDATA[$P{disk_provided}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="332" y="248" width="141" height="20" uuid="8c133b8f-b499-47c4-b094-6f60155375a3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Is Under Warranty :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="474" y="248" width="100" height="20" uuid="2980ee4c-5a6c-47b6-9fc6-c5149e4c793f"/>
+				<textFieldExpression><![CDATA[$P{under_waranty}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="269" width="146" height="36" uuid="b5275712-f097-4fb7-aa83-05199b18e339"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Condition of item received :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="147" y="269" width="181" height="36" isPrintWhenDetailOverflows="true" uuid="9ef616cd-97a5-4273-994e-132ec85a6734"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{product_condition}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="434" width="575" height="1" forecolor="#333333" uuid="9bd509b7-abb0-49ab-8cca-fde4c54ff038"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="575" height="20" backcolor="#DCDCDC" uuid="5afbb7bb-f75e-4b8a-bcc7-8c3218a3aee3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Repairing Information]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="21" width="575" height="1" forecolor="#333333" uuid="2beeef6c-f3dd-46f1-8cec-25d9bc481175"/>
+			</line>
+			<line>
+				<reportElement x="0" y="485" width="575" height="1" forecolor="#333333" uuid="c05d4c81-9b3f-402e-aecd-aa1162b52931"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="465" width="575" height="19" backcolor="#DCDCDC" uuid="db1f8122-05eb-4729-9dbc-114472055110"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Disclaimer ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="464" width="575" height="1" forecolor="#333333" uuid="23e3058d-935c-425b-a41b-5d2c26154c5e"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="1" y="488" width="574" height="87" isPrintWhenDetailOverflows="true" uuid="c4ff8611-e9ea-4e32-8b78-1e73c65c3b07"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{info_disclaimer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="56" y="588" width="236" height="20" uuid="80ed3951-e5f2-4db6-b281-d6c7225a73a9"/>
+				<textFieldExpression><![CDATA[$P{print_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="292" y="588" width="282" height="20" uuid="910b3809-d4a9-4e01-9e4e-7821d4debb4d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{cuctomer_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="308" width="145" height="69" uuid="abce624d-4ab8-4e4a-ac0a-2f7083d96c49"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hardware Problems :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="147" y="308" width="427" height="69" isPrintWhenDetailOverflows="true" uuid="5f216f90-267e-4545-8dc2-a983c74d5551"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{problem_list}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="377" width="145" height="36" uuid="7d742101-e5f6-488a-90ac-f69907a3cde3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hardware not Working : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="147" y="377" width="428" height="36" isPrintWhenDetailOverflows="true" uuid="88018629-48d5-40ae-95e0-406fd09df755"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{hardware_not_working}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="269" width="100" height="20" uuid="d562fd3c-5de9-49e2-bbf1-d9d8c9b1efd9"/>
+				<textFieldExpression><![CDATA[$P{estimated_cost}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="332" y="269" width="141" height="20" uuid="531d1df8-9618-412e-a971-80ed5071a373"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estimated Cost :]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="291" y="1" width="284" height="20" uuid="b063b0c7-edc6-4e2c-a4e8-52de078e7d5f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{copyright}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="1" width="290" height="20" uuid="2a5790ec-df22-4442-83ea-0c5c94a96d47"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{poweredlink}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
