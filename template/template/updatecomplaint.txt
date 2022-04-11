@@ -1,0 +1,16 @@
+Hi {{customer_name}},
+
+We have updated your complaint having reference number #{{complaint_ticket_number}} in  {{app->siteName}}. 
+please ensure you quote this reference
+number in any future contact you have with us.
+
+Our team of specialist engineers are working hard to resolve your request. Depending on its nature, you can check your Ticket Status by Loggin in 
+<a href='{{login_page}}'> 
+{{login_page}} </a>
+
+
+Check Log Status of your complaint in Log section of Pannel
+
+Kind Regards
+
+{{app->siteName}} Technical Support Team

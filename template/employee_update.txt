@@ -1,0 +1,21 @@
+Hi {{user_name}},
+
+<center>{{user_image}}</center>
+
+Your account has been updated on {{app->siteName}} as a {{role_name}}
+Your registered email updated...
+
+Username is New registered email : {{user_email}}
+And Password is your Current password.
+
+Please Activate your account.. by Clicking on activation link below
+<a href='{{activation_link}}'> {{activation_link}} </a>
+
+On successfull activation of email click here to login on your account.
+
+<a href='{{login_page}}'> {{login_page}} </a>
+
+
+Kind Regards
+
+{{app->siteName}} Technical Support Team

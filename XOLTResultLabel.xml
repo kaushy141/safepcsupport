@@ -1,0 +1,4 @@
+Curl Request: 
+{"url":"https:\/\/api.dpd.co.uk\/shipping\/shipment\/\/label\/","content_type":"text\/plain","http_code":404,"header_size":536,"request_size":146,"filetime":-1,"ssl_verify_result":0,"redirect_count":0,"total_time":0.05105,"namelookup_time":7.2e-5,"connect_time":0.006879,"pretransfer_time":0.020796,"size_upload":0,"size_download":46,"speed_download":901,"speed_upload":0,"download_content_length":46,"upload_content_length":-1,"starttransfer_time":0.051034,"redirect_time":0,"redirect_url":"","primary_ip":"23.36.211.248","certinfo":[],"primary_port":443,"local_ip":"109.108.147.21","local_port":33224}
+Response: 
+Cannot GET /esgServer/shipping/shipment/label/

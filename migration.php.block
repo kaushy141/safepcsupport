@@ -1,0 +1,377 @@
+<?php
+
+error_reporting(1);
+
+$link;
+
+function dbConn($databasename){
+	global $link;
+	$hostname = "localhost";
+	$username = "root";
+	$password = "123";
+	
+
+	if($databasename == "safepcsupport")
+	{
+		$databasename = "safepcsu_laptop_repair";
+		$username = "safepcsu_repair";
+		$password = "Repair@123";
+	}
+
+	else
+	{
+		$databasename = "safepcsu_demo";
+		$username = "safepcsu_demo";
+		$password = "Demo@123";
+	}
+
+	
+
+	$link = mysqli_connect($hostname, $username, $password, $databasename);
+	if(!$link)
+	die("Could not connect to Database $databasename");
+
+}
+
+
+
+function getComplaintTicketNumber($hardware_code_array=NULL, $created_date)
+{
+
+	global $link;
+	if(!empty($hardware_code_array))
+	{
+		$sqlH="SELECT `hardware_code` FROM `app_hardware_type` WHERE `hardware_id` = '".$hardware_code_array[0]."'";
+		$resultSet	=	mysqli_query($link, $sqlH);
+		if(mysqli_num_rows($resultSet))		
+		{
+			$dataH = mysqli_fetch_assoc($resultSet);
+			$CODE = $dataH['hardware_code'];
+		}
+		else
+			$CODE = "RMA";
+
+	}
+	else
+		$CODE = "RMA";
+
+		
+
+	$sql_get_tc = "SELECT COUNT(`complaint_id`) as num FROM `app_complaint_record` WHERE UPPER(SUBSTR(`complaint_ticket_number`,3,3)) = UPPER('$CODE') AND YEAR(`complaint_created_date`) = YEAR('$created_date')";	
+
+	$result_get_tc	=	mysqli_query($link, $sql_get_tc);
+	$numcountrow = mysqli_fetch_assoc($result_get_tc);
+	$numcount = $numcountrow['num']+1;
+	$ticketNumber = strtoupper(date("y", strtotime($created_date)).$CODE.sprintf("%05d",$numcount));
+	return $ticketNumber;
+}
+
+
+
+function escapeRow($row)
+{
+	foreach($row as $key=>$value)
+	$row[$key]	 = mysql_escape_string($value);
+	return $row;
+}
+
+
+
+
+
+dbConn("safepcsupport");
+
+/*echo "Satrt Parsing ... Users \n<br/>";
+
+//PARSE USERS
+
+$sqlUser = "SELECT `user_id`, `user_type_id`, `user_first_name`, `user_last_name`, `user_email`, `user_name`, `user_password`, `user_mobile`, `user_status`, `user_create_date` FROM `users` WHERE 1 ORDER BY `user_create_date`";
+
+$resUser = mysqli_query($link, $sqlUser);
+
+$dataUser= array();
+
+while($row = mysqli_fetch_assoc($resUser))
+
+$dataUser[] = escapeRow($row);
+
+
+
+
+
+dbConn("supportdemo");
+
+foreach($dataUser as $user)
+
+{
+
+	$sql_ins_user = "INSERT INTO `app_system_user`(`user_id`, `user_type_id`, `user_code`, `user_fname`, `user_lname`, `user_password`, `user_email`, `user_phone`, `user_address`, `user_image`, `user_signature`, `user_status`, `user_created_date`, `user_created_by`, `user_is_email_verified`, `user_is_mobile_verified`, `user_is_live`, `user_fcm_token`, `user_device_token`, `user_allow_notification`) VALUES ('$user[user_id]', '$user[user_type_id]', LOWER('$user[user_name]'), '$user[user_first_name]', '$user[user_last_name]', '$user[user_password]', '$user[user_email]', '$user[user_mobile]', '', '', '', '1', '$user[user_create_date]', '1', '1', '1', '1', '', '', '1')";
+
+	
+
+	mysqli_query($link, $sql_ins_user);	
+
+}
+
+
+
+echo "End Parsing ... Users \n<br/>";*/
+
+
+
+#---------------------Customer --------------------
+
+
+
+dbConn("safepcsupport");
+
+//PARSE USERS
+
+echo "Start Parsing ... Customers \n<br/>";
+$sqlCustomer = "SELECT `customer_id`, `customer_ticket_id`, `customer_password`, `customer_first_name`, `customer_last_name`, `customer_address`, `customer_city`, `customer_state`, `customer_country`, `customer_email`, `customer_mobile`, `customer_status`, `customer_create_date`, `customer_county`, `customer_town`, `customer_postcode`, `customer_type`, `ebay_id` FROM `customer` WHERE 1";
+
+$resCustomer = mysqli_query($link, $sqlCustomer);
+$dataCustomer= array();
+while($rowC = mysqli_fetch_assoc($resCustomer))
+$dataCustomer[] = escapeRow($rowC);
+
+
+echo "Fetching ... Customers \n<br/>";
+dbConn("supportdemo");
+echo "Starting Migrate ... Customers \n<br/>";
+$dataCustomerUpgrade = array();
+$dataExistingCustomer = array();
+$dataExistingCustomerMAP = array();
+echo count($dataCustomer). "Customers found \n<br/>";
+foreach($dataCustomer as $customer)
+{
+
+	//echo "SELECT `customer_type_id` FROM `app_customer_type` WHERE LOWER(`customer_type_name`) = LOWER('$customer[customer_type]')";
+
+	$res_customer_type_id = mysqli_query($link, "SELECT `customer_type_id` FROM `app_customer_type` WHERE LOWER(`customer_type_name`) = LOWER('$customer[customer_type]')");
+
+	if(mysqli_num_rows($res_customer_type_id))
+	{
+		$customer_type_id_array = mysqli_fetch_assoc($res_customer_type_id);
+		$customer_type_id  = $customer_type_id_array['customer_type_id'];
+	}
+	else
+		$customer_type_id  = 5;
+
+	if(!in_array(strtolower(trim($customer['customer_email'])), $dataExistingCustomer))	
+	{
+		$customer['customer_first_name'] = ucwords(trim(strtolower($customer['customer_first_name'])));
+		$customer['customer_last_name'] = ucwords(trim(strtolower($customer['customer_last_name'])));
+		$sql_ins_customer = "INSERT INTO `app_customer`(`customer_id`, `customer_code`, `customer_fname`, `customer_lname`, `customer_email`, `customer_phone`, `customer_type_id`, `customer_image`, `customer_status`, `customer_password`, `customer_created_date`, `customer_created_by`, `customer_is_mobile_verified`, `customer_is_email_verified`, `customer_is_live`, `customer_fcm_token`) 			
+
+		VALUES ('$customer[customer_id]', '', '$customer[customer_first_name]', '$customer[customer_last_name]', LOWER('$customer[customer_email]'), '$customer[customer_mobile]', '$customer_type_id', 'img/system/default_user_img.jpg', '1', '$customer[customer_password]', '$customer[customer_create_date]', '1', '1', '1', '1', '')";
+
+		if(mysqli_query($link, $sql_ins_customer))	
+		{	
+			$customer_id = $customer['customer_id'];	
+			$dataExistingCustomer[$customer_id] =  strtolower(trim($customer['customer_email']));	
+			$dataExistingCustomerMAP[$customer['customer_id']] = $customer_id;	
+		}
+		else
+			echo mysqli_error($link)." Customers Query Failed : $sql_ins_customer \n<br/>";		
+	}
+	else
+	{
+		$customer_id = array_search(strtolower(trim($customer['customer_email'])), $dataExistingCustomer);
+		$dataExistingCustomerMAP[$customer['customer_id']] = $customer_id;
+	}
+	
+	$sql_ins_customer_address = "INSERT INTO `app_customer_address`(`customer_id`, `customer_address_street_number`, `customer_address_route`, `customer_address_locality`, `customer_address_administrative_area`, `customer_address_country`, `customer_address_postcode`, `customer_address_geo_location`, `customer_address_created_date`, `customer_address_status`)
+
+	VALUES ('$customer_id', '$customer[customer_address]', '$customer[customer_city]', '$customer[customer_county]','$customer[customer_state]', '$customer[customer_country]', '$customer[customer_postcode]', '', '$customer[customer_create_date]', '1')";
+
+	if($res_ins_customer_address = mysqli_query($link, $sql_ins_customer_address))
+	{
+		$customer_address_id = mysqli_insert_id($link);
+		$dataCustomerUpgrade[$customer['customer_id']] = array(
+												"customer_type_id" 		=> $customer_type_id,
+												"customer_address_id" 	=> $customer_address_id
+												); 
+		echo "Customer $customer[customer_first_name] migrated. $customer[customer_id] \n<br/>";
+	}
+	else
+		echo mysqli_error($link)." Address Query Failed : $sql_ins_customer_address \n<br/>";	
+}
+
+echo "End Parsing ... Customers \n<br/>";
+
+
+
+#---------------------------------------Request ---------------------------
+
+
+
+dbConn("safepcsupport");
+
+//PARSE USERS
+
+echo "Start Parsing ... Complaints \n<br/>";
+
+
+
+$sqlComplaint = "SELECT `complaint_id`, `complaint_booked_by`, `complaint_customer_id`, `complaint_ticket_number`, `complaint_type`, `complaint_status`, `complaint_create_date`, `complaint_description`, `complaint_details_problem`, `complaint_product_due_date`, `complaint_system_error_priority`, `complaint_pc_model_number`, `complaint_pc_password`, `complaint_serial_number`, `complaint_operating_system`, `complaint_antivirus_on_pc`, `recovery_disc_provided`, `have_you_backup_your_data`, `will_not_turn_on`, `not_boot_on_turn_on`, `freezing_locking_up`, `popup_browser_hijacks`, `virus_deletion_problem`, `hardware_ids`, `any_external_noise`, `error_message_blue_screen`, `system_heating_problem`, `any_other_problem`, `technician_id`, `is_scratches`, `part_missing`, `part_details`, `is_validate_by_warehouse_manager`, `complaint_due_date`, `is_validaate_for_warehouse_manager`, `is_under_warranty`, `technician_comments`, `account_number`, `complain_log`, `SalesRecordNumber`, `estimated_cost` FROM `complaint` WHERE 1 ORDER BY complaint_create_date";
+
+$resComplaint = mysqli_query($link, $sqlComplaint);
+
+$dataComplaint= array();
+
+while($rowR = mysqli_fetch_assoc($resComplaint))
+
+$dataComplaint[] = escapeRow($rowR);
+
+
+
+echo count($dataComplaint). "Complaints found \n<br/>";
+
+dbConn("supportdemo");
+
+foreach($dataComplaint as $complaint)
+{
+	$complaint_id = $complaint['complaint_id'];
+
+	$complaint_customer_id = $dataExistingCustomerMAP[$complaint['complaint_customer_id']];
+
+	$complaint_origin_type_id = $dataCustomerUpgrade[$complaint_customer_id]['customer_type_id'];
+
+	$customer_address_id = $dataCustomerUpgrade[$complaint_customer_id]['customer_address_id'];
+
+	$complaint_problem_array = array();
+
+	if(strtolower($complaint['will_not_turn_on'])=="yes") array_push($complaint_problem_array,1);
+
+	if(strtolower($complaint['not_boot_on_turn_on'])=="yes") array_push($complaint_problem_array,2);
+
+	if(strtolower($complaint['freezing_locking_up'])=="yes") array_push($complaint_problem_array,3);
+
+	if(strtolower($complaint['popup_browser_hijacks'])=="yes") array_push($complaint_problem_array,4);
+
+	if(strtolower($complaint['virus_deletion_problem'])=="yes") array_push($complaint_problem_array,5);
+
+	if(strtolower($complaint['any_external_noise'])=="yes") array_push($complaint_problem_array,6);
+
+	if(strtolower($complaint['error_message_blue_screen'])=="yes") array_push($complaint_problem_array,7);
+
+	if(strtolower($complaint['system_heating_problem'])=="yes") array_push($complaint_problem_array,8);
+
+	if(strtolower($complaint['any_other_problem'])=="yes") array_push($complaint_problem_array,1);
+	
+	$complaint_product_serial = $complaint['complaint_serial_number'];
+
+	$complaint_product_model = $complaint['complaint_pc_model_number'];
+
+	$complaint_is_backup = strtolower($complaint['have_you_backup_your_data'])=="yes" ? 1 : 0;
+
+	$complaint_product_password = $complaint['complaint_pc_password'];
+
+	$complaint_is_disk_provided = strtolower($complaint['recovery_disc_provided'])=="yes" ? 1 : 0;
+
+	$complaint_product_is_under_waranty = strtolower($complaint['is_under_warranty'])=="yes" ? 1 : 0;
+
+	$complaint_product_operating_system = $complaint['complaint_operating_system'];
+
+	$complaint_product_antivirus = $complaint['complaint_antivirus_on_pc'];
+
+	$complaint_description = $complaint['complaint_description'];
+
+	$complaint_problem_details = $complaint['complaint_details_problem'];
+
+	$complaint_problem_details = $complaint['complaint_details_problem'];
+
+	$complaint_product_hardware_not_working = $complaint['hardware_ids'];
+
+	$complaint_due_date = $complaint['complaint_product_due_date'];
+
+	$complaint_priority = $complaint['complaint_system_error_priority'];
+
+	$complaint_sales_record_number = $complaint['SalesRecordNumber'];
+
+	$complaint_estimated_cost = $complaint['estimated_cost'];
+
+	$complaint_product_condition_at_receiving = $complaint['is_scratches'];
+
+	$complaint_technician_id = $complaint['technician_id'];
+
+	$complaint_technician_id = $complaint['technician_id'];
+
+	$complaint_tax_id = 1;
+
+	$complaint_created_date = $complaint['complaint_create_date'];
+
+	$complaint_created_by = $complaint['complaint_booked_by'];
+
+	$complaint_status = $complaint['complaint_status'];
+
+	$complaint_active_status = 1;
+
+	$complaint_ticket_number = getComplaintTicketNumber(explode(",", $complaint['part_missing']), $complaint_created_date);
+
+	$sql_ins_complaint = "INSERT INTO `app_complaint_record`(`complaint_id`, `complaint_origin_type_id`, `complaint_customer_id`, `customer_address_id`, `complaint_ticket_number`, `complaint_product_serial`, `complaint_product_model`, `complaint_is_backup`, `complaint_product_password`, `complaint_is_disk_provided`, `complaint_product_is_under_waranty`, `complaint_product_operating_system`, `complaint_product_antivirus`, `complaint_description`, `complaint_problem_details`, `complaint_product_hardware_not_working`, `complaint_due_date`, `complaint_priority`, `complaint_sales_record_number`, `complaint_estimated_cost`, `complaint_product_condition_at_receiving`, `complaint_technician_id`, `complaint_tax_id`, `complaint_created_date`, `complaint_created_by`, `complaint_status`, `complaint_active_status`) VALUES ('$complaint_id', '$complaint_origin_type_id', '$complaint_customer_id', '$customer_address_id', '$complaint_ticket_number', '$complaint_product_serial', '$complaint_product_model', '$complaint_is_backup', '$complaint_product_password', '$complaint_is_disk_provided', '$complaint_product_is_under_waranty', '$complaint_product_operating_system', '$complaint_product_antivirus', '$complaint_description', '$complaint_problem_details', '$complaint_product_hardware_not_working', '$complaint_due_date', '$complaint_priority', '$complaint_sales_record_number', '$complaint_estimated_cost', '$complaint_product_condition_at_receiving', '$complaint_technician_id', '$complaint_tax_id', '$complaint_created_date', '$complaint_created_by', '$complaint_status', '$complaint_active_status')";
+
+	if(mysqli_query($link, $sql_ins_complaint))
+	{	
+		if(count($complaint_problem_array))
+		foreach($complaint_problem_array as $problem_id)
+		{
+			$sql_ins_problem = "INSERT INTO `app_complaint_record_problems`(`complaint_id`, `problem_id`, `is_problem_fixed`, `problem_created_date`) VALUES ('$complaint_id', '$problem_id', '0', '$complaint_created_date')";
+			mysqli_query($link, $sql_ins_problem);
+		}
+		echo "$complaint_id Complaint $complaint[complaint_ticket_number] migrated Address $customer_address_id . \n<br/>";
+	}
+	else
+	echo "Complaint Query Failed : $sql_ins_complaint \n<br/>";
+}
+
+
+
+echo "End Parsing ... Complaints \n<br/>";
+
+
+
+
+
+#----------------------------------Complaint Log --------
+
+
+
+dbConn("safepcsupport");
+
+//PARSE USERS
+
+echo "Start Parsing ... Logs \n<br/>";
+
+$sqlLog = "SELECT `complain_log_id`, `customercare_id`, `complain_id`, `complain_comm`, `complain_log_time` FROM `customer_complain_log` WHERE 1 ORDER BY complain_log_time";
+
+$resLog = mysqli_query($link, $sqlLog);
+
+$dataLog= array();
+
+while($rowL = mysqli_fetch_assoc($resLog))
+
+$dataLog[] = escapeRow($rowL);
+
+
+
+
+
+dbConn("supportdemo");
+
+foreach($dataLog as $log)
+
+{
+
+	$sql_ins_log = "INSERT INTO `app_complaint_log`(`complaint_id`, `complaint_format`, `complaint_customer_id`, `complaint_user_id`, `complaint_log_text`, `complaint_log_type`, `complaint_log_time`, `complaint_log_status`, `is_readed`) VALUES ('$log[complain_id]', 'C', '0', '$log[customercare_id]', '$log[complain_comm]', 'TEXT', '$log[complain_log_time]', '1', '1')";
+
+	mysqli_query($link, $sql_ins_log);	
+
+}
+
+echo "End Parsing ... Logs \n<br/>";
+
+
+
+?>

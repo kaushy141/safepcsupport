@@ -1,0 +1,12 @@
+Dear, {{customer_name}}
+
+Thank you for placing the order on {{store_name}}.
+We are pleased to inform you that we have processed your order #{{order_number}}. 
+Please find the processed product's images, we are sending to you. these images are for informational purposes only.
+You can cross-check delivered product details with the attached images 
+
+{{table_html}}
+
+Regards-
+Sales, {{store_name}}
+{{app->siteName}} 

@@ -1,0 +1,16 @@
+To whom it may concern,
+
+
+I am writing to confirm that <strong>{{user_name}}</strong> has been employed by {{user_employer_name}} Since {{user_joining_date}} in the capacity of {{releaving_start_position}} and was promoted to {{releaving_last_position}} till his resignation dated {{user_releaving_date}}.
+
+
+{{user_pronoun}} has been employed for a full-me position. {{user_pronoun}} has worked on different positions during the whole Employment tenure and tasks related to {{user_work_positions}}.
+
+
+During his working period we found {{user_pronoun}} dedicated, responsible and hardworking. {{user_pronoun}} has remained involved With {{user_object_pronoun}} duets and responsibilities assigned to him. We found him competent and active with sincerity and Determination. 
+
+
+We wish him best of luck for future employments. 
+
+
+For more inquiries and verification, please feel free to contact us.

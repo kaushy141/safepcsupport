@@ -1,0 +1,22 @@
+<b>Issue Date: {{issue_date}}</b>
+
+<b>To:</b>
+Name: {{employee_name}}
+Surname: {{father_name}}
+CNIC#: {{employee_cnic_number}}
+
+Dear {{employee_name}},
+This is to confirm our offer of the position of {{employee_position}} in our {{department_name}} of {{employee_org_name}}, effective on <b>{{joining_date}}</b>.
+
+Your commencing salary will be <b>{{employee_salary}} {{currency_code}}</b> {{pay_shedule}} and all {{employee_org_name}} Employment benefits will apply from your date of employment. Your increment will be determined based on your best performance and hard work.
+
+You will report to <b>{{reporting_person}}</b> on Management matters.
+
+Your working timings will be {{working_time}} {{employee_org_country}} Time.
+Your Working Days will be {{working_days}} & 'Sat (if Mon-Fri)' upon emergency call.
+
+We would appreciate your written acceptance of this offer we look forward to formally welcome you to {{employee_org_name}}.
+
+
+Yours Sincerely
+<b>{{employee_org_name}}</b>

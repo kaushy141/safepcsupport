@@ -1,0 +1,25 @@
+.sidebar{
+	background: #263238;
+}
+.card-header {
+	background: #e3e5ea;
+}
+.sidebar .nav .nav-item .nav-link.active {
+	background: #000000 !important;
+}
+.sidebar .nav .nav-item .nav-link:hover, .sidebar .nav .nav-item .navbar .dropdown-toggle:hover, .navbar .sidebar .nav .nav-item .dropdown-toggle:hover {
+	background: #555555 !important;
+}
+.sidebar .nav .nav-item.nav-dropdown.open ul.nav-dropdown-items li.nav-item a.nav-link{
+	background: #4a5154 !important;
+}
+.sidebar .nav .divider {
+    border-bottom: 1px solid #111111;
+}
+/*
+.header-fixed .app-header {
+	background:  #ffffff;
+}*/
+header.navbar {
+	border-bottom: 1px solid #efefef;
+}

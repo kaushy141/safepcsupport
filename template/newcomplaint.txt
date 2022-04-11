@@ -1,0 +1,14 @@
+Hi {{customer_name}},
+
+We have raised a support request on {{app->siteName}}. 
+Your case has been assigned a unique ID of #{{complaint_ticket_number}} - please ensure you quote this reference number in any future contact you have with us.
+
+Our team of specialist engineers are working hard to resolve your request. Depending on its nature, you can check your Ticket Status by Loggin in <a href='{{login_page}}'> {{login_page}} </a>
+
+Click on <a href='{{complaint_link}}'> #{{complaint_ticket_number}} </a> after login to view complaint status 
+
+Check Log Status of your complaint in Log section Pannel
+
+Kind Regards
+
+{{app->siteName}} Technical Support Team

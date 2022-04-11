@@ -1,0 +1,18 @@
+Dear Mr./Ms {{user_name}} ,
+{{user_type_name}}
+
+We at <b>{{employer_name}}</b> are pleased to inform you that your pay slip for month {{month_name}} is processed. 
+Net Salary of amount {{net_salary}} will be credited to your account shortly.
+<p style='text-align:left; padding:5px 20px;'>
+Net Salary : {{net_salary}}
+Total Sales by you : {{total_sale}}
+Sales Commission : {{commission}}
+Leaves Taken : {{leave}}
+Paid Status : {{pay_status}}
+Payment mode : {{pay_mode}}
+</p>
+
+Kind Regards
+
+Account Manager 
+{{employer_name}}

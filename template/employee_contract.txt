@@ -1,0 +1,15 @@
+Dear Mr./Ms {{user_name}},
+
+Welcome to the {{employer_name}},
+
+We at <b>{{employer_name}}</b> are pleased to inform you that after carefully considering your interview, we have arrived upon a consensus that you will be our next {{user_type_name}}. We congratulate you on this achievement.
+
+Your joining date would be the {{user_pay_joining_date}}. The work day officially gets over at {{user_pay_working_days}}. Your starting salary would be {{user_pay_salary}} a month.
+
+Kindly find enclosed all the other details in the attachment with this letter. We look forward to working with you.
+
+
+Kind Regards
+
+{{app->siteName}} 
+HR Manager {{employer_name}}

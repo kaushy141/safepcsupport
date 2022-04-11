@@ -1,0 +1,16 @@
+Hi {{manager_name}},
+
+We have received a Collection request on {{app->siteName}}.
+
+Your assigned collection requestID is #{{wc_code}}
+Please ensure you quote this reference number in any future contact you have with customer.
+
+Collection due date is {{wc_due_date}}.
+Get ready with Collection Team as soon as possible.
+
+Check Log Status of your complaint in Log section Pannel
+
+Kind Regards
+
+{{app->siteName}} 
+Team Manager
