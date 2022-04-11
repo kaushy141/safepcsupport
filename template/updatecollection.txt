@@ -1,0 +1,10 @@
+Hi {{customer_name}},
+
+We have updated collection having reference number #{{wc_code}} in  {{app->siteName}}. 
+please ensure you quote this reference number in any future contact you have with us.
+
+Check Log Status of your collection in Log section Panel
+
+Kind Regards
+
+{{app->siteName}} Technical Support Team

@@ -1,0 +1,13 @@
+Hi,
+
+{{message}}
+
+Please find attached Document.
+
+<strong>Instructions for Opening the E- Documents:</strong>
+Click on the attachment provided with this mail and you will be prompted for a password. Please enter the following options as a password, to view your document.
+The password is - Your Postcode in CAPITAL letter. (Without space)
+
+Kind Regards
+
+{{app->siteName}} Technical Support Team

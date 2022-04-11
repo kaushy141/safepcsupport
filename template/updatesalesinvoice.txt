@@ -1,0 +1,15 @@
+Hi {{customer_name}},
+
+Thank you for purchasing with {{app->siteName}}.
+
+We have updated your Sales Invoice on {{app->siteName}}. 
+
+Your Invoice has a unique ID of #{{sales_invoice_number}} - please ensure you quote this reference number in any future contact you have with us.
+
+Log in <a href='{{login_page}}'> {{login_page}} </a> to Download your invoice.
+
+Click on <a href='{{invoice_link}}'> #{{sales_invoice_number}} </a> after login to view invoice.
+
+Kind Regards
+
+{{app->siteName}} Sales Team

@@ -1,0 +1,50 @@
+<?xml version='1.0'?>   
+<ApiCredentials>
+	<AmazonOrderApi>
+		<AWSAccessKeyId>AKIAICPRFQMRB43AJCAQ</AWSAccessKeyId>
+		<ApplicationName>SPD Support System</ApplicationName>
+		<ApplicationVersion>amzn1.sellerapps.app.7875114b-581e-40e2-b4a0-0b6f888087ff</ApplicationVersion>
+		<SellerId>A3RTFQ78WCQ3O7</SellerId>
+		<ClientSecret>8K4VOd+8l6WzZCrjBLeuRK+gioDp+mu+KiK+KRVj</ClientSecret>
+		<SignatureVersion>2</SignatureVersion>
+		<SignatureMethod>HmacSHA256</SignatureMethod>
+		<Version>2013-09-01</Version>
+		<MarketplaceId1>A1F83G8C2ARO7P</MarketplaceId1>
+		<ProductionMode>1</ProductionMode>
+		<ServiceEnable>1</ServiceEnable>
+	</AmazonOrderApi>
+	<BackMarket>
+		<Token>aW5mb0BtYWM0c2FsZS5jby51azpEZWxsMTIzNEA=</Token>
+	</BackMarket>
+	<UpsShippingApi>
+		<accessLicenseNumber>CD7FC40C51706C12</accessLicenseNumber>
+		<userId>Mac4sale</userId>
+		<password>Oxford@1234</password>
+		<ProductionMode>1</ProductionMode>
+		<ServiceEnable>1</ServiceEnable>
+	</UpsShippingApi>
+	<DpdShippingApi>
+		<delisId>MAC4SALE</delisId>
+		<password>mac4saleparcel</password>
+		<messageLanguage>en_US</messageLanguage>
+		<ProductionMode>1</ProductionMode>
+		<ServiceEnable>1</ServiceEnable>
+	</DpdShippingApi>
+	<FedexShippingApi>
+		<!--<Key>Ck2DMz7uBQ9R6lGH</Key>
+		<Password>ynpMW54J3YDMBZMDdGWIgfhwM</Password>
+		<AccountNumber>510087100</AccountNumber>
+		<MeterNumber>114000475</MeterNumber>-->
+		<!--<Key>iLskZxE9GLOn2mPN</Key>
+		<Password>fYaYtSFZU8zte7BBFcyQQM3ao</Password>
+		<AccountNumber>510087240</AccountNumber>
+		<MeterNumber>118500092</MeterNumber>-->
+		<Key>1fufGShbz33hZ0ld</Key>
+		<Password>3WuWhLQheoF9yoCu9XV851XYn</Password>
+		<AccountNumber>700636402</AccountNumber>
+		<MeterNumber>118700937</MeterNumber>
+		<ProductionMode>0</ProductionMode>
+		<ServiceEnable>0</ServiceEnable>
+	</FedexShippingApi>
+	
+</ApiCredentials>

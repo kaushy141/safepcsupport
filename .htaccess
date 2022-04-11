@@ -1,0 +1,84 @@
+Options +FollowSymlinks
+RewriteEngine on
+
+
+Options -Indexes
+#RewriteBase \supportdemo
+
+#RewriteRule wss://live.safepcsupport.co.uk:8080/php-socket.php wss://live.safepcsupport.co.uk:8080/php-socket.php [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^report/(.*)/([A-Za-z0-9]+)/([A-Za-z0-9]+)$ /report.php?format=$1&id=$2&type=$3 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^report/(.*)/([A-Za-z0-9]+)$ /report.php?format=$1&id=$2 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^report/(.*)$ /report.php?format=$1 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/([A-Za-z0-9]+)/([A-Za-z0-9]+)/([A-Za-z0-9]+)$ /index.php?parameter0=$1&parameter1=$2&parameter2=$3&parameter3=$4 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/([A-Za-z0-9]+)/([A-Za-z0-9]+)$ /index.php?parameter0=$1&parameter1=$2&parameter2=$3 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/([A-Za-z0-9]+)$ /index.php?parameter0=$1&parameter1=$2 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php?parameter0=$1 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /index.php?/$1 [L]
+
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php5_module>
+   php_flag asp_tags Off
+   php_flag display_errors Off
+   php_value max_execution_time 30
+   php_value max_input_time 60
+   php_value max_input_vars 10000
+   php_value memory_limit 6144M
+   php_value post_max_size 64M
+   php_value session.gc_maxlifetime 3600
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php55"
+   php_value upload_max_filesize 64M
+   php_flag zlib.output_compression On
+</IfModule>
+<IfModule lsapi_module>
+   php_flag asp_tags Off
+   php_flag display_errors Off
+   php_value max_execution_time 30
+   php_value max_input_time 60
+   php_value max_input_vars 10000
+   php_value memory_limit 6144M
+   php_value post_max_size 64M
+   php_value session.gc_maxlifetime 3600
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php55"
+   php_value upload_max_filesize 64M
+   php_flag zlib.output_compression On
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php55” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php55 .php .php5 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

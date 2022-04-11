@@ -1,0 +1,8 @@
+Hi {{supplier_name}},
+
+Please find atteched purchase order #{{po_code}} from {{store_name}}.
+Purchase order dated on {{po_date}}
+
+Regards
+
+{{app->siteName}} 

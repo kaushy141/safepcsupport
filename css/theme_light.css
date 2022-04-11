@@ -1,0 +1,47 @@
+body {
+  background-color: #FFF;
+}
+.sidebar{
+	background: #FFFFFF;
+}
+.card-header {
+	background: #FFFFFF;
+}
+.sidebar .nav .nav-item .nav-link.active {
+	background: #FAFAFA !important;
+}
+.app-footer {
+  background: #FFF;
+  border-top: 1px solid #EEE;
+}
+.sidebar .nav .nav-item.nav-dropdown.open{background: #FEFEFE;}
+.sidebar .nav .nav-item .nav-link:hover, .sidebar .nav .nav-item .navbar .dropdown-toggle:hover, .navbar .sidebar .nav .nav-item .dropdown-toggle:hover, .sidebar .nav .nav-item .nav-link, .sidebar .nav .nav-item .navbar .dropdown-toggle, .navbar .sidebar .nav .nav-item .dropdown-toggle,.sidebar .nav .nav-item .nav-link.active i, .sidebar .nav .nav-item .navbar .active.dropdown-toggle i, .navbar .sidebar .nav .nav-item .active.dropdown-toggle i, .sidebar .nav .nav-item .nav-link i,.sidebar .nav .nav-item .nav-link.active, .sidebar .nav .nav-item .navbar .active.dropdown-toggle, .navbar .sidebar .nav .nav-item .active.dropdown-toggle, .sidebar .nav .nav-item.nav-dropdown.open a.nav-link, .sidebar .nav .nav-item.nav-dropdown.open .navbar a.dropdown-toggle, .navbar .sidebar .nav .nav-item.nav-dropdown.open a.dropdown-toggle{
+	color:#262626 !important;
+}
+.sidebar .nav .nav-item .nav-link.nav-dropdown-toggle::before, .sidebar .nav .nav-item .navbar .nav-dropdown-toggle.dropdown-toggle::before, .navbar .sidebar .nav .nav-item .nav-dropdown-toggle.dropdown-toggle::before, .sidebar .nav .nav-item .nav-link:hover i, .sidebar .nav .nav-item .navbar .dropdown-toggle:hover i, .navbar .sidebar .nav .nav-item .dropdown-toggle:hover i {
+  color: #333333 !important;
+}
+.sidebar .nav .nav-item .nav-link.active, .sidebar .nav .nav-item .navbar .active.dropdown-toggle, .navbar .sidebar .nav .nav-item .active.dropdown-toggle{
+	background: #F9F9F9 !important;
+}
+.sidebar .nav .nav-item .nav-link:hover, .sidebar .nav .nav-item .navbar .dropdown-toggle:hover, .navbar .sidebar .nav .nav-item .dropdown-toggle:hover {
+	background: #F8F8F8 !important;
+	color:#333333;
+}
+.sidebar .nav .nav-item.nav-dropdown.open ul.nav-dropdown-items li.nav-item a.nav-link{
+	background: #FEFEFE !important;
+	border-bottom: 1px solid #EEE;
+}
+.sidebar .nav .nav-item.nav-dropdown.open ul.nav-dropdown-items li.nav-item a.nav-link:hover{
+	background: #FCFCFC !important;
+}
+.sidebar .nav .divider {
+    border-bottom: 1px solid #d9d9d9;
+}
+/*
+.header-fixed .app-header {
+	background:  #ffffff;
+}*/
+header.navbar {
+	border-bottom: 1px solid #efefef;
+}

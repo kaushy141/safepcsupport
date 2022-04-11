@@ -1,0 +1,21 @@
+Hi {{user_name}},
+
+<center>{{user_image}}</center>
+
+Your account has been created on {{app->siteName}} as a {{role_name}}
+Please find your login Credentials....
+
+Username: {{user_email}}
+Password: {{user_password}}
+
+Please Loggin in to your account Panel and activate your account.. by Clicking on activation link below
+<a href='{{activation_link}}'> {{activation_link}} </a>
+
+On successfull activation of email click here to login on your account.
+
+<a href='{{login_page}}'> {{login_page}} </a>
+
+
+Kind Regards
+
+{{app->siteName}} Technical Support Team

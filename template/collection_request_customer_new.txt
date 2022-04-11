@@ -1,0 +1,17 @@
+Hi {{customer_name}},
+
+We have booked a Collection request on {{app->siteName}}. Your unique collection requestID reference is #{{wc_code}}
+Please ensure you quote this reference number in any future contact you have with customer.
+
+Collection due date is {{wc_due_date}}.
+Alloted Loading time is {{wc_loading_time}}.
+Helping member from customer end is {{wc_help_member}}.
+Assigned Collection manager is <b>{{manager_name}}</b>
+Assigned Cab Driver is <b>{{driver_name}}</b>
+
+Please find list and charges of the Collection Assets Inventory below
+{{collection_inventory_table}}
+Collection Team will arrived at booking location on time. You will be notify by email when our team departure for collection. Check Log Status of your complaint in Log section Panel
+
+Kind Regards
+{{app->siteName}} 

@@ -1,0 +1,19 @@
+Hi {{customer_name}},
+
+Your account has been created on {{app->siteName}}
+Please find your login Credentials....
+
+Username: {{customer_email}}
+Password: {{customer_password}}
+
+Please Loggin in to your account Panel and activate your account.. by Clicking on activation link below
+<a href='{{activation_link}}'> {{activation_link}} </a>
+
+You can check your Ticket Status by Loggin in <a href='{{login_page}}'> {{login_page}} </a>
+
+
+Check Log Status of your complaint in Log section Pannel
+
+Kind Regards
+
+{{app->siteName}} Technical Support Team

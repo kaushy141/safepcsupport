@@ -1,0 +1,8 @@
+Hi {{user_name}},
+
+{{message}}
+
+
+Kind Regards
+
+{{app->siteName}} Technical Support Team
