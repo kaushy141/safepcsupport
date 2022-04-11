@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="customer-detail" language="groovy" pageWidth="895" pageHeight="260" columnWidth="875" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="2ea5e394-6e0d-42cd-8dd4-6700bbb3b278">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="heading" class="java.lang.String"/>
+	<parameter name="headerimage" class="java.lang.String"/>
+	<parameter name="query" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[$P{query}]]>
+	</queryString>
+	<field name="complaint_ticket_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="complaint_product_serial" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="complaint_product_model" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="complaint_is_backup" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="complaint_problem_details" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="complaint_due_date" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customer_name" class="java.lang.String"/>
+	<field name="customer_email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customer_phone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="technician" class="java.lang.String"/>
+	<field name="bookedby" class="java.lang.String"/>
+	<field name="complaint_status_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="208">
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Top" isUsingCache="true">
+				<reportElement x="47" y="1" width="161" height="24" uuid="846e0785-1a6c-49c1-8360-81df275469c7"/>
+				<imageExpression><![CDATA[$P{headerimage}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="102" y="126" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="d6825d49-7477-4a42-95fb-f86b7a970f44"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="66" width="100" height="20" uuid="5f67426b-2396-4026-b0b2-d7a8a39fa6bd"/>
+				<text><![CDATA[Complaint Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="106" width="100" height="20" uuid="ce7f2511-1d21-4de4-8304-875d28fc30c2"/>
+				<text><![CDATA[Job Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="146" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="0a274c35-b722-42ca-81f5-cca202392681"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="146" width="100" height="20" uuid="c4b7410a-4c77-41d6-b749-6079282e8d51"/>
+				<text><![CDATA[Engineer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="46" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="8edb9e43-b2cb-470f-97e4-3d5f595da839"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="46" width="100" height="20" uuid="f555540b-8544-4fd7-940e-1fcc985e6a53"/>
+				<text><![CDATA[Booked in By]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="113" y="86" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="adf56801-b683-41f1-af7e-8401bb979dbb"/>
+				<textFieldExpression><![CDATA[$F{complaint_product_serial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="86" width="100" height="20" uuid="1625553d-e4e3-4fc5-afed-36174439f1f0"/>
+				<text><![CDATA[Serial Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="186" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="6f1bb3e2-7b6b-4937-9448-12a14f93c2c7"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="86" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="b99c08b9-84bc-43ce-976e-be8aaf888e28"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="113" y="146" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="db1f502e-dd65-4a4d-9527-ffb63251332c"/>
+				<textFieldExpression><![CDATA[$F{technician}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="166" width="100" height="20" uuid="fa270f34-9592-4200-a695-ef9e38ef7bf7"/>
+				<text><![CDATA[Problem Details]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="113" y="186" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="7e858418-1029-459f-a56d-1f761628f90d"/>
+				<textFieldExpression><![CDATA[$F{customer_email}+", "+$F{customer_phone}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="126" width="100" height="20" uuid="4e28bb47-6237-4b09-a5ec-cbacf230f578"/>
+				<text><![CDATA[Customer Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="66" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="ddb0dc7e-e45f-4191-88c9-fecb4b9fdc50"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="113" y="166" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="42378a44-46fc-4802-bd6a-d8225f40f5b7"/>
+				<textFieldExpression><![CDATA[$F{complaint_problem_details}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="186" width="100" height="20" uuid="1e466cf1-bf39-4dda-a88e-1a86d443e304"/>
+				<text><![CDATA[Customer Contact]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="113" y="46" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="2cbdb2e8-90e3-4dc8-bc0d-1fcd7c918b0d"/>
+				<textFieldExpression><![CDATA[$F{bookedby}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="113" y="66" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="56b1baf1-0b1e-4570-8f95-4a50ce1a6086"/>
+				<textFieldExpression><![CDATA[$F{complaint_status_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="113" y="106" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="8b36e672-e6e7-433f-9f6a-351a2824104d"/>
+				<textFieldExpression><![CDATA[$F{complaint_ticket_number}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="102" y="166" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="710b6e6f-a821-4054-94dc-68c3721a920a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="106" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="045dfbfa-5f9e-4706-b52d-61242f5a710a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="113" y="126" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="a2979e19-b247-4f10-af4b-9801b90d0568"/>
+				<textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="43" width="250" height="1" uuid="b9a30cfb-ccd5-44dc-9b2a-af40dcdaf6a1"/>
+			</line>
+			<line>
+				<reportElement x="1" y="26" width="250" height="1" uuid="e5bd1143-4087-4da5-8b10-f69e69a7a87d"/>
+			</line>
+			<textField>
+				<reportElement x="2" y="26" width="250" height="17" uuid="77152df4-05a9-4d09-9df6-db9012c18870"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{heading}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="397" y="146" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="6f6cc5a5-0b78-46f2-b5f3-746a49488976"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Top" isUsingCache="true">
+				<reportElement x="342" y="1" width="161" height="24" uuid="2527b8bc-4a5f-4549-b552-2ea8d80bff4a"/>
+				<imageExpression><![CDATA[$P{headerimage}]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="408" y="146" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="8c468ae8-87f5-445b-ab9c-1ae9ea3717be"/>
+				<textFieldExpression><![CDATA[$F{technician}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="397" y="126" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="24c0efcd-47c4-489e-9a26-b7c2f76b1ee8"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="408" y="186" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="9b1404d7-883e-4bf7-8bc8-b4613ec8d87e"/>
+				<textFieldExpression><![CDATA[$F{customer_email}+", "+$F{customer_phone}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="296" y="166" width="100" height="20" uuid="f2156e02-3ccb-4549-ac64-ebd020e1d66f"/>
+				<text><![CDATA[Problem Details]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="408" y="166" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="e7f60dac-432f-4674-9a46-d338540405d2"/>
+				<textFieldExpression><![CDATA[$F{complaint_problem_details}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="397" y="86" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="75183ad0-1d7d-463d-8fbf-41ca94fffde8"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="106" width="100" height="20" uuid="02265d1a-b871-4393-8d25-b400b7c09067"/>
+				<text><![CDATA[Job Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="66" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="50df84a3-b7ad-4222-a974-21a122d164d5"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="126" width="100" height="20" uuid="37f62fe7-9089-4633-8584-d6df0c363b03"/>
+				<text><![CDATA[Customer Name]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="408" y="86" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="f5b5c19d-5371-4e88-9528-77064116d956"/>
+				<textFieldExpression><![CDATA[$F{complaint_product_serial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="397" y="106" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="abf87253-ecc6-480c-bef6-f92ad85e93f2"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="46" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="d9948dd5-f946-4dd9-b27e-6c57210e4cb0"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="186" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="fa6d2797-0b17-4a1f-9808-2f30d8e1c258"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="146" width="100" height="20" uuid="f8ff44ed-0787-4637-aa35-b181c811edba"/>
+				<text><![CDATA[Engineer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="186" width="100" height="20" uuid="aadb944f-b3ca-4fe3-ac52-7b69ddd51db3"/>
+				<text><![CDATA[Customer Contact]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="166" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="050d87fc-3f4b-47cc-8c67-7c5e0d1fb3f5"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="46" width="100" height="20" uuid="32ae70b8-4214-4d97-b9fa-6a55fe6bc43a"/>
+				<text><![CDATA[Booked in By]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="408" y="106" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="f6b22262-d088-44b9-89f3-61d04338d022"/>
+				<textFieldExpression><![CDATA[$F{complaint_ticket_number}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="296" y="86" width="100" height="20" uuid="3ad85634-745a-44a8-a725-cf5c229cc90a"/>
+				<text><![CDATA[Serial Number]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="408" y="46" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="5acb6624-f272-490e-a28c-12658a556f32"/>
+				<textFieldExpression><![CDATA[$F{bookedby}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="408" y="126" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="a98129bc-1c21-4263-a640-c2e99a4150b3"/>
+				<textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="296" y="26" width="250" height="1" uuid="6c42e256-4026-4765-ae45-57a5f82b1c79"/>
+			</line>
+			<staticText>
+				<reportElement x="296" y="66" width="100" height="20" uuid="bfff2c76-6f7f-4262-93aa-cdb79a3565a1"/>
+				<text><![CDATA[Complaint Status]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="297" y="26" width="250" height="17" uuid="38c50d83-b0f8-4938-94dd-e76aaf10d58b"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{heading}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="296" y="43" width="250" height="1" uuid="c914ea06-dcfc-4f71-bd68-5bf37e456db0"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="408" y="66" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="40f06ec6-8024-484b-a952-f7ec165110b9"/>
+				<textFieldExpression><![CDATA[$F{complaint_status_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="696" y="46" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="7cb384ab-ea11-4650-8a80-646690ddcae3"/>
+				<textFieldExpression><![CDATA[$F{bookedby}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="584" y="66" width="100" height="20" uuid="95f97681-08c4-460c-b105-a21f406de6cf"/>
+				<text><![CDATA[Complaint Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="685" y="106" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="e33d1e96-0c02-4cbb-8fd0-cda25064a142"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="685" y="166" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="5abd51f4-eafa-4b36-816c-09ec2f644dde"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="685" y="46" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="ed0a031c-7170-4d08-9145-0681eb20a3de"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="585" y="26" width="250" height="17" uuid="0e7dc2bb-5fa3-41dd-be88-099508faaa72"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{heading}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="584" y="26" width="250" height="1" uuid="5dae3d82-1005-4883-a2f5-1df3b90a99b5"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="696" y="166" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="f2b4a4ed-1c8d-4b14-834a-37a209e87bb4"/>
+				<textFieldExpression><![CDATA[$F{complaint_problem_details}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="584" y="126" width="100" height="20" uuid="b47d7440-6b25-490a-a22e-8e11ccf552d3"/>
+				<text><![CDATA[Customer Name]]></text>
+			</staticText>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Top" isUsingCache="true">
+				<reportElement x="630" y="1" width="161" height="24" uuid="52c7a94b-c8ab-4a17-aab6-b22cd19b735b"/>
+				<imageExpression><![CDATA[$P{headerimage}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="584" y="43" width="250" height="1" uuid="994bbba1-2a17-41fd-9cb2-fbb5f8d6c8ee"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="696" y="86" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="e1be8d61-ed16-4600-977f-d8ebddcf7f71"/>
+				<textFieldExpression><![CDATA[$F{complaint_product_serial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="685" y="86" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="8ad83e0e-944e-49c1-87c0-6538d5c19718"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="584" y="46" width="100" height="20" uuid="9185c330-4e37-445d-9366-9b1c1bef6e5a"/>
+				<text><![CDATA[Booked in By]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="584" y="86" width="100" height="20" uuid="f85701f6-0d06-44ac-80c7-f2aec8f3ef99"/>
+				<text><![CDATA[Serial Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="685" y="146" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="143bff71-d5ae-4d96-96d0-837870808f71"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="584" y="166" width="100" height="20" uuid="87b10624-b6a1-4610-a149-d65857020785"/>
+				<text><![CDATA[Problem Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="584" y="186" width="100" height="20" uuid="3ce6a707-1fcc-4bfb-b776-59859f4ffe4b"/>
+				<text><![CDATA[Customer Contact]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="685" y="66" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="cda529d2-6273-4339-afb6-ee8b8519ee53"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="696" y="66" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="5b7bc01f-e3b0-4bd7-8234-e7650f2cc996"/>
+				<textFieldExpression><![CDATA[$F{complaint_status_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="685" y="186" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="0ee397f6-057b-46d3-9ab2-29b9637d0640"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="685" y="126" width="10" height="20" isPrintWhenDetailOverflows="true" uuid="8447b335-c878-4b85-abdd-c690adacd68e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="584" y="146" width="100" height="20" uuid="41a50b7f-a23e-4d41-a41f-431f32810187"/>
+				<text><![CDATA[Engineer]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="696" y="126" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="a0d05656-c0de-4936-9108-6a97ec512270"/>
+				<textFieldExpression><![CDATA[$F{customer_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="696" y="186" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="93890187-6452-4332-973c-2c2a5e955447"/>
+				<textFieldExpression><![CDATA[$F{customer_email}+", "+$F{customer_phone}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="696" y="106" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="ec807441-3b5c-4a9e-8b5b-d083f2df3cbb"/>
+				<textFieldExpression><![CDATA[$F{complaint_ticket_number}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="584" y="106" width="100" height="20" uuid="6d64c24f-ef12-4f43-ad3a-fd174269039c"/>
+				<text><![CDATA[Job Number]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="696" y="146" width="141" height="20" isPrintWhenDetailOverflows="true" uuid="c9231d96-4306-4415-965a-e13095e83f80"/>
+				<textFieldExpression><![CDATA[$F{technician}]]></textFieldExpression>
+			</textField>
+			<break>
+				<reportElement x="0" y="79" width="100" height="1" uuid="42f205b8-56c9-4bb3-a36d-1b37748619b3"/>
+			</break>
+			<line>
+				<reportElement x="273" y="1" width="1" height="205" forecolor="#090909" uuid="3389185d-68a9-41b6-b5c8-4951f8a38f90"/>
+				<graphicElement>
+					<pen lineStyle="Dotted" lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="566" y="0" width="1" height="205" forecolor="#090909" uuid="70b6b660-0f5c-4d85-be9d-432334a6ff27"/>
+				<graphicElement>
+					<pen lineStyle="Dotted" lineColor="#CCCCCC"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>
