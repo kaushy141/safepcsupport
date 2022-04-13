@@ -1,22 +1,11 @@
 <?xml version='1.0'?>   
 <ApiCredentials>
 	<AmazonOrderApi>
-		<!--<AWSAccessKeyId>AKIAICPRFQMRB43AJCAQ</AWSAccessKeyId>
+		<AWSAccessKeyId>AKIAICPRFQMRB43AJCAQ</AWSAccessKeyId>
 		<ApplicationName>SPD Support System</ApplicationName>
 		<ApplicationVersion>amzn1.sellerapps.app.7875114b-581e-40e2-b4a0-0b6f888087ff</ApplicationVersion>
 		<SellerId>A3RTFQ78WCQ3O7</SellerId>
 		<ClientSecret>8K4VOd+8l6WzZCrjBLeuRK+gioDp+mu+KiK+KRVj</ClientSecret>
-		<SignatureVersion>2</SignatureVersion>
-		<SignatureMethod>HmacSHA256</SignatureMethod>
-		<Version>2013-09-01</Version>
-		<MarketplaceId1>A1F83G8C2ARO7P</MarketplaceId1>
-		<ProductionMode>1</ProductionMode>
-		<ServiceEnable>1</ServiceEnable>-->
-		<AWSAccessKeyId>AKIAJY2VNOIZKN2UHMTA</AWSAccessKeyId>
-		<ApplicationName>SPD Support System</ApplicationName>
-		<ApplicationVersion>amzn1.sellerapps.app.7875114b-581e-40e2-b4a0-0b6f888087ff</ApplicationVersion>
-		<SellerId>A3RTFQ78WCQ3O7</SellerId>
-		<ClientSecret>4xjMqrVMR+aikd5jHip6kB6tAEZTDdsnz4Z7k23u</ClientSecret>
 		<SignatureVersion>2</SignatureVersion>
 		<SignatureMethod>HmacSHA256</SignatureMethod>
 		<Version>2013-09-01</Version>
