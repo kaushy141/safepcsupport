@@ -15,13 +15,13 @@
 		<div class="block-fluid table-sorting clearfix">
 			<div class="row">
 			<?php 
-			$websiteOrder = new SalesInvoice();
+			$salesinvoice = new SalesInvoice();
 			$field = 'sales_invoice_store_id';
 			?>
 			<label class="col-md-12 col-form-label"><h5 class="filterheading">Website <i data-id="<?php echo $field;?>" class="filtercontroller pull-right fa fa-chevron-down"></i></h5></label>
 			<div id="label_<?php echo $field;?>" class="col-md-12 col-form-label">
 			<?php
-			$records = $websiteOrder->getWebsiteFilteration();
+			$records = $salesinvoice->getWebsiteFilteration();
 			if(count($records)){
 				$i=0;
 				foreach($records as $item){
@@ -41,13 +41,13 @@
 		<div class="block-fluid table-sorting clearfix">
 			<div class="row">
 			<?php 
-			$SalesInvoice = new SalesInvoice();
+			$salesinvoice = new SalesInvoice();
 			$field = 'sales_invoice_status';
 			?>
 			<label class="col-md-12 col-form-label"><h5 class="filterheading">Status <i data-id="<?php echo $field;?>" class="filtercontroller pull-right fa fa-chevron-down"></i></h5></label>
 			<div id="label_<?php echo $field;?>" class="col-md-12 col-form-label">
 			<?php
-			$records = $SalesInvoice->getStatusFilteration($field);
+			$records = $salesinvoice->getStatusFilteration();
 			if(count($records)){
 				$i=0;
 				foreach($records as $item){
@@ -69,13 +69,13 @@
 		<div class="block-fluid table-sorting clearfix">
 			<div class="row">
 			<?php 
-			$SalesInvoice = new SalesInvoice();
+			$salesinvoice = new SalesInvoice();
 			$field = 'sales_invoice_creator';
 			?>
 			<label class="col-md-12 col-form-label"><h5 class="filterheading">Invoice Creator <i data-id="<?php echo $field;?>" class="filtercontroller pull-right fa fa-chevron-down"></i></h5></label>
 			<div id="label_<?php echo $field;?>" class="col-md-12 col-form-label">
 			<?php
-			$records = $SalesInvoice->getCreatorFilteration();
+			$records = $salesinvoice->getCreatorFilteration();
 			if(count($records)){
 				$i=0;
 				foreach($records as $item){

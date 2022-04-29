@@ -152,6 +152,15 @@ function viewsalesinvoicelist()
 	echo $SalesInvoice->getJsonRecords($draw, $searchKeyword, $orderPosition, $orderDirection, $start, $length, $filter);
 }
 
+function viewpendingsalesinvoicelist()
+{
+	global $searchKeyword, $orderPosition, $orderDirection, $draw, $start, $length, $filter;
+	$SalesInvoice = new SalesInvoice(0);
+	if($customer_id = isCustomer())
+	$SalesInvoice->customer  = $customer_id;
+	echo $SalesInvoice->getJsonRecords($draw, $searchKeyword, $orderPosition, $orderDirection, $start, $length, $filter, true);
+}
+
 function viewsalesproductlist()
 {
 	global $searchKeyword, $orderPosition, $orderDirection, $draw, $start, $length;

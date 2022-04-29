@@ -130,22 +130,22 @@ ul.navbar-nav li a {
 	padding: 10px 0;
 }
 .price.panel-green > .panel-heading {
-	background-color: #28acf7;
+	background-color: #47cb82;
 }
 .price.panel-blue > .panel-heading {
 	color: #FFF;
-	background-color: #246a9b;
+	background-color: #3880ff;
 }
 .panel-heading {
 	padding: 20px 15px;
 }
 .price.panel-green .border-lr {
-	border-left: 3px solid #28acf7;
-	border-right: 3px solid #28acf7;
+	border-left: 3px solid #47cb82;
+	border-right: 3px solid #47cb82;
 }
 .price.panel-blue .border-lr {
-	border-left: 3px solid #246a9b;
-	border-right: 3px solid #246a9b;
+	border-left: 3px solid #3880ff;
+	border-right: 3px solid #3880ff;
 }
 .btn-green {
 	background-color: #47cb82;
@@ -153,7 +153,7 @@ ul.navbar-nav li a {
 	color: #FFF;
 }
 .btn-blue {
-	background-color: #3598db;
+	background-color: #3880ff;
 	text-transform: uppercase;
 	color: #FFF;
 }
@@ -163,10 +163,10 @@ ul.navbar-nav li a {
 .list-item-name{ padding:8px 14px; color:#FFF; min-width:250px;font-size: 16px;
 font-weight: 400;}
 .panel-green .list-item-name{
-	background:#28acf7;
+	background:#47cb82;
 }
 .panel-blue .list-item-name{
-	background:#246a9b;
+	background:#3880ff;
 }
 .suportclass {
 	min-height: 333;

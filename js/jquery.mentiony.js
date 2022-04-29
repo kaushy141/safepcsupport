@@ -217,7 +217,7 @@ var tmpEle = null;
                 elmInputBoxContainer.addClass('auto-size');
             }
 
-            elmInputBoxContent.css({minHeight: elmInputBoxInitialHeight + 'px'});
+            elmInputBoxContent.css({minHeight: 60 + 'px'});
 
             elmInputBoxContentAbsPosition = elmInputBoxContent.offset();
             editableContentLineHeightPx = parseInt($(elmInputBoxContent.css('line-height')).selector);

@@ -110,7 +110,7 @@ header.navbar .navbar-brand {
 body {
 	background-color: #fafafa;
 }
-
+.log_comment_text{min-height:100px;}
 .modal-header {
 	background: #FFF;
 	color: #444;
@@ -1418,12 +1418,88 @@ select.form-control {
 .badge-info {
 	background-color: #38f;
 }
-
+.badge-label{padding:6px 10px; border: 1px solid;}
 .badge-pill-xs {
 	padding: 1px;
 	font-size: 11px;
 	padding-left: 0.3em;
 	padding-right: 0.3em;
+}
+.badge-white {
+  color: #7E8299;
+  background-color: #ffffff;
+}
+
+.badge-light-white {
+  color: #ffffff;
+}
+
+.badge-light {
+  color: #7E8299;
+  background-color: #F5F8FA;
+}
+
+.badge-light-light {
+  color: #F5F8FA;
+}
+
+.badge-primary {
+  color: #FFFFFF;
+  background-color: #50CD89;
+}
+
+.badge-light-primary {
+  color: #50CD89;
+  background-color: #E8FFF3;
+}
+
+.badge-secondary {
+  color: #3F4254;
+  background-color: #E4E6EF;
+}
+
+.badge-light-secondary {
+  color: #E4E6EF;
+}
+
+.badge-light-success {
+  color: #4CAF50;
+  background-color: #E8FFF3;
+}
+
+.badge-light-info {
+  color: #3880ff;
+  background-color: #d9e7ff;
+}
+
+.badge-warning {
+  color: #FFFFFF;
+  background-color: #FFC700;
+}
+
+.badge-light-warning {
+  color: #FFC700;
+  background-color: #FFF8DD;
+}
+
+.badge-danger {
+  color: #FFFFFF;
+  background-color: #F1416C;
+}
+
+.badge-light-danger {
+  color: #F1416C;
+  background-color: #FFF5F8;
+}
+
+.badge-dark {
+  color: #ffffff;
+  background-color: #181C32;
+}
+
+.badge-light-dark {
+  color: #181C32;
+  background-color: #EFF2F5;
 }
 
 .aside-menu .nav-tabs .nav-link,

@@ -881,7 +881,7 @@ function getProductCheckList(id){
 		for(var i=0; i<availabilityList.length; i++){
 			var availCheck = availabilityList[i];
 			if(availCheck['pro_avail_product_id'] == id){
-				html += "<div class='alert alert-"+availCheck['pro_avail_class']+"'><h4 class=\"alert-heading\"><img style='height:24px' class='img img-circle' src='"+availCheck['user_image']+"' /> "+availCheck['user_fname']+" "+availCheck['user_lname']+"</strong> <span class='pull-right text-xs'>On "+availCheck['pro_avail_checked_time']+"</span></h4><p>Checked this product availability with supplier <strong>"+availCheck['supplier_name']+"</strong> and mark as <strong>"+availCheck['pro_avail_stock_status']+"</strong><br/><i> "+availCheck['pro_avail_remark']+"</i><span class='pull-right mb-1'>Added "+availCheck['pro_avail_created_date_now']+"</span></p></div>";
+				html += "<div class='alert alert-"+availCheck['pro_avail_class']+"'><h4 class=\"alert-heading\"><img style='height:24px' class='img img-circle' src='"+availCheck['user_image']+"' /> "+availCheck['user_fname']+" "+availCheck['user_lname']+"</strong> <span class='pull-right text-xs'>On "+availCheck['pro_avail_checked_time']+"</span></h4><p>Checked this product availability with supplier <strong>"+availCheck['supplier_name']+"</strong> and mark as <strong>"+availCheck['pro_avail_stock_status']+"</strong><br/><i> "+availCheck['pro_avail_remark_beautify']+"</i><span class='pull-right mb-1'>Added "+availCheck['pro_avail_created_date_now']+"</span></p></div>";
 			}
 		}
 	}

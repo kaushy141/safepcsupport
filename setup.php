@@ -1,5 +1,5 @@
 <?php
-define('VERSION', '4.3.4');
+define('VERSION', '4.3.5');
 define('MAX_SESSION_TIMEOUT', 60*60*24);
 define('DS', DIRECTORY_SEPARATOR);
 define('PS', PATH_SEPARATOR);

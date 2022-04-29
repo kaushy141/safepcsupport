@@ -53,8 +53,9 @@
 										'user_responsibility' => $user_responsibility, 
 										'user_cv_file' => $user_cv_file
 										);
-                $emp        = new Employee($user_id);
-				$user_id = $emp->insert($employeeDaata);
+                $employee        = new Employee(0);
+				$user_id = $employee->insert($employeeDaata);
+				$emp        = new Employee($user_id);
                 if (isset($_SESSION['UPLOAD'][$field_handler]['PIC'])) {
                     $image_name = pathinfo($_SESSION['UPLOAD'][$field_handler]['PIC']);
                     $extension  = strtolower($image_name['extension']);
@@ -106,9 +107,11 @@
                     if (move_file($app->sitePath($user_passport), $app->sitePath($user_passport_path)))
                         $emp->update(array("user_passport" => $user_passport_path));
                 }
-				
+				Modal::load(array('VerifyToken'));
                 $employeedetail  = $emp->getDetails();
-                $activation_link = $app->basePath("activation.php?r=emp&u=$user_email&l=" . md5($user_email . $user_id) . "&i=" . md5($user_id . $user_email));
+				$verifyToken = new VerifyToken();
+				$token_id = $verifyToken->geneareTokenId(md5(time()));
+                $activation_link = $app->basePath("activation.php?r=emp&u=$user_email&l=" . md5($user_email . $user_id) . "&i=" . md5($token_id));
                 new SMS($user_phone, "Hi, $user_fname Welcome to " . $app->siteName . " as a $employeedetail[user_type_name] Account created. Username is $user_email and Password is $user_password on site " . $app->basePath('login.php'));
                 $dataArray = array(
                     "user_name" => $user_fname,

@@ -377,7 +377,7 @@ function checkExistingEmail()
 	if(validateFields("user_email"))
 	{
 		var data={
-			action	:	'isuseremailavailable',
+			action	:	'employee/isuseremailavailable',
 			user_email	:	$("#user_email").val()							
 		};	 
 		$.ajax({type:'POST', data:data, url:sitePath +'ajax.php', 		
@@ -483,7 +483,7 @@ function saveSignature(event)
         alert("Please provide signature first.");
     } else {
 		var data={
-			action	:	'savesignature',
+			action	:	'employee/savesignature',
 			signature:signaturePad.toDataURL()				
 		};		
 		$.ajax({type:'POST', data:data, url:sitePath +'ajax.php', 		

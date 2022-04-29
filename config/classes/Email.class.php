@@ -4,7 +4,7 @@
 	public $subject;
 	public $body;
 	public $footer;
-	public $bcc;
+	public $bcc = null;
 	public $cc = SYSTEM_EMAIL_SENDER_CC;
 	public $to = array();
 	public $attachement = array();
@@ -134,13 +134,25 @@
 				$mail->addAddress($_SESSION['customer_email'], $_SESSION['customer_name']);	
 				$this->toImage = $app->imagePath($_SESSION['customer_image']);
 			}
-		endif;		
+		endif;
+		
+		
+			$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+			$mail->SMTPAuth = true; // authentication enabled
+			$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+			$mail->Host = "smtp.gmail.com";
+			$mail->Port = 465; // or 587
+			$mail->IsHTML(true);
+			$mail->Username = "support@safepcsupport.co.uk";
+			$mail->Password = "Support#567890";
+
+
 			$mail->setFrom(SYSTEM_EMAIL_SENDER, $app->siteName);		
 			$mail->Subject = $this->subject;
-			$mail->isHTML(true);
 			$mail->Body = $this->body;
 			$mail->AltBody = strip_tags($this->body);	
 			$mail->addCC($this->cc);
+			if($this->bcc != null)
 			$mail->addBCC($this->bcc);
 			$mail->send();
 			

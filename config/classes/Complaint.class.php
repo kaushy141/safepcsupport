@@ -577,7 +577,7 @@ ORDER BY `created_date` DESC
 
 								$row["technician_name"],
 
-								$row["complaint_status_name"],
+								"<span class='badge badge-label' style=\"background-color:{$row["complaint_status_light_clolor_code"]}; color:{$row["complaint_status_clolor_code"]}\">".$row["complaint_status_name"]."</span>",
 
 								"<div class=\"btn-group\">
 
@@ -610,7 +610,7 @@ ORDER BY `created_date` DESC
 
 </div>",
 
-								$_SESSION['app_theme'] != 'dark' ? $row['complaint_status_light_clolor_code'] : null,
+								$_SESSION['app_theme'] != 'dark' ? null : null,
 								"updatecomplaintrequest/".$row['complaint_id']
 
 			);
