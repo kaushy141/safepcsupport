@@ -37,7 +37,6 @@ if(isset($_REQUEST['id']))
 
 		$appInfo = 	new AppInfo();
 		$info = $appInfo->getDetails();
-
 		if($data['sales_invoice_bank_account']){
 			if($bankDetails = $store->getBankDetails($data['sales_invoice_bank_account'])){
 				$data['bank_detail']	= 	nl2br($bankDetails["account_name"]);

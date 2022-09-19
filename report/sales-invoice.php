@@ -40,6 +40,7 @@ if(isset($_REQUEST['id']))
 		if($data['sales_invoice_bank_account']){
 			if($bankDetails = $store->getBankDetails($data['sales_invoice_bank_account'])){
 				$data['bank_detail']	= 	nl2br($bankDetails["account_name"]);
+
 			}
 		}
 		else if(trim($storeData['store_bank_details']) != "")

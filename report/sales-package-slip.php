@@ -38,13 +38,13 @@ if(isset($_REQUEST['id']))
 		if($data['sales_invoice_bank_account']){
 			if($bankDetails = $store->getBankDetails($data['sales_invoice_bank_account'])){
 				$data['bank_detail']	= 	nl2br($bankDetails["account_name"]);
+
 			}
 		}
 		else if(trim($storeData['store_bank_details']) != "")
 			$data['bank_detail']	= 	nl2br($storeData["store_bank_details"]);
 		else
 			$data['bank_detail']	= 	nl2br($info["info_app_bank_details"]);
-
 		$currency = $data['sales_invoice_currency'] ? $data['sales_invoice_currency'] : 'GBP';
 
 		$data['acknowledge'] 		= 	$info["info_app_invoice_acknowledge"];
