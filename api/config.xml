@@ -24,6 +24,20 @@
 		<ProductionMode>1</ProductionMode>
 		<ServiceEnable>1</ServiceEnable>
 	</AmazonOrderApi>
+	<AmazonOrderApiUae>
+		<AWSAccessKeyId>AKIAIQF3PPJXXKETACLA</AWSAccessKeyId>
+		<ApplicationName>SPD Support System</ApplicationName>
+		<ApplicationVersion>amzn1.sellerapps.app.7875114b-581e-40e2-b4a0-0b6f888087ff</ApplicationVersion>
+		<SellerId>A2NFMHNN0R5EU8</SellerId>
+		<ClientSecret>TKLsp+865LOADHIYc4zX3E6S1cQJucve9gN7HXbe</ClientSecret>
+		<SignatureVersion>2</SignatureVersion>
+		<SignatureMethod>HmacSHA256</SignatureMethod>
+		<Version>2013-09-01</Version>
+		<MarketplaceId1>A2VIGQ35RCS4UG</MarketplaceId1>
+		<ProductionMode>1</ProductionMode>
+		<ServiceEnable>1</ServiceEnable>
+		<MWSAuthToken>amzn.mws.c4c1a119-2945-46f4-8c13-77a35f9c2046</MWSAuthToken>
+	</AmazonOrderApiUae>
 	<BackMarket>
 		<Token>aW5mb0BtYWM0c2FsZS5jby51azpEZWxsMTIzNEA=</Token>
 	</BackMarket>

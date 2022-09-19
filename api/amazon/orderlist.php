@@ -8,7 +8,7 @@ require_once('Client.php');
 
 $serviceUrl = "https://mws-eu.amazonservices.com/Orders/2013-09-01";
 
-$CreatedAfter	= (isset($_GET['t']) && $_GET['t'] !='')? gmdate('Y-m-d\TH:i:s', strtotime($_GET['t'])) : gmdate("Y-m-d\TH:i:s\Z", strtotime(' -1 day'));
+$CreatedAfter	= (isset($_GET['t']) && $_GET['t'] !='')? gmdate('Y-m-d\TH:i:s', strtotime($_GET['t'])) : gmdate("Y-m-d\TH:i:s\Z", strtotime(' -2 day'));
  $config = array (
    'ServiceURL' => $serviceUrl,
    'ProxyHost' => null,
