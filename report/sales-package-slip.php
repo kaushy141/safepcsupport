@@ -43,7 +43,7 @@ if(isset($_REQUEST['id']))
 		else if(trim($storeData['store_bank_details']) != "")
 			$data['bank_detail']	= 	nl2br($storeData["store_bank_details"]);
 		else
-			$data['bank_detail']	= 	nl2br($info["info_app_bank_details"]);		
+			$data['bank_detail']	= 	nl2br($info["info_app_bank_details"]);	
 		
 		$currency = $data['sales_invoice_currency'] ? $data['sales_invoice_currency'] : 'GBP';
 		
