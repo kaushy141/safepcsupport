@@ -3,7 +3,7 @@
     $customer_fname              = $customer_lname = $customer_email = $customer_phone = $customer_company = $customer_tax_number = $customer_address_postcode = $customer_address_street_number = $customer_address_route = $customer_address_locality = $customer_address_administrative_area = $customer_address_country = $customer_address_geo_location = $sales_invoice_payment_mode = $sales_invoice_payment_reference = $sales_invoice_cycle_mode = $sales_invoice_dispatched_store = $sales_invoice_manufacturer = "";
     $sales_product_name          = $sales_product_price = $sales_product_quantity = $sales_product_type_id = $sales_purchase_amount = $sales_purchase_source = array();
     $customer_type_id            = $sales_invoice_store_id = $send_invoice_to_customer = $sales_invoice_customer_id = $sales_invoice_is_paid = $sales_invoice_is_estimate = $sales_invoice_status = $sales_invoice_is_generated = 0;
-    $customer_status     =  $sales_invoice_is_original = $sales_invoice_is_vat_applicable = $sales_discount_amount = $sales_payment_paid_amount = $sales_invoice_margin_vat_label = 0;
+    $customer_status     =  $sales_invoice_is_original = $sales_invoice_is_vat_applicable = $sales_discount_amount = $sales_payment_paid_amount = $sales_invoice_margin_vat_label = $sales_invoice_bank_account = 0;
 	$sales_invoice_date = date('Y-m-d');
     $customer_password           = gePassword();
     $customer_is_mobile_verified = 0;
@@ -84,6 +84,7 @@
 		"sales_invoice_status" => $sales_invoice_status,
 		"sales_invoice_is_generated" => $sales_invoice_is_generated,
 		"sales_invoice_vat" => $sales_invoice_vat,	
+		"sales_invoice_bank_account" => $sales_invoice_bank_account,
 		"sales_invoice_currency" => $sales_invoice_currency,
 		"sales_invoice_dispatched_store" => $sales_invoice_dispatched_store,
 		"sales_payment_paid_amount" => $sales_payment_paid_amount,

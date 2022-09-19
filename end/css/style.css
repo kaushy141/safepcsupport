@@ -79,11 +79,12 @@ ul.navbar-nav li a{
 .is-sticky .main-menu{
 	z-index:9999999 !important;
 	position:absolute;
-	background:#2E5089;
+	background:#3880ff;
 }
 
 .is-sticky .main-menu .navbar-inverse{
-	background:#2E5089;
+	background:#3880ff;
+
 	transition:0.4s;
 	padding:15px 0;
 }

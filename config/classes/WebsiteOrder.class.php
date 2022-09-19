@@ -171,7 +171,7 @@ class WebsiteOrder extends DB{
 		$dbcTotal 	= 	new DB();
 		$resultTotal = $dbcTotal->db_query($this->SqlExceptLimit);
 		$num_rows_total= $dbcTotal->db_num_rows($resultTotal);	
-		$output =array("draw" => $draw, "recordsTotal" => $num_rows_total, "recordsFiltered" => $num_rows_total,"data"=>array(), "sql" => null );
+		$output =array("draw" => $draw, "recordsTotal" => $num_rows_total, "recordsFiltered" => $num_rows_total,"data"=>array(), "sql" => $sql );
 		$pa = new ProductAvailbility();
 		while($row = $dbc->db_fetch_assoc(true)){	
 			$availability="Not Checked";

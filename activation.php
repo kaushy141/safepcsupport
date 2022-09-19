@@ -1,6 +1,7 @@
 <?php include("setup.php"); ?>
 <?php $app = new App();?>
 <?php 
+Modal::load(array('VerifyToken'));
 $color = array("success"=>"#69B121", "error"=>"#DF4815", "warning"=>"#EDA90C");
 $title = "Activation";
 $data = sanitizePostData($_REQUEST);
@@ -24,19 +25,28 @@ function emp()
 	{
 		$user = new Employee($user_id);
 		$info = $user->getDetails();
-		if($info['user_is_email_verified'] == 1)
+		$token_id = VerifyToken::getTokenId($data["i"]);		
+		if($token_id)
 		{
-			if(md5($info['user_email'].$info['user_id'])==$data["l"] && md5($info['user_id'].$info['user_email'])==$data["i"])
+			$verifyToken = new VerifyToken($token_id);
+			$tokenData = $verifyToken->getDetails();
+			
+			if(isset($data["l"]) && md5($info['user_email'].$info['user_id'])==$data["l"])
 			{
-				Activity::add("verified email id",NULL, 0, $info['user_id'], 'E'); 
-				$user->update(array("user_is_email_verified" => "1"));
-				return "success::Hi, $info[user_name], Your Email Activated Successfully ..!!!<br/><h4>Please login here to continue... <a href='".$app->basePath("login.php")."'>Login</a></h4>";
+				if($verifyToken->isValid()){
+					$verifyToken->markUsed();
+					Activity::add("verified email id",NULL, 0, $info['user_id'], 'E'); 
+					$user->update(array("user_is_email_verified" => "1"));
+					return "success::Hi, $info[user_name], Your Email Activated Successfully ..!!!<br/><h4>Please login here to continue... <a href='".$app->basePath("login.php")."'>Login</a></h4>";
+				}
+				else
+				return "error::Activation couldn't Completed ..!!!<br/><h4>Activation Link Expired or You have Completed Logged in Activity</h4>";
 			}
 			else
 				return "error::Activation couldn't Completed ..!!!<br/><h4>Activation Link Expired or You have Completed Logged in Activity</h4>";
 		}
 		else
-			return "error::Email already verified<br/><h4>Please login here to continue... <a href='".$app->basePath("login.php")."'>Login</a></h4>";
+			return "error::Token expired! or not Exist!";
 	}
 	else
 	{

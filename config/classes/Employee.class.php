@@ -203,6 +203,32 @@ class Employee extends DB{
 		}
 	}
 	
+	function getAccountActivationLink(){
+		$empData = $this->getDetails();
+		global $app;
+		$verifyToken = new VerifyToken();
+		$token_id = $verifyToken->geneareTokenId(md5(time()));        
+		return $app->basePath("activation.php?r=emp&u={$empData['user_email']}&l=" . md5($empData['user_email'] . $empData['user_id']) . "&i=" . md5($token_id));
+	}
+	
+	function sendAccountActivationLink(){
+		global $app;
+		$empData = $this->getDetails();
+		$activation_link = $this->getAccountActivationLink();
+		$dataArray = array(
+			"user_name" => $empData['user_fname'],
+			"user_email" => $empData['user_email'],
+			"user_image" => image($app->imagePath($empData['user_image']), 80, true),
+			"user_password" => $empData['user_password'],
+			"role_name" => $empData['user_type_name'],
+			"login_page" => $app->basePath("login.php"),
+			"activation_link" => $activation_link
+		);
+		$email     = new Email("Verify your account on " . $app->siteName);
+		$email->to($empData['user_email'], $empData['user_fname'], $empData['user_image'])->template('employee_registration', $dataArray)->send();
+		return $activation_link;
+	}
+	
 	function isDeviceFcmExist($user_fcm_token)
 	{
 		global $app;
@@ -397,7 +423,8 @@ class Employee extends DB{
   <div class=\"dropdown-menu dropdown-menu-right\">    
     <a class=\"dropdown-item redirect\" href=\"updateemployee/".$row['user_id']."\"><i class=\"fa fa-edit fa-fw\"></i> Update Info</a>
 	".(($_SESSION['user_type_id']==ADMIN_ROLE || isAdminAccess())?
-	($row["user_status"] ? "<a class=\"dropdown-item rechargewallet\" data-user-image=\"".getResizeImage($row["user_image"],32)."\" data-user-name=\"".viewText($row["user_fname"]." ".$row["user_lname"])."\" data-user-id=\"$row[user_id]\" href=\"#\"><i class=\"icon-wallet fa-fw\"></i> Recharge Wallet</a>":"")."
+	($row["user_status"] ? "<a class=\"dropdown-item rechargewallet\" data-user-image=\"".getResizeImage($row["user_image"],32)."\" data-user-name=\"".viewText($row["user_fname"]." ".$row["user_lname"])."\" data-user-id=\"$row[user_id]\" href=\"#\"><i class=\"icon-wallet fa-fw\"></i> Recharge Wallet</a>	
+	<a class=\"dropdown-item\" href=\"javascript:confirmMessage.Set('Are you sure to send account activation link... ?', 'sendAccountActivationLink', $row[user_id])\"><i class=\"fa fa-envelope fa-fw\"></i> Send Activation link</a>":"")."
 	<a class=\"dropdown-item redirect\" href=\"contract/".$row['user_id']."\"><i class=\"fa fa-file-word-o fa-fw\"></i> Edit Appointment</a>".($row['user_pay_id'] ? ("<a class=\"dropdown-item\" target=\"_blank\" href=\"".DOC::APPOINTMNET($row['user_id'])."\"><i class=\"fa fa-file-pdf-o fa-fw\"></i> Download Appointment </a>") : "").(($row['user_pay_contract_file'] != "")?
 	"<a class=\"dropdown-item\" target=\"_blank\" href=\"".$app->basePath($row['user_pay_contract_file'])."\"><i class=\"fa fa-file-pdf-o fa-fw\"></i> Download Contract</a>":"").(($row['user_char_exp_file'] != "")?
 	"<a class=\"dropdown-item\" target=\"_blank\" href=\"".$app->basePath($row['user_char_exp_file'])."\"><i class=\"fa fa-file-pdf-o fa-fw\"></i> Char/Experience</a>":"").(($row['user_cv_file'] != "")?
@@ -729,8 +756,7 @@ class ContractEmployee extends DB{
 			);
 		}
 		return json_encode($output);		
-	}
-	
+	}	
 }
 
 class Training extends DB{

@@ -409,9 +409,14 @@ if(isset($sales_invoice_id) && $sales_invoice_id >0)
                           <label for="sales_payment_paid_amount">Payment paid amount</label>
                           <input class="form-control" id="sales_payment_paid_amount" name="sales_payment_paid_amount" min="0" <?php echo isset($product_sum_total) ? "max=\"$product_sum_total\"" : "" ?> step="0.01"  placeholder="Payment paid amount" type="number" value="<?=isset($sales_payment_paid_amount)?$sales_payment_paid_amount:"0";?>">
                         </div>
-                      </div>
-					  
+                      </div>					  
                     </div>
+					<div class="row mt-2">
+						<div class="col-xs-12">
+						<p><label>Bank account list</label></p>
+						<p class="bank_accounts_details_block"></p>
+						</div>
+					</div>
                     <div class="row mt-2">
 					<table class="table table-stripe">
 					<tr>
@@ -863,7 +868,8 @@ if(isset($sales_invoice_id) && $sales_invoice_id >0)
 var mediaSection = '<?=MediaSection::$salesLabelInvoiceMedia?>';
 <?php Modal::load(array('ProductAvailbility'));?>
 var availabilityList = <?php $productAvailbility = new ProductAvailbility(); echo json_encode($productAvailbility->getAvailbiltyChecked('S', $sales_invoice_id));?>;
-$(document).off('change', '#sales_invoice_is_outsourced_chk', '.duplicatesalesinvoice');
+var sales_invoice_bank_account = <?php echo isset($sales_invoice_bank_account) ? $sales_invoice_bank_account : 0;?>; 
+$(document).off('change', '#sales_invoice_is_outsourced_chk', '.duplicatesalesinvoice', '#sales_invoice_store_id');
 $(".orderaction, .web_order_is_paid, .product_image_camera, .updateImageTitle, .metadataloader, .removepackinguser").off();
 var isInvoiceGenerated = <?php echo $isInvoiceGenerated ? 'true':'false';?>;
 var readonlyField = '<?php echo $readonlyField;?>';
@@ -881,7 +887,7 @@ function getProductCheckList(id){
 		for(var i=0; i<availabilityList.length; i++){
 			var availCheck = availabilityList[i];
 			if(availCheck['pro_avail_product_id'] == id){
-				html += "<div class='alert alert-"+availCheck['pro_avail_class']+"'><h4 class=\"alert-heading\"><img style='height:24px' class='img img-circle' src='"+availCheck['user_image']+"' /> "+availCheck['user_fname']+" "+availCheck['user_lname']+"</strong> <span class='pull-right text-xs'>On "+availCheck['pro_avail_checked_time']+"</span></h4><p>Checked this product availability with supplier <strong>"+availCheck['supplier_name']+"</strong> and mark as <strong>"+availCheck['pro_avail_stock_status']+"</strong><br/><i> "+availCheck['pro_avail_remark']+"</i><span class='pull-right mb-1'>Added "+availCheck['pro_avail_created_date_now']+"</span></p></div>";
+				html += "<div class='alert alert-"+availCheck['pro_avail_class']+"'><h4 class=\"alert-heading\"><img style='height:24px' class='img img-circle' src='"+availCheck['user_image']+"' /> "+availCheck['user_fname']+" "+availCheck['user_lname']+"</strong> <span class='pull-right text-xs'>On "+availCheck['pro_avail_checked_time']+"</span></h4><p>Checked this product availability with supplier <strong>"+availCheck['supplier_name']+"</strong> and mark as <strong>"+availCheck['pro_avail_stock_status']+"</strong><br/><i> "+availCheck['pro_avail_remark_beautify']+"</i><span class='pull-right mb-1'>Added "+availCheck['pro_avail_created_date_now']+"</span></p></div>";
 			}
 		}
 	}
@@ -1023,6 +1029,34 @@ function salescancellabel(label_id){
 	});
 }
 
+function getstorebankaccounts(store_id){
+	$(".bank_accounts_details_block").html(LOADING_HTML);
+	var data={
+					action		:	'sales/getstorebankaccounts',
+					store_id	:	store_id
+			};	
+	$.ajax({type:'POST', data:data, url:sitePath +'ajax.php', 		
+		beforeSend: function(){			
+			dissableSubmission();
+		},		
+		success:function(output){ 
+			$(".bank_accounts_details_block").html('');
+			enableSubmission(output);
+			var arr	=	JSON.parse(output);
+			if(arr[0] == 200 && arr[2].length){
+				for(var i=0; i < arr[2].length; i++){
+					if(arr[2][i]['account_name'] != ''){
+						$(".bank_accounts_details_block").append('<label><input type="radio" class="sales_invoice_bank_account" name="sales_invoice_bank_account" value="'+arr[2][i]['account_id']+'" '+(sales_invoice_bank_account == arr[2][i]['account_id'] ? 'checked' : '')+'> &nbsp;' + arr[2][i]['account_name'] + '</label>');
+					}
+				}
+			}
+			else{
+				$(".bank_accounts_details_block").html('No Bank account details available' );
+			}
+		}
+	});
+}
+
 function salesinvoiceaction(eventAction){
 								   
 	var data={
@@ -1157,36 +1191,16 @@ $(document).ready(function(){
 	appendPrevNext(<?php echo $SalesInvoice->getPrevNext($app->basePath('salesinvoice'));?>);
 	<?php }?>
 	$(".invoice_image_camera").on("click", function(){
-	openMediaUploader($(this).attr('data-media-section'), $(this).attr('data-id'), "invoice_record_image", "Select Sales Invoice's image source", null);
-	
+	openMediaUploader($(this).attr('data-media-section'), $(this).attr('data-id'), "invoice_record_image", "Select Sales Invoice's image source", null);	
 	});
+	if(sales_invoice_bank_account){
+		getstorebankaccounts(sales_invoice_bank_account);
+	}
 });
 	
 function uploadMediaFile(param)
 {
 	processUploadMediaFile(param.name, '_'+$("#keyid").val(), '<?=MediaSection::$SalesProductMedia?>');
-	// if(confirm("Are you sure to upload this media file... ?"))
-	// {
-		// var files = _(field_name).files;
-		// var formdata = new FormData(); 
-		// if(files.length > 0)
-		// {
-			// for (var index = 0; index < files.length; index++) 
-			// {
-				// formdata.append('webcam[]', files[index]); 
-			// }
-			// formdata.append('sales_image_invoice_id', $("#keyid").val()); 
-			// is_interval_running = false;
-			// is_file_uploaded 	= false;
-			// $("#media_uploaded_image_box_"+$("#keyid").val()).append('<div class="col-xs-12 col-lg-3"  id="item-media-processing"><center><br/><br/>Processing...<br/><br/>Uploading image<br/><br/>Please wait</center></div>');
-
-			// var ajax = new XMLHttpRequest();	
-			// ajax.addEventListener("progress", progressMediaUpload, false); 
-			// ajax.addEventListener("load", completeMediaUpload, false); 
-			// ajax.open("POST", sitePath +"saveimage.php"); 
-			// ajax.send(formdata);
-		// }		
-	// }	
 }
 
 
@@ -1371,6 +1385,12 @@ function addSalesInvoice()
 			message("danger|Please select atleast one product");
 			return false;
 		}
+		if($(".sales_invoice_bank_account:checked").length == 0)
+		{
+			message("danger|Please select bank detail");
+			return false;
+		}
+		
 		var data={
 			action	:	$("#action").val()				
 		};
@@ -1540,12 +1560,14 @@ $(document).ready(function(e) {
 		{
 			$("#sales_invoice_is_vat_applicable").prop("checked", true);
 			$("#vat_apply_message").html("<span class='text-success'>"+option_text+" has "+vat_precent+"% VAT. You can still disable</span>");
-		}		
+		}
+		getstorebankaccounts(option.val());		
 	});
 	
 	$(".removepackinguser").on("click", function(){
 		confirmMessage.Set('Are you sure to remove Packing User ...?', 'proceedRemoveInvoicePackingUSer');
 	});
+	
 	
 });
 

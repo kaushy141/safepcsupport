@@ -630,6 +630,7 @@ function executeFeedbackRequest(FeedbackParameter) {
     })
 }
 
+
 function appendResourceLogHistory(resource_id, resource_format, modal){
 	var dataAjax = {
         action: 'employee/getloghistory',
@@ -641,12 +642,13 @@ function appendResourceLogHistory(resource_id, resource_format, modal){
         data: dataAjax,
         url: sitePath + 'ajax.php',
         beforeSend: function() {
-            modal.History("<center class=\"py-2 text-muted\"><i class=\"fa fa-circle-o-notch fa-spin\"></i> Loading previous log history...</center>");
+            modal.History("<center class=\"py-2 text-muted\"><i class=\"fa fa-circle-o-notch fa-spin\"></i> Loading previous log records...</center>");
         },
         success: function(output) {
             var arr = JSON.parse(output);
             if (arr[0] == 200) {
 				modal.History("");
+				var timeLine = "";
                 var logTextObj = arr[2];
                 if (logTextObj.length > 0) {
                     for (var i = 0; i < logTextObj.length; i++) {
@@ -657,13 +659,6 @@ function appendResourceLogHistory(resource_id, resource_format, modal){
 						else							
 							modal.PrependHistory(getPopupMessageBlock(logText));
                     }
-					/*
-					var $wrapper = $('.modal-history');
-						$wrapper.find('.chat-row-block').sort(function (a, b) {
-						return +b.dataset.weight - a.dataset.weight;
-					})
-					.appendTo( $wrapper );
-					*/
                 }				
 				else{
 					modal.History("<center class=\"py-2 px-1 text-muted\">No prevous log history found. Be the first to log on this</center>");
@@ -683,7 +678,7 @@ function openChatLogForm(id, title) {
 	bodyHtml += `<div class="reply-box-identifier mb-1"></div>`;
     bodyHtml += `<div class="form-group">
 					<label for="log_comment_text">Type your message<sup>*</sup></label>
-					<textarea id="log_comment_text" data-label="Log comments" name="log_comment_text" rows="3" class="form-control" placeholder="Write log message here..."></textarea>
+					<textarea id="log_comment_text" data-label="Log comments" spellcheck="false" name="log_comment_text" rows="3" class="form-control log_comment_text mention mention-input-extra" placeholder="Write log message here... use @ to mention people"></textarea>
 					<div class="iconholder">
 						`+(userType == "E" ? `<div class="logmediabox chat_media_uploader_button"><img class="mediaicon" src="`+sitePath+`img/system/media.png"></div>` : '')+`
 						<div class="logemojibox" data-placement="left" data-trigger="hover" data-toggle="popover-ajax" data-popover-action="emoji" data-popover-id="1" data-popover-state="saved">
@@ -691,33 +686,33 @@ function openChatLogForm(id, title) {
 						</div>
 					</div>
 				</div>`;
-	if(userType == "E")
+	/*if(userType == "E")
 	{
 		bodyHtml += `<div class="form-group">
 					<textarea id="log_comment_tag" name="log_comment_tag" spellcheck="false" rows="1" class="form-control mention mention-input-extra" placeholder="@Tag user here..."></textarea>
 				</div>`;
-	}
+	}*/
 	if(userType == "E")
 	{
-		bodyHtml += `<div class="form-group logmediauploaderbox">
+		bodyHtml += `<div class="w-100"><div class="form-group logmediauploaderbox">
 					<div contenteditable class="logmediauploader" data-id="`+idData[0]+`" data-media-section="logChatMediaUpload" data-media-counter="null" data-name="log_chat_media_upload_file">
 						<span class="mediaplaceholder">
-							<i class="fa fa-paperclip"></i> Upload Media by Drag&Drop, Click Or Paste
+							<i class="fa fa-paperclip"></i> Drag&Drop, Paste file Or Click to Upload
 						</span>
 					</div>
 					<input type="file" style="display:none;" class="logmediainputfile" name="logmediainputfile" onchange="handleLogDargFile(this.files)">
-				</div>`;
+				</div></div>`;
 	}
 	
     if (userType == "E"){
-        bodyHtml += `<div class="form-group mb-0">
+        bodyHtml += `<div class="w-100"><div class="form-group mb-0">
 						<input type="checkbox" value="1" name="mark_message_private" id="mark_message_private" />
 						<label for="mark_message_private">Show this message to customer also.</label>
 					</div>`;
 		bodyHtml += `<div class="form-group">
 						<input type="checkbox" value="1" name="notify_all_participants" id="notify_all_participants" /> 
 						<label for="notify_all_participants">Notify all participants of this conversation including tagged.</label>
-					</div>`;
+					</div></div>`;
 	}
     bodyHtml += `</div>`;
     bodyHtml += `</div>`;
@@ -1186,6 +1181,7 @@ function resetMentiony(){
 	$(".mentiony-content").html('');
 }
 
+
 function getMentionyItems(){
 	return $(".mentiony-content").find('a.mentiony-link').map(function () { return { id : $(this).attr('data-item-id'),
 	name : $(this).text()}; }).get();
@@ -1198,11 +1194,18 @@ function getToDoMentionyItems(){
 
 
 function getMentionyText(){
-	return $(".mentiony-content").text();
+   if( $(".mentiony-content div").length > 0){
+       return $(".mentiony-content div").map(function() {
+		return $(this).text();
+	}).get().join('\n');
+   }else{
+       return $(".mentiony-content").text();
+   }
 }
 
 function submitChatLogPopup() {
-    if (validateFields("log_comment_text", true)) {
+    var logtext = getMentionyText(); 
+    if (1) {
         var idData = $("#keyid").val().split('|');
 		var formdata = new FormData(); 
 		if(logMediablob != null){
@@ -1210,7 +1213,7 @@ function submitChatLogPopup() {
 			formdata.append('mediatype', logMediablob, logMediablob.type);
 		}
 		formdata.append('action', 'repair/insertcomplaintlog'); 
-		formdata.append('logtext', $("#log_comment_text").val()); 
+		formdata.append('logtext', logtext); 
 		formdata.append('replier_parent', $(".complaint_log_reply_parent").length ? $(".complaint_log_reply_parent").val() : 0); 
 		var mentionObject = getMentionyItems();
 		//console.log(mentionObject);
@@ -1218,7 +1221,7 @@ function submitChatLogPopup() {
 		for ( var key in mentionObject ) {
 			formdata.append('mentiony['+key+']', JSON.stringify(mentionObject[key]));
 		}
-		//formdata.append('mentiony', JSON.parse(getMentionyItems()));
+		
 		formdata.append('privacy', (userType == 'E' && $("#mark_message_private").is(":checked")) ? 1 : 0); 
 		formdata.append('notifyall', (userType == 'E' && $("#notify_all_participants").is(":checked")) ? 1 : 0); 
 		formdata.append('id', idData[0]); 
@@ -1283,52 +1286,6 @@ function transferCanceledChatLog(oEvent){
 	$("#popupsubmit").html("Save");
 	closeLogReplierBody();
 }
-
-/*
-function submitChatLogPopup() {
-    if (validateFields("log_comment_text", true)) {
-        var idData = $("#keyid").val().split('|');
-        var dataAjax = {
-            action: 'repair/insertcomplaintlog',
-            logtext: $("#log_comment_text").val(),
-			mentiony:getMentionyItems(),
-            privacy: (userType == 'E' && $("#mark_message_private").is(":checked")) ? 1 : 0,
-            id: idData[0],
-            complaint_format: idData[1]
-        };
-			
-		
-        $.ajax({
-            type: 'POST',
-            data: dataAjax,
-            url: sitePath + 'fcm.php',
-            beforeSend: function() {
-                popmessage("connecting|Connecting...", 0);
-            },
-            success: function(output) {
-				
-                var arr = JSON.parse(output);
-                if (arr[0] == 200) {
-					sendSocketMessage('commented <i>"' + dataAjax.logtext + '"</i>');
-                    $("#log_comment_text").val('');
-                    var payload = JSON.parse(arr[2]);
-                    if (payload != null) {
-                        payload.data.complaint_log_privacy = dataAjax.privacy ? 1 : 0;
-                        appendMessagePopup(payload);
-                    } else {
-                        arr[1] += " <span class='card-warning'>Reload Chat to see message.</span>";
-                        popmessage(arr[1]);
-                    }
-
-                }
-                if (arr[2] == false)
-                    arr[1] += " <span class='card-warning'>Notification Could not Send.</span>";
-                popmessage(arr[1]);
-            }
-        })
-    }
-}*/
-
 
 function calculaterandPay() {
     var basic_salary = $("#pay_slip_basic_salary").val();
@@ -1674,8 +1631,7 @@ function fetchScheduleReminder(){
                     scheduleData = arr['data'];
                     var notificationHtml = "";
                     $.each(scheduleData, function(index, notif) {
-                        //notificationHtml += '<div id="schedule_box_' + notif.schedule_id + '" class="schedule_notif_box" style="background:' + notif.schedule_status_color + ';"> <button type="button" onclick="closeSchedueNotif(' + notif.schedule_id + ')" style="position:absolute; right: 10px; top: 10px;" class="close">&times;</button> <div class="schedule_box"  onclick=\'updateSchedule(' + JSON.stringify(notif) + ')\'> <div class="row"> <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"> <img src="' + notif.customer_image + '" height="50px" /> </div> <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"><p class="text-sm text-black">'+notif.schedule_title+'</p> </div> </div> <div class="row"> <div class="col-lg-12"> <spam class="small text-sm text-black">- ' + notif.user_name + ' on ' + notif.schedule_created_date_view + '</spam> </div> </div> </div> </div>';
-						
+                        						
 						notificationHtml += `<div class="card" id="schedule_box_` + notif.schedule_id + `">
                           <div class="card-body p-0">
 							<div class="d-flex align-items-center justify-content-between p-1">
@@ -2455,6 +2411,11 @@ function getCookie(cname) {
         }
     }
     return "";
+}
+
+function delCookie(cname) {
+    var expires = "expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    document.cookie = cname + "=" + ";" + expires + ";path=/";
 }
 
 
@@ -3650,7 +3611,7 @@ $(document).on('click', '.returnable', function (e) {
 
 $(document).on('click', '.emojiinput', function(e){
 	e.preventDefault();
-	$("#log_comment_text").val($("#log_comment_text").val() + $(this).attr('alt'));
+	$(".mentiony-content").html($(".mentiony-content").html() + $(this).attr('alt'));
 });
 
 function showPopOverBox(e, div_id, content){

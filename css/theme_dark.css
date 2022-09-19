@@ -25,6 +25,15 @@ header.navbar {
 .header-fixed .app-header {
     background: #262E35;
 }
+.card-header {
+  border-bottom: 1px solid #222;
+}
+.userimageblock {
+  border-right: 1px solid #222;
+}
+.btn-default {
+ border-color: #282828;
+}
 .navbar-nav .nav-link, .navbar-nav .navbar .dropdown-toggle, .navbar .navbar-nav .dropdown-toggle,.navbar-nav .nav-link:focus, .navbar-nav .navbar .dropdown-toggle:focus, .navbar .navbar-nav .dropdown-toggle:focus, .navbar-nav .nav-link:hover, .navbar-nav .navbar .dropdown-toggle:hover, .navbar .navbar-nav .dropdown-toggle:hover, .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
     color: #a6b0cf;
 }
@@ -56,6 +65,7 @@ header.navbar {
 .btn-default {
     color: #a6b0cf;
     background-color: #36404A;
+	border-color: #111;
 }
 .open > .dropdown-toggle.btn-default:hover {
     color: #999;
@@ -237,4 +247,7 @@ element {
 }
 .modal-footer {
     border-top: 1px solid #262E35;
+}
+.card-header {
+  border-bottom: 1px solid #111;
 }

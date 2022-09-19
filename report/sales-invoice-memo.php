@@ -21,7 +21,12 @@ if(isset($_REQUEST['id']))
 	$appInfo = 	new AppInfo();
 	$info = $appInfo->getDetails();	
 	
-	if(trim($storeData['store_bank_details']) != "")
+	if($data['sales_invoice_bank_account']){
+			if($bankDetails = $store->getBankDetails($data['sales_invoice_bank_account'])){
+				$data['bank_detail']	= 	nl2br($bankDetails["account_name"]);	
+			}
+	}
+	else if(trim($storeData['store_bank_details']) != "")
 		$data['bank_detail']	= 	nl2br($storeData["store_bank_details"]);
 	else
 		$data['bank_detail']	= 	nl2br($info["info_app_bank_details"]);			

@@ -106,6 +106,22 @@ function getWalletAmount(user_id){
 		})	
 	
 }
+function sendAccountActivationLink(user_id){
+	var data={
+			'action'	:	"employee/sendaccountverificationlink",
+			'user_id'	:	user_id,
+		};
+		$.ajax({type:'POST', data:data, url:sitePath +'ajax.php', 		
+			beforeSend: function(){
+				//message("process|Connecting...",0);
+			},		
+			success:function(output){ 
+				var arr	=	JSON.parse(output);
+				toastMessage(arr[1]);
+			}
+		})	
+	
+}
 
 function proceedtoRecharge(){
 	var user_id = $("#keyid").val();

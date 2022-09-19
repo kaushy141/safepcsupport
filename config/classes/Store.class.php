@@ -20,6 +20,35 @@ class Store extends DB{
 			return false;
 	}
 	
+	
+	function getBankAccounts()
+	{
+		$sql="SELECT * FROM `app_store_bank_accounts` WHERE  `account_store_id` = '".$this->id."'";	
+		$dbc 	= 	new DB();
+		$result	=	$dbc->db_query($sql);
+		$result_array = array();
+		if($dbc->db_num_rows($result))
+		{		
+			while($row = $dbc->db_fetch_assoc(true)){
+				$result_array[] = $row;
+			}
+		}
+		return $result_array;
+	}
+	
+	function getBankDetails($account_id)
+	{
+		$sql="SELECT * FROM `app_store_bank_accounts` WHERE  `account_id` = '".$account_id."'";	
+		$dbc 	= 	new DB();
+		$result	=	$dbc->db_query($sql);
+		if($dbc->db_num_rows($result)){
+			return $dbc->db_fetch_assoc(true);
+		}
+		else
+			return false;
+	}
+	
+	
 	function getDetailsByKey($store_key)
 	{
 		$sql="SELECT * FROM `".$this->table_name."` WHERE  `store_key` = '".$store_key."'";	

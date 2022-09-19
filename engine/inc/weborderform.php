@@ -1038,8 +1038,42 @@
 			</div>
 		  
 		  </div>
+		  
+		  
+		  <div class="col-md-12">
+        <div class="alert alert-success" role="alert">
+            <div class="row">
+                <div class="col-md-9 col-sm-12">
+			<div> 
+			  <label class=""> Complement warranty added on this order</label>
+			</div>
+		  </div>
+    		        <div class="col-md-3 col-sm-12">
+        		       <div class="form-group">
+                		  <select id="web_order_complement_warranty" name="web_order_complement_warranty" class="form-control" size="1">
+                		  <option value="0"> No Complement Warranty</option>
+                		  <?php
+                               for($w=1; $w<=12; $w++){
+                                   echo "<option ".((isset($web_order_complement_warranty) && $web_order_complement_warranty == $w) ? "selected" : "")." value='$w'>$w Month Warranty</option>";
+                               }
+                		  ?>
+                          </select>
+        		      </div>
+        		</div>
+		    </div>
 		</div>
 	  </div>
+		  
+		  
+		  
+		  
+		  
+		</div>
+	  </div>
+	  
+	  
+	  
+	  
       <div class="mt-2">
         <div class="row">
           <div class="col-md-12">

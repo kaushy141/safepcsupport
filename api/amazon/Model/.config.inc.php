@@ -95,11 +95,13 @@
 				$productData = array();
 				$web_order_total_shipping = 0;
 				$web_order_currency 		= isset($order['OrderTotal']['CurrencyCode'])	? getData($order['OrderTotal']['CurrencyCode'])		:	'XXX';	
-				if($products = invokeListOrderItems($service, $request))
+				$products = invokeListOrderItems($service, $request);
+				if($products)
 				{
 					if(count($products))
 					{
-						foreach($products as $_product)
+					    $productDataArray = isset($products[0][0]) ? $products[0] : $products;
+						foreach($productDataArray as $_product)
 						{
 							$productData[] = array(
 								"wo_product_name" 			=> getData($_product['Title']),

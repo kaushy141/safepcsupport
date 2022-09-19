@@ -137,9 +137,9 @@ class SalesInvoice extends DB{
 	}
 	
 		
-	function add($sales_invoice_number, $sales_invoice_customer_id, $sales_invoice_customer_address_id, $sales_invoice_store_id, $sales_invoice_is_paid, $sales_invoice_payment_mode, $sales_invoice_payment_reference, $sales_invoice_cycle_mode, $sales_invoice_is_generated, $sales_invoice_is_original, $sales_invoice_creator, $sales_invoice_is_estimate, $sales_invoice_is_vat_applicable, $sales_discount_amount, $sales_invoice_manufacturer,  $sales_invoice_status, $sales_invoice_vat, $sales_invoice_currency)
+	function add($sales_invoice_number, $sales_invoice_customer_id, $sales_invoice_customer_address_id, $sales_invoice_store_id, $sales_invoice_is_paid, $sales_invoice_payment_mode, $sales_invoice_payment_reference, $sales_invoice_cycle_mode, $sales_invoice_is_generated, $sales_invoice_is_original, $sales_invoice_creator, $sales_invoice_is_estimate, $sales_invoice_is_vat_applicable, $sales_discount_amount, $sales_invoice_manufacturer,  $sales_invoice_status, $sales_invoice_vat, $sales_invoice_bank_account, $sales_invoice_currency)
 	{
-		$sql="INSERT INTO `app_sales_invoice`(`sales_invoice_number`, `sales_invoice_customer_id`, `sales_invoice_customer_address_id`, `sales_invoice_store_id`, `sales_invoice_is_paid`, `sales_invoice_payment_mode`, `sales_invoice_payment_reference`, `sales_invoice_cycle_mode`,  `sales_invoice_created_date`, `sales_invoice_is_generated`, `sales_invoice_is_original`, `sales_invoice_creator`, `sales_invoice_is_estimate`, `sales_invoice_is_vat_applicable`, `sales_discount_amount`, `sales_invoice_manufacturer`, `sales_invoice_status`, `sales_invoice_vat`, `sales_invoice_currency`) VALUES ('$sales_invoice_number', $sales_invoice_customer_id, '$sales_invoice_customer_address_id', '$sales_invoice_store_id', '$sales_invoice_is_paid', '$sales_invoice_payment_mode', '$sales_invoice_payment_reference', '$sales_invoice_cycle_mode', NOW(), '$sales_invoice_is_generated', '$sales_invoice_is_original', '$sales_invoice_creator', '$sales_invoice_is_estimate', '$sales_invoice_is_vat_applicable', '$sales_discount_amount', '$sales_invoice_manufacturer', '$sales_invoice_status', '$sales_invoice_vat', '$sales_invoice_currency')";	
+		$sql="INSERT INTO `app_sales_invoice`(`sales_invoice_number`, `sales_invoice_customer_id`, `sales_invoice_customer_address_id`, `sales_invoice_store_id`, `sales_invoice_is_paid`, `sales_invoice_payment_mode`, `sales_invoice_payment_reference`, `sales_invoice_cycle_mode`,  `sales_invoice_created_date`, `sales_invoice_is_generated`, `sales_invoice_is_original`, `sales_invoice_creator`, `sales_invoice_is_estimate`, `sales_invoice_is_vat_applicable`, `sales_discount_amount`, `sales_invoice_manufacturer`, `sales_invoice_status`, `sales_invoice_vat`, `sales_invoice_bank_account`, `sales_invoice_currency`) VALUES ('$sales_invoice_number', $sales_invoice_customer_id, '$sales_invoice_customer_address_id', '$sales_invoice_store_id', '$sales_invoice_is_paid', '$sales_invoice_payment_mode', '$sales_invoice_payment_reference', '$sales_invoice_cycle_mode', NOW(), '$sales_invoice_is_generated', '$sales_invoice_is_original', '$sales_invoice_creator', '$sales_invoice_is_estimate', '$sales_invoice_is_vat_applicable', '$sales_discount_amount', '$sales_invoice_manufacturer', '$sales_invoice_status', '$sales_invoice_vat', '$sales_invoice_bank_account', '$sales_invoice_currency')";	
 		//echo $sql;
 		$dbc 	= 	new DB();
 		$result	=	$dbc->db_query($sql);
@@ -147,9 +147,9 @@ class SalesInvoice extends DB{
 		return $this->id;
 	}
 	
-	function copyInvoice($sales_invoice_number, $sales_invoice_customer_id, $sales_invoice_customer_address_id, $sales_invoice_store_id, $sales_invoice_is_paid, $sales_invoice_payment_mode, $sales_invoice_payment_reference, $sales_invoice_cycle_mode, $sales_invoice_is_generated,  $sales_invoice_is_original, $sales_invoice_creator, $sales_invoice_is_estimate, $sales_invoice_is_vat_applicable, $sales_discount_amount, $sales_invoice_manufacturer,  $sales_invoice_vat, $sales_invoice_currency)
+	function copyInvoice($sales_invoice_number, $sales_invoice_customer_id, $sales_invoice_customer_address_id, $sales_invoice_store_id, $sales_invoice_is_paid, $sales_invoice_payment_mode, $sales_invoice_payment_reference, $sales_invoice_cycle_mode, $sales_invoice_is_generated,  $sales_invoice_is_original, $sales_invoice_creator, $sales_invoice_is_estimate, $sales_invoice_is_vat_applicable, $sales_discount_amount, $sales_invoice_manufacturer,  $sales_invoice_vat, $sales_invoice_bank_account, $sales_invoice_currency)
 	{
-		$sql="INSERT INTO `app_sales_invoice`(`sales_invoice_number`, `sales_invoice_customer_id`, `sales_invoice_customer_address_id`, `sales_invoice_store_id`, `sales_invoice_is_paid`, `sales_invoice_payment_mode`, `sales_invoice_payment_reference`, `sales_invoice_cycle_mode`,  `sales_invoice_created_date`, `sales_invoice_is_generated`,`sales_invoice_is_original`, `sales_invoice_creator`, `sales_invoice_last_date`, `sales_invoice_is_estimate`, `sales_invoice_is_vat_applicable`, `sales_discount_amount`, `sales_invoice_manufacturer`, `sales_invoice_vat`, `sales_invoice_currency`) VALUES ('$sales_invoice_number', $sales_invoice_customer_id, '$sales_invoice_customer_address_id', '$sales_invoice_store_id', '$sales_invoice_is_paid', '$sales_invoice_payment_mode', '$sales_invoice_payment_reference', '$sales_invoice_cycle_mode', NOW(), '$sales_invoice_is_generated', '$sales_invoice_is_original', '$sales_invoice_creator', CURRENT_DATE,  '$sales_invoice_is_estimate', '$sales_invoice_is_vat_applicable', '$sales_discount_amount', '$sales_invoice_manufacturer', '$sales_invoice_vat', '$sales_invoice_currency')";	
+		$sql="INSERT INTO `app_sales_invoice`(`sales_invoice_number`, `sales_invoice_customer_id`, `sales_invoice_customer_address_id`, `sales_invoice_store_id`, `sales_invoice_is_paid`, `sales_invoice_payment_mode`, `sales_invoice_payment_reference`, `sales_invoice_cycle_mode`,  `sales_invoice_created_date`, `sales_invoice_is_generated`,`sales_invoice_is_original`, `sales_invoice_creator`, `sales_invoice_last_date`, `sales_invoice_is_estimate`, `sales_invoice_is_vat_applicable`, `sales_discount_amount`, `sales_invoice_manufacturer`, `sales_invoice_vat`, `sales_invoice_bank_account`, `sales_invoice_currency`) VALUES ('$sales_invoice_number', $sales_invoice_customer_id, '$sales_invoice_customer_address_id', '$sales_invoice_store_id', '$sales_invoice_is_paid', '$sales_invoice_payment_mode', '$sales_invoice_payment_reference', '$sales_invoice_cycle_mode', NOW(), '$sales_invoice_is_generated', '$sales_invoice_is_original', '$sales_invoice_creator', CURRENT_DATE,  '$sales_invoice_is_estimate', '$sales_invoice_is_vat_applicable', '$sales_discount_amount', '$sales_invoice_manufacturer', '$sales_invoice_vat', '$sales_invoice_bank_account', '$sales_invoice_currency')";	
 		//echo $sql;
 		$dbc 	= 	new DB();
 		$result	=	$dbc->db_query($sql);
@@ -413,7 +413,7 @@ class SalesInvoice extends DB{
 			return false;
 	}
 	
-	function getJsonRecords($draw, $searchKeyword, $orderPosition, $orderDirection, $start, $length, $filter=NULL){
+	function getJsonRecords($draw, $searchKeyword, $orderPosition, $orderDirection, $start, $length, $filter=NULL, $pending = false){
 				
 		global $app;
 		$this->start 	= $start;
@@ -486,6 +486,13 @@ class SalesInvoice extends DB{
 		if(isCustomer()){
 			$conditionArray[] = array("`sales_invoice_customer_id`", "=", getLoginId());	
 		}
+		
+		if($pending){
+			$conditionArray[] = array("`sales_invoice_is_cancelled`", "=", '0');
+			$conditionArray[] = array("`sales_invoice_status`", "!=", '1');
+			$conditionArray[] = array("`sales_invoice_is_paid`", "=", '1');			
+		}
+		
 		$this->condition = $conditionArray;
 		
 		if($this->customer!=0)
@@ -551,8 +558,12 @@ class SalesInvoice extends DB{
 		}
 		return $record_array;		
 	}
-	function getWebsiteFilteration(){
-		$sql = "SELECT a.`sales_invoice_store_id`, b.`store_name`, b.`store_title`, b.`store_icon`, COUNT(a.`sales_invoice_id`) as record FROM `".$this->table_name."` AS a INNER JOIN `app_store_master` AS b ON a.`sales_invoice_store_id` = b.`store_id` GROUP BY `sales_invoice_store_id` ORDER BY `store_name`";
+	function getWebsiteFilteration($pending=false){
+		$condition = "";
+		if($pending){
+			$condition = "WHERE a.`sales_invoice_is_cancelled` = '0' AND a.`sales_invoice_status` != '1' AND a.`sales_invoice_is_paid` = '1'";	
+		}
+		$sql = "SELECT a.`sales_invoice_store_id`, b.`store_name`, b.`store_title`, b.`store_icon`, COUNT(a.`sales_invoice_id`) as record FROM `".$this->table_name."` AS a INNER JOIN `app_store_master` AS b ON a.`sales_invoice_store_id` = b.`store_id` $condition GROUP BY `sales_invoice_store_id` ORDER BY `store_name`";
 		$dbc 	= 	new DB();
 		$result	=	$dbc->db_query($sql);
 		$worder_array = array();
@@ -565,8 +576,12 @@ class SalesInvoice extends DB{
 		}
 		return $worder_array;
 	}
-	function getCreatorFilteration(){
-		$sql = "SELECT b.`user_id`, b.`user_fname`, b.`user_lname`, b.`user_image`, COUNT(a.`sales_invoice_id`) as record FROM `".$this->table_name."` AS a INNER JOIN `app_system_user` AS b on a.`sales_invoice_creator` = b.`user_id` GROUP BY a.`sales_invoice_creator` ORDER BY b.`user_fname`";
+	function getCreatorFilteration($pending = false){
+		$condition = "";
+		if($pending){
+			$condition = "WHERE a.`sales_invoice_is_cancelled` = '0' AND a.`sales_invoice_status` != '1' AND a.`sales_invoice_is_paid` = '1'";	
+		}
+		$sql = "SELECT b.`user_id`, b.`user_fname`, b.`user_lname`, b.`user_image`, COUNT(a.`sales_invoice_id`) as record FROM `".$this->table_name."` AS a INNER JOIN `app_system_user` AS b on a.`sales_invoice_creator` = b.`user_id` $condition GROUP BY a.`sales_invoice_creator` ORDER BY b.`user_fname`";
 		$dbc 	= 	new DB();
 		$result	=	$dbc->db_query($sql);
 		$data = array();		
@@ -576,8 +591,12 @@ class SalesInvoice extends DB{
 		}
 		return $data;
 	}
-	function getStatusFilteration(){
-		$sql = "SELECT b.`wc_status_id`, b.`wc_status_name`, COUNT(a.`sales_invoice_id`) as record FROM `".$this->table_name."` AS a INNER JOIN `app_wc_status` AS b on a.`sales_invoice_status` = b.`wc_status_id` GROUP BY b.`wc_status_name` ORDER BY b.`wc_status_name`";
+	function getStatusFilteration($pending = false){
+		$condition = "";
+		if($pending){
+			$condition = "WHERE a.`sales_invoice_is_cancelled` = '0' AND a.`sales_invoice_status` != '1' AND a.`sales_invoice_is_paid` = '1'";	
+		}
+		$sql = "SELECT b.`wc_status_id`, b.`wc_status_name`, COUNT(a.`sales_invoice_id`) as record FROM `".$this->table_name."` AS a INNER JOIN `app_wc_status` AS b on a.`sales_invoice_status` = b.`wc_status_id` $condition GROUP BY b.`wc_status_name` ORDER BY b.`wc_status_name`";
 		$dbc 	= 	new DB();
 		$result	=	$dbc->db_query($sql);
 		$data = array();		

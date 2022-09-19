@@ -371,6 +371,12 @@
 		</div>
 		</div>
 		<div class="card-body p-2 d-flex align-items-center">
+		<i class="fa fa-amazon bg-danger p-1 font-2xl mr-2 amazonorderrefreshloaderuae"></i>
+		<div>
+			<div class=""><a id="amazonorderrefreshuae" class="btn btn-outline-info">Refresh Amazon UAE Order</a></div>
+		</div>
+		</div>
+		<div class="card-body p-2 d-flex align-items-center">
           <div class="form-group w-100">
             <label for="order_id">Import Amazon Order</label>
             <div class="input-group date">
@@ -564,6 +570,36 @@ $(document).on("click", "#amazonorderrefresh", function(e){
 		});
 	}
 });
+
+$(document).on("click", "#amazonorderrefreshuae", function(e){
+	if(checkingOrder == false)
+	{
+		checkingOrder = true;
+		e.preventDefault();
+		var data={};	
+		$.ajax({type:'POST', data:data, url:sitePath +'api/amazonuae/orderlist.php', 		
+				beforeSend: function(){
+					$(".amazonorderrefreshloaderuae").removeClass('bg-info fa-amazon');
+					$(".amazonorderrefreshloaderuae").addClass('fa-spin text-info fa-refresh');
+			},		
+			success:function(output){
+				checkingOrder = false;
+				$(".amazonorderrefreshloaderuae").addClass('bg-info fa-amazon');
+				$(".amazonorderrefreshloaderuae").removeClass('fa-spin text-info fa-refresh');
+				var arr	=	JSON.parse(output);	
+				if(arr[0]==200)
+				{
+					amazonApiMessage(arr[1],2000);
+				}
+				else
+					amazonApiMessage(arr[1],5000);
+				
+			}
+		});
+	}
+});
+
+
 
 
 $(document).on("click", "#btn_fetch_store_order", function(e){

@@ -39,6 +39,7 @@ class ProductAvailbility extends DB{
 				elseif($row['pro_avail_stock_status'] == self::$WAITING)
 					$alertCalss = "warning";
 				$row['pro_avail_class'] = $alertCalss;
+				$row['pro_avail_remark_beautify'] = applyAnchor($row['pro_avail_remark']);
 				$record_array[] = $row;
 			}
 		}
