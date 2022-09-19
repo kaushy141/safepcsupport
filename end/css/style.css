@@ -84,6 +84,7 @@ ul.navbar-nav li a{
 
 .is-sticky .main-menu .navbar-inverse{
 	background:#3880ff;
+
 	transition:0.4s;
 	padding:15px 0;
 }
