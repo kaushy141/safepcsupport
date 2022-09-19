@@ -75,27 +75,30 @@
 	
 	function processOrder($service, $order, $successImportOrder=0)
 	{
+	    global $MWSAuthToken;
 		if($order['OrderStatus'] != "Canceled" && $order['OrderStatus'] != "Pending")
 		{
-			$aouth = md5('www.amazon.com');
+			$aouth = md5('www.amazon.ae');
 			$icon 						= getFcmMessageIcon($aouth);
 			$web_order_website_id 		= getWebsiteIdByAouth($aouth);
-			$web_order_website_id 		= $web_order_website_id ? $web_order_website_id : 11;						
-				
+			$web_order_website_id 		= $web_order_website_id ? $web_order_website_id : 17;						
+			
 			$web_order_number 			= isset($order['AmazonOrderId'])	? getData($order['AmazonOrderId'])		:	'N/A';
 			
 			$websiteOrder =  new WebsiteOrder();
 			$isOrderExist = $websiteOrder->isOrderExist($web_order_number, $web_order_website_id);
-			
+				
 			if(!$isOrderExist)
 			{
 				$request = new MarketplaceWebServiceOrders_Model_ListOrderItemsRequest();
 				$request->setSellerId(MERCHANT_ID);
 				$request->setAmazonOrderId($web_order_number);
+				$request->setMWSAuthToken($MWSAuthToken);
 				$productData = array();
 				$web_order_total_shipping = 0;
 				$web_order_currency 		= isset($order['OrderTotal']['CurrencyCode'])	? getData($order['OrderTotal']['CurrencyCode'])		:	'XXX';	
 				$products = invokeListOrderItems($service, $request);
+				//print_r($products);die;
 				if($products)
 				{
 					if(count($products))
@@ -213,6 +216,7 @@ function invokeListOrderItems(MarketplaceWebServiceOrders_Interface $service, $r
         $dom->formatOutput = true;
         $xmlData = $dom->saveXML();
         $productData = parseXmlToArray($xmlData);
+        //print_r($productData);
 		if(isset($productData['ListOrderItemsResult']['OrderItems']['OrderItem']))
 		{
 			$productArray[] = $productData['ListOrderItemsResult']['OrderItems']['OrderItem'];

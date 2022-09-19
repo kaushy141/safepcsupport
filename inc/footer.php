@@ -40,8 +40,13 @@ if(winnerHtml != '')
 {
 	bottomNotificationStack.push(winnerHtml);
 	<?php if(date('d') <= Voting::$votingOpenDays ){?>
+	if(getCookie('vottingResultSeen') != '1'){
 		showLastMonthWinnerTable();
-	<?php }?>
+		setCookie('vottingResultSeen', 1, 1);
+	}
+	<?php }else{
+		echo "delCookie('vottingResultSeen');";		
+	}?> 
 }
 
 function showLastMonthWinnerTable(){

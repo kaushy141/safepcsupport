@@ -12,11 +12,11 @@
 		<MarketplaceId1>A1F83G8C2ARO7P</MarketplaceId1>
 		<ProductionMode>1</ProductionMode>
 		<ServiceEnable>1</ServiceEnable>-->
-		<AWSAccessKeyId>AKIAJY2VNOIZKN2UHMTA</AWSAccessKeyId>
+		<AWSAccessKeyId>AKIAIQF3PPJXXKETACLA</AWSAccessKeyId>
 		<ApplicationName>SPD Support System</ApplicationName>
 		<ApplicationVersion>amzn1.sellerapps.app.7875114b-581e-40e2-b4a0-0b6f888087ff</ApplicationVersion>
 		<SellerId>A3RTFQ78WCQ3O7</SellerId>
-		<ClientSecret>4xjMqrVMR+aikd5jHip6kB6tAEZTDdsnz4Z7k23u</ClientSecret>
+		<ClientSecret>TKLsp+865LOADHIYc4zX3E6S1cQJucve9gN7HXbe</ClientSecret>
 		<SignatureVersion>2</SignatureVersion>
 		<SignatureMethod>HmacSHA256</SignatureMethod>
 		<Version>2013-09-01</Version>

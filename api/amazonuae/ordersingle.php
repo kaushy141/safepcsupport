@@ -2,11 +2,12 @@
 include("../../setup.php");
 //ini_set('display_errors', 1);
 error_reporting(0);
-extract(App::exploreApiCredentilas('AmazonOrderApi'));
+extract(App::exploreApiCredentilas('AmazonOrderApiUae'));
 require_once('Model/.config.inc.php');
 require_once('Client.php');
 $orderId = (isset($_POST['order_id']) && !is_array($_POST['order_id'])) ? trim($_POST['order_id']) : ((isset($_GET['order_id']) && !is_array($_GET['order_id'])) ? trim($_GET['order_id']) : '');
-$serviceUrl = "https://mws-eu.amazonservices.com/Orders/2013-09-01";
+//$serviceUrl = "https://mws-ae.amazonservices.com/Orders/2013-09-01";
+$serviceUrl = "https://mws.amazonservices.ae/Orders/2013-09-01";
 
  $config = array (
    'ServiceURL' => $serviceUrl,
@@ -15,6 +16,7 @@ $serviceUrl = "https://mws-eu.amazonservices.com/Orders/2013-09-01";
    'ProxyUsername' => null,
    'ProxyPassword' => null,
    'MaxErrorRetry' => 3,
+   'MWSAuthToken' => $MWSAuthToken
  );
 
  $service = new MarketplaceWebServiceOrders_Client(

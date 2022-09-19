@@ -694,25 +694,25 @@ function openChatLogForm(id, title) {
 	}*/
 	if(userType == "E")
 	{
-		bodyHtml += `<div class="form-group logmediauploaderbox">
+		bodyHtml += `<div class="w-100"><div class="form-group logmediauploaderbox">
 					<div contenteditable class="logmediauploader" data-id="`+idData[0]+`" data-media-section="logChatMediaUpload" data-media-counter="null" data-name="log_chat_media_upload_file">
 						<span class="mediaplaceholder">
-							<i class="fa fa-paperclip"></i> Upload Media by Drag&Drop, Click Or Paste
+							<i class="fa fa-paperclip"></i> Drag&Drop, Paste file Or Click to Upload
 						</span>
 					</div>
 					<input type="file" style="display:none;" class="logmediainputfile" name="logmediainputfile" onchange="handleLogDargFile(this.files)">
-				</div>`;
+				</div></div>`;
 	}
 	
     if (userType == "E"){
-        bodyHtml += `<div class="form-group mb-0">
+        bodyHtml += `<div class="w-100"><div class="form-group mb-0">
 						<input type="checkbox" value="1" name="mark_message_private" id="mark_message_private" />
 						<label for="mark_message_private">Show this message to customer also.</label>
 					</div>`;
 		bodyHtml += `<div class="form-group">
 						<input type="checkbox" value="1" name="notify_all_participants" id="notify_all_participants" /> 
 						<label for="notify_all_participants">Notify all participants of this conversation including tagged.</label>
-					</div>`;
+					</div></div>`;
 	}
     bodyHtml += `</div>`;
     bodyHtml += `</div>`;
@@ -1194,11 +1194,18 @@ function getToDoMentionyItems(){
 
 
 function getMentionyText(){
-	return $(".mentiony-content").text();
+   if( $(".mentiony-content div").length > 0){
+       return $(".mentiony-content div").map(function() {
+		return $(this).text();
+	}).get().join('\n');
+   }else{
+       return $(".mentiony-content").text();
+   }
 }
 
 function submitChatLogPopup() {
-    if (validateFields("log_comment_text", true)) {
+    var logtext = getMentionyText(); 
+    if (1) {
         var idData = $("#keyid").val().split('|');
 		var formdata = new FormData(); 
 		if(logMediablob != null){
@@ -1206,7 +1213,7 @@ function submitChatLogPopup() {
 			formdata.append('mediatype', logMediablob, logMediablob.type);
 		}
 		formdata.append('action', 'repair/insertcomplaintlog'); 
-		formdata.append('logtext', getMentionyText()); 
+		formdata.append('logtext', logtext); 
 		formdata.append('replier_parent', $(".complaint_log_reply_parent").length ? $(".complaint_log_reply_parent").val() : 0); 
 		var mentionObject = getMentionyItems();
 		//console.log(mentionObject);
@@ -2404,6 +2411,11 @@ function getCookie(cname) {
         }
     }
     return "";
+}
+
+function delCookie(cname) {
+    var expires = "expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    document.cookie = cname + "=" + ";" + expires + ";path=/";
 }
 
 
