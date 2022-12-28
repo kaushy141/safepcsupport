@@ -442,7 +442,7 @@ class SalesInvoice extends DB{
 															"join" => array("type"=>"LEFT JOIN", "table"=>"`app_sales_invoice_product_detail`", "on"=>array("`product_id`" => "`sipd_product_id`"))
 															),
 								"`app_store_master`" => array(
-															"column"=> array("`store_name`", "`store_icon`", "`store_link`"),
+															"column"=> array("`store_name`", "`store_official_name`", "`store_icon`", "`store_link`"),
 															"reference" => "g",
 															"join" => array("type"=>"LEFT JOIN", "table"=>"`app_sales_invoice`", "on"=>array("`store_id`" => "`sales_invoice_store_id`"))
 															),
@@ -521,7 +521,7 @@ class SalesInvoice extends DB{
 								$row["sales_invoice_number"],
 								viewText($row["customer_name"]),
 								getCurrencySymbol($row['sales_invoice_currency']).$row["total_products_amount"],
-								$row["store_name"],
+								$row["store_official_name"],
 								$row["wc_status_name"].($row["sales_invoice_is_paid"]?" (Paid)":" (Unpaid)"),
 								isAdmin() ? "<div class=\"btn-group\">
   <button type=\"button\" class=\"btn btn-default dropdown-toggle dropdown-toggle-split\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">

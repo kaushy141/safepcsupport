@@ -615,10 +615,6 @@ $(document).on("click", "#btn_fetch_store_order", function(e){
 			toastMessage('warning|Please enter order number');
 			return;
 		}
-		if($(".fetch_order_id").val().length != 9){
-			toastMessage('warning|Please enter valid 9 digit order number');
-			return;
-		}
 		var data={
 			'action' 	: 'weborder/fetchstoreorder',
 			'store_id'	: $(".fetch_store_id").val(),

@@ -226,6 +226,13 @@ class DOC{
 	public static function EMPEXPLETTER($id){
 	return self::getLink("empexperienceletter/$id");
 	}
+	public static function SALESPROFITEXCEL(){
+	return self::getLink("salesprofitexcel");
+	}
+	public static function WOINVOICE($id)
+	{
+	return self::getLink("weborder-invoice/$id");
+	}
 	
 }
 

@@ -47,7 +47,6 @@ if(winnerHtml != '')
 	<?php }else{
 		echo "delCookie('vottingResultSeen');";		
 	}?> 
-
 }
 
 function showLastMonthWinnerTable(){

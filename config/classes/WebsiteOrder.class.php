@@ -10,7 +10,7 @@ class WebsiteOrder extends DB{
 	}	
 	
 	function load(){
-		$sql = "SELECT a.*, b.*, c.`wc_status_name`, c.`wc_status_color_code`, d.`store_name`, d.`store_icon`,d.`store_logo`, CONCAT(e.`customer_address_street_number`,  ', ', e.`customer_address_route`, ', ', e.`customer_address_locality`, ', ', e.`customer_address_administrative_area`, ', ', e.`customer_address_country`, ' - ', e.`customer_address_postcode`) as customer_full_address, f.`customer_type_name`
+		$sql = "SELECT a.*, b.*, CONCAT(b.`customer_fname`, ' ', b.`customer_lname`) as customer_name, c.`wc_status_name`, c.`wc_status_color_code`, d.`store_name`, d.`store_icon`,d.`store_logo`, CONCAT(e.`customer_address_street_number`,  ', ', e.`customer_address_route`, ', ', e.`customer_address_locality`, ', ', e.`customer_address_administrative_area`, ', ', e.`customer_address_country`, ' - ', e.`customer_address_postcode`) as customer_full_address, f.`customer_type_name`
 		FROM  `app_website_order` AS a  
 		INNER JOIN `app_customer` AS b ON ( b.`customer_id` = a.`web_order_customer_id` )  
 		LEFT JOIN `app_wc_status` AS c ON ( c.`wc_status_id` = a.`web_order_status`  )  
@@ -206,6 +206,7 @@ class WebsiteOrder extends DB{
   <div class=\"dropdown-menu dropdown-menu-right\">
     ".(isAdmin()?	
     ("<a class=\"dropdown-item redirect\" href=\"viewweborder/".$row['web_order_id']."\"><i class=\"fa fa-share-square-o fa-fw\"></i> View</a>
+	<a class=\"dropdown-item\" href=\"javascript:newWindow('".DOC::WOINVOICE($row['web_order_id'])."');\"><i class=\"fa fa-file-pdf-o fa-fw text-danger\"></i> Download Invoice</a>
 	<a class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#appModal\" onclick=\"openChatLogForm('$row[web_order_id]|O', '<img class=\'img-avatar\' src=\'".$app->imagePath($row["store_icon"])."\' style=\'height:24px; width:24px;\'> #$row[web_order_number] Log Report')\"><i class=\"fa fa-comments-o fa-fw\"></i> Log</a>
 	<a class=\"dropdown-item redirect\" href=\"addshipment/weborder/".$row['web_order_id']."\"><i class=\"fa fa-truck text-warning fa-fw\"></i> Shipment</a>
 	<a class=\"dropdown-item redirect\" href=\"addrefund/O/".$row['web_order_id']."\"><i class=\"fa fa-registered text-danger fa-fw\"></i> Refund</a>
@@ -347,6 +348,7 @@ class WebsiteOrder extends DB{
   <div class=\"dropdown-menu dropdown-menu-right\">
     ".(isAdmin()?	
     ("<a class=\"dropdown-item redirect\" href=\"viewweborder/".$row['web_order_id']."\"><i class=\"fa fa-share-square-o fa-fw\"></i> View</a>
+	<a class=\"dropdown-item\" href=\"javascript:newWindow('".DOC::WOINVOICE($row['web_order_id'])."');\"><i class=\"fa fa-file-pdf-o fa-fw text-danger\"></i> Download Invoice</a>
 	<a class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#appModal\" onclick=\"openChatLogForm('$row[web_order_id]|O', '<img class=\'img-avatar\' src=\'".$app->imagePath($row["store_icon"])."\' style=\'height:24px; width:24px;\'> #$row[web_order_number] Log Report')\"><i class=\"fa fa-comments-o fa-fw\"></i> Log</a>
 	<a class=\"dropdown-item redirect\" href=\"addshipment/weborder/".$row['web_order_id']."\"><i class=\"fa fa-truck text-warning fa-fw\"></i> Shipment</a>
 	<a class=\"dropdown-item redirect\" href=\"addrefund/O/".$row['web_order_id']."\"><i class=\"fa fa-registered text-danger fa-fw\"></i> Refund</a>
@@ -737,6 +739,25 @@ class WebsiteOrder extends DB{
 		}
 		else{
 			return json_encode(array(300, "Invoice already fetched or uploaded."));
+		}
+	}
+	
+	function geInvoiceProductsQuery($currency = 'GBP', $vat=SALES_VAT_PERCENTAGE)
+	{
+		return "SELECT CONCAT('$currency ',ROUND((`wo_product_sell_price`*100)/(100+$vat),2)) as product_unit_price, CONCAT('$currency ', ROUND((((`wo_product_sell_price`*100)/(100+$vat)) * `wo_product_quantity`), 2)) as product_amount,  `wo_product_quantity` as product_quantity, CONCAT(`wo_product_name`, CASE WHEN (`wo_product_options` IS NOT NULL) THEN CONCAT(' - <b>', `wo_product_options`, '</b>') ELSE '' END) as product_name, CONCAT('$currency ',ROUND((((`wo_product_sell_price`*100)/(100+$vat)*$vat/100) * `wo_product_quantity`),2)) as product_vat FROM `app_website_order_product` 
+		WHERE `wo_web_order_id` = '".$this->id."' ORDER BY wo_id";	
+	}
+	
+	function getInvoiceSum($vat=null)
+	{
+		$vat = $vat === null ? SALES_VAT_PERCENTAGE : $vat;
+		$sql = "SELECT SUM(`wo_product_quantity`) AS items, SUM(ROUND(((`wo_product_sell_price`*100)/(100+$vat) * $vat/100),2) * `wo_product_quantity`) as product_sum_vat, SUM(ROUND((`wo_product_sell_price`*100)/(100+$vat),2) * `wo_product_quantity`) as product_sum_amount FROM `app_website_order_product` WHERE `wo_web_order_id` = '".$this->id."'";
+		$dbc 	= 	new DB();
+		$result	=	$dbc->db_query($sql);
+		if($dbc->db_num_rows($result))	
+		{	
+			$data = $dbc->db_fetch_assoc(true);
+			return $data;
 		}
 	}
 }
