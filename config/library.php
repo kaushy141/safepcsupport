@@ -19,8 +19,8 @@ function getBaseAmount($amount, $currency, $baseCurrency = 'GBP'){
 		'EUR' => 1.1532,
 		'AED' => 5.02
 	);
-	
-	return round($amount * ($currencyExchange[$currency] / $currencyExchange[$baseCurrency]), 2);
+	return round($amount * ($currencyExchange[$baseCurrency]/$currencyExchange[$currency]), 2);
+	//return round($amount * ($currencyExchange[$currency] / $currencyExchange[$baseCurrency]), 2);
 }
 
 function getCurrencySymbol($currency = 'GBP'){

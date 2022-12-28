@@ -90,8 +90,7 @@
       <div class="card-header"> <i class="fa fa-align-justify"></i> Sales Profit Report
         <div class="card-actions">
           <?php if(isAdmin()):?>
-          <a data-title="Get Excel File" title="Get Excel File" href="javascript:newWindow('<?=DOC::WEOBORDEREXCEL();?>');"><i class="fa fa-file-excel-o font-2xl d-block m-t-2"></i></a>
-		  <a data-title="Collection PDF Report" title="Generate PDF Report" href="javascript:newWindow('<?=DOC::WEBORDERLIST();?>');"><i class="icon-printer icons font-2xl d-block m-t-2"></i></a>
+          <a data-title="Get Excel File" title="Get Excel File" href="javascript:newWindow('<?=DOC::SALESPROFITEXCEL();?>');"><i class="fa fa-file-excel-o font-2xl d-block m-t-2"></i></a>
           <?php endif; ?>
         </div>
       </div>
@@ -100,11 +99,14 @@
           <thead>
             <tr>
               <th>Source</th>
+			  <th>Store</th>
+			  <th>Customer</th>
 			  <th>OrderNo</th>
               <th>Purchase</th>
 			  <th>Sell</th>
-			  <th>Shipping</th>
+			  <th>Ship</th>
               <th>Profit</th>
+			  <th>Payment</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -153,7 +155,7 @@ function refreshRecords(){
 					var records  = arr[2]['records'];	
 					for(var i=0; i<records.length; i++){
 						var r = records[i];
-						datatable.row.add( [ r['source'], r['order_number'], r['base_purchase_price'], r['base_sell_price'], r['base_shipping_paid'], r['base_profit'],  '<a data-quick-view=\"true\" data-toggle=\"modal\" data-target=\"#appModalQuick\" data-quick-url=\"'+(r['source']=='Web order'?'viewweborder':'salesinvoice')+'/'+r['id']+'\" class=\"btn btn-info text-white\">View</a>' ] ).draw().node();
+						datatable.row.add( [ r['source'], r['store'], r['customer'], r['order_number'], r['base_purchase_price'], r['base_sell_price'], r['base_shipping_paid'], r['base_profit'], r['payment'],  '<a data-quick-view=\"true\" data-toggle=\"modal\" data-target=\"#appModalQuick\" data-quick-url=\"'+(r['source']=='Web order'?'viewweborder':'salesinvoice')+'/'+r['id']+'\" class=\"btn btn-info text-white\">View</a>' ] ).draw().node();
 						//var tr = $("<tr><td>"+r['order_number']+"</td><td>"+r['base_purchase_price']+"</td><td>"+r['base_sell_price']+"</td><td>"+r['base_shipping_price']+"</td><td>"+r['base_profit']+"</td><td>"+r['product_name']+"</td><td>action</td></tr>");
 						//datatable.row.add(tr[i]).draw();
 					}

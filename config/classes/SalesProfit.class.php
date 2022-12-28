@@ -80,14 +80,23 @@ class SalesProfit extends DB{
 		
 		$invoicecondition = $this->getReportCondition('sales_invoice_date', $interval, $from_date, $to_date);
 			
-		$sql = "SELECT a.`web_order_currency` AS currency, 'Web order' AS source, a.`web_order_created_date` AS invoice_date, a.`web_order_id` as id, a.`web_order_number` AS order_number, p.`wo_product_sku` as product_sku, p.`wo_product_name` as product_name, p.`wo_product_purchase_amount` AS purchase_price, p.`wo_product_sell_price` AS sell_price, p.`wo_product_shipping_price` AS shipping_intake, p.`wo_product_options` as options, p.`wo_product_purchase_amount` AS purchase_amount, p.`wo_product_shipping_price` as shipping_paid FROM `app_website_order` AS a INNER JOIN `app_website_order_product` AS p ON ( p.`wo_web_order_id` = a.`web_order_id` ) WHERE a.web_order_status = '1' AND $ordercondition 
+		$sql = "SELECT a.`web_order_currency` AS currency, 'Web order' AS source, s.`store_name` AS store, CONCAT(c.`customer_fname`, ' ', c.`customer_lname`) AS customer, a.`web_order_created_date` AS invoice_date, a.`web_order_id` as id, a.`web_order_number` AS order_number, p.`wo_product_sku` as product_sku, p.`wo_product_name` as product_name, p.`wo_product_purchase_amount` AS purchase_price, p.`wo_product_sell_price` AS sell_price, p.`wo_product_shipping_price` AS shipping_intake, p.`wo_product_options` as options, p.`wo_product_purchase_amount` AS purchase_amount, p.`wo_product_shipping_price` as shipping_paid, a.`web_order_payment_method` as payment FROM `app_website_order` AS a 
+		INNER JOIN `app_website_order_product` AS p ON ( p.`wo_web_order_id` = a.`web_order_id` ) 
+		INNER JOIN `app_store_master` AS s ON a.`web_order_website_id` = s.`store_id` 
+		INNER JOIN `app_customer` AS c ON ( c.`customer_id` = a.`web_order_customer_id` )  
+		WHERE a.web_order_status = '1' AND $ordercondition 
 		
 		UNION 
 		
-		SELECT a.`sales_invoice_currency` AS currency, 'Sales invoice' AS source, a.`sales_invoice_date` AS invoice_date, a.`sales_invoice_id` as id, a.`sales_invoice_number` AS order_number, p.`sipd_product_sku` as product_sku, i.`product_name` as product_name, p.`sipd_product_price` AS purchase_price, p.`sipd_product_price` AS sell_price, 0 AS shipping_intake, '' as options, p.`sipd_purchase_amount` as purchase_base_amount, 0 as shipping_paid FROM `app_sales_invoice` AS a INNER JOIN `app_sales_invoice_product_detail` AS p ON ( p.`sipd_invoice_id` = a.`sales_invoice_id` ) INNER JOIN `app_sales_products` AS i ON ( i.`product_id` = p.`sipd_product_id` ) WHERE a.sales_invoice_status = '1' AND $invoicecondition 
+		SELECT a.`sales_invoice_currency` AS currency, 'Sales invoice' AS source, s.`store_name` as store, CONCAT(c.`customer_fname`, ' ', c.`customer_lname`) AS customer, a.`sales_invoice_date` AS invoice_date, a.`sales_invoice_id` as id, a.`sales_invoice_number` AS order_number, p.`sipd_product_sku` as product_sku, i.`product_name` as product_name, p.`sipd_product_price` AS purchase_price, p.`sipd_product_price` AS sell_price, 0 AS shipping_intake, '' as options, p.`sipd_purchase_amount` as purchase_base_amount, 0 as shipping_paid, a.`sales_invoice_payment_mode` as payment FROM `app_sales_invoice` AS a 
+		INNER JOIN `app_sales_invoice_product_detail` AS p ON ( p.`sipd_invoice_id` = a.`sales_invoice_id` ) 
+		INNER JOIN `app_sales_products` AS i ON ( i.`product_id` = p.`sipd_product_id` ) 
+		INNER JOIN `app_store_master` AS s ON a.`sales_invoice_store_id` = s.`store_id` 
+		INNER JOIN `app_customer` AS c ON ( c.`customer_id` = a.`sales_invoice_customer_id` )
+		WHERE a.sales_invoice_status = '1' AND $invoicecondition 
 		
 		ORDER BY invoice_date DESC, id DESC";
-		
+		$_SESSION['REPORT']['SQL'] = $sql;
 		$dbc 	= 	new DB();
 		$result	=	$dbc->db_query($sql);
 		if($dbc->db_num_rows()>0)

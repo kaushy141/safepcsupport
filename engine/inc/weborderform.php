@@ -1092,6 +1092,7 @@
                       <button type="button" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action<span class="sr-only"></span></button>
                       <div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item redirect" href="<?php echo $app->basePath("viewweborder/$web_order_id"); ?>"><i class="fa fa-refresh"></i> Reload</a>
                         <?php if(isAdmin()){?>
+						<a class="dropdown-item" href="javascript:newWindow('<?php echo DOC::WOINVOICE($web_order_id)?>');"><i class="fa fa-file-pdf-o fa-fw text-danger"></i> Download Invoice</a>
                         <a class="dropdown-item redirect" href="<?php echo $app->basePath("addshipment/weborder/$web_order_id"); ?>"><i class="fa fa-truck text-warning"></i> Shipment</a> <a class="dropdown-item redirect" href="<?php echo $app->basePath("addrefund/O/$web_order_id"); ?>"><i class="fa fa-registered text-danger"></i> Refund</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#appModal" onclick="checkOrderFulfilment('<?php echo $web_order_id;?>');"><i class="fa fa-cube"></i> Check Fulfilment</a>
                         <?php 
 					}?>
@@ -1137,7 +1138,7 @@ $assignedShipmentRecords = $weborderLabels->getAssignedShipmentLabel($web_order_
 			  </div>
 			  <div class="card-body">
 				<div class="p-1 pt-0 d-flex align-items-center justify-content-between">
-				  <div class="pl-0 justify-content-start"> <img class="img" alt="Dawit" src="<?php echo $app->imagePath($_webShipment["store_logo"])?>" height="24px"> </div>
+				  <div class="pl-0 justify-content-start"> <img class="img" alt="Store" src="<?php echo $app->imagePath($_webShipment["store_logo"])?>" height="24px"> </div>
 				  <div class="justify-content-end ml-auto pl-1"> <a href="<?php echo $app->basePath('viewweborder/'.$_webShipment["web_order_id"])?>" class="redirect btn btn-outline-info pull-right"><?php echo $_webShipment["web_order_number"]?></a> </div>
 				</div>
 				<div class="px-1 pt-0 pb-1 d-flex align-items-left justify-content-start"> <img class="img-circle" title="<?php echo $_webShipment['uploader_fname']?>" data-toggle="popover" data-content="Assigned by <?php echo $_webShipment['uploader_fname']?> at <?php echo dateView($_webShipment["label_uploaded_date"], 'FULL')?>" alt="<?php echo $_webShipment['uploader_fname']?>" src="<?php echo getResizeImage($_webShipment["uploader_image"],50)?>" height="20px"> &nbsp; <?php echo limitText($_webShipment['uploader_fname'], 10)?> at <?php echo date("d-M h:iA", strtotime($_webShipment["label_uploaded_date"]))?> </div>
