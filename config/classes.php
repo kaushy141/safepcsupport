@@ -85,23 +85,21 @@
 <?php include("classes/UserTag.class.php"); ?>
 <?php include("classes/JivoChat.class.php"); ?>
 <?php
-class Modal{
-	
-	static function load($modal_name=null)
-	{		
-		if($modal_name != null){
-			if(is_array($modal_name)){
-				foreach($modal_name as $modal){
+class Modal
+{
+
+	static function load($modal_name = null)
+	{
+		if ($modal_name != null) {
+			if (is_array($modal_name)) {
+				foreach ($modal_name as $modal) {
 					Modal::load($modal);
 				}
-			}
-			else
-			{			
-				$modal_file_name = str_replace('.class', '', str_replace('.php', '', trim($modal_name))).'.class.php';					
-				if(!file_exists('classes/'.$modal_file_name)){
-					include("classes/".$modal_file_name);
-				}
-				else{
+			} else {
+				$modal_file_name = str_replace('.class', '', str_replace('.php', '', trim($modal_name))) . '.class.php';
+				if (!file_exists('classes/' . $modal_file_name)) {
+					include("classes/" . $modal_file_name);
+				} else {
 					die("Requested modal '$modal_name' could not loaded");
 				}
 			}
@@ -117,11 +115,12 @@ class Modal{
 	}
 	static function loadScript($script)
 	{
-		include(BP.rtrim(trim($script), '.php').'.php');
+		include(BP . rtrim(trim($script), '.php') . '.php');
 	}
 }
 
-class MediaSection{
+class MediaSection
+{
 	public static $collectionMedia = "Collection Media";
 	public static $repairMedia = "Repair Media";
 	public static $InvoiceMedia = "Invoice Media";
@@ -133,6 +132,6 @@ class MediaSection{
 	public static $repairLabelInvoiceMedia = "Repair Label Invoice Media";
 	public static $salesLabelInvoiceMedia = "Sales Label Invoice Media";
 	public static $webOrderCommissionFile = "Web Order Commission Media";
-	
+	public static $buybackProductMedia = "Buyback Order Media";
 }
 ?>

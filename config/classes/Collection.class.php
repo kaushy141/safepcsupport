@@ -161,8 +161,9 @@ class Collection extends DB{
 		$num_rows_filtered= $dbc->db_num_rows($result);
 		
 		$dbcTotal 	= 	new DB();
-		$resultTotal = $dbcTotal->db_query($this->SqlExceptLimit);
-		$num_rows_total= $dbcTotal->db_num_rows($resultTotal);	
+		//$resultTotal = $dbcTotal->db_query($this->SqlExceptLimit);
+		//$num_rows_total= $dbcTotal->db_num_rows($resultTotal);
+		$num_rows_total = $this->getTotalCount();
 		$output =array("draw" => $draw, "recordsTotal" => $num_rows_total, "recordsFiltered" => $num_rows_total,"data"=>array());
 		while($row = $dbc->db_fetch_assoc()){					
 			$output["data"][] = array(								

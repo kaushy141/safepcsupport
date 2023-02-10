@@ -501,7 +501,7 @@ function loadPage(path, isHistory) {
                 checkSystemUpdate(contextData['version']);
             } catch (err) {
                 $("#system_crash_refresh").show();
-                $("#system_crash_refresh .system_crash_error").text(output);
+                $("#system_crash_refresh .system_crash_error").html(output.replace( /(<([^>]+)>)/ig, ''));
             }
         },
         error: function(xmlhttprequest, textstatus, messagecontent) {

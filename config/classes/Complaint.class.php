@@ -555,11 +555,11 @@ ORDER BY `created_date` DESC
 
 		$dbcTotal 	= 	new DB();
 
-		$resultTotal = $dbcTotal->db_query($this->SqlExceptLimit);
+		//$resultTotal = $dbcTotal->db_query($this->SqlExceptLimit);
 
-		$num_rows_total= $dbcTotal->db_num_rows($resultTotal);	
+		//$num_rows_total= $dbcTotal->db_num_rows($resultTotal);	
 
-			
+		$num_rows_total = $this->getTotalCount();	
 
 		$output =array("draw" => $draw, "recordsTotal" => $num_rows_total, "recordsFiltered" => $num_rows_total,"data"=>array());
 

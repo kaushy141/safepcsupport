@@ -25,10 +25,10 @@
 				foreach($records as $item){
 					$i++;
 				?>
-				<div class="col-xs-4 text-center">
+				<div class="col-xs-6">
                     <label class="switch switch-icon switch-pill switch-success">
-                    <input class="switch-input form-check-input-independent field_<?php echo $field?>" checked="" id="field_<?php echo $field?>_<?php echo $i;?>" value="<?php echo htmlspecialchars($item['web_order_currency']);?>" name="<?php echo $field?>" type="radio">
-                    <span class="switch-label" data-on="Yes" data-off="No"></span> <span class="switch-handle"></span> </label><br><strong><?php echo htmlspecialchars($item['web_order_currency']);?><br/>(<?php echo $item['record'];?>)</strong>
+                    <input class="switch-input form-check-input-independent field_<?php echo $field?>" <?=$item['web_order_currency'] == 'GBP' ? "checked":""?> id="field_<?php echo $field?>_<?php echo $i;?>" value="<?php echo htmlspecialchars($item['web_order_currency']);?>" name="<?php echo $field?>" type="radio">
+                    <span class="switch-label" data-on="<?php echo htmlspecialchars($item['web_order_currency']);?>" data-off="No"></span> <span class="switch-handle"></span> </label><br><strong><?php echo htmlspecialchars($item['web_order_currency']);?> (<?php echo $item['record'];?>)</strong>
                   </div>
 				  
 				
@@ -57,7 +57,7 @@
 				?>
 				<div class="form-check checkbox filtercheckbox">
 				<input class="form-check-input ml-0" data-label="<?php echo htmlspecialchars($item['store_name']);?>" name="<?php echo $field?>" id="<?php echo $field.'_'.$i?>" type="checkbox" value="<?php echo htmlspecialchars($item['web_order_website_id']);?>">
-				<label class="form-check-label" for="<?php echo $field.'_'.$i?>"><img class="img-avatar" src="<?php echo $item['store_icon']?>" height="24px"/> <?php echo htmlspecialchars($item['store_name']);?> (<?php echo $item['record'];?>)</label>
+				<label class="form-check-label" for="<?php echo $field.'_'.$i?>"><img class="img-avatar" src="<?php echo $item['store_icon']?>" height="24px"/> <?php echo htmlspecialchars($item['store_name']);?></label>
 				</div>
 				<?php
 				}

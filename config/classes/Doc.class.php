@@ -233,6 +233,10 @@ class DOC{
 	{
 	return self::getLink("weborder-invoice/$id");
 	}
+	public static function BBINVOICE($id)
+	{
+	return self::getLink("bborder-invoice/$id");
+	}
 	
 }
 

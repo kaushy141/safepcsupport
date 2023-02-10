@@ -408,7 +408,7 @@ function saveMonthVoting(){
 }
 </script>
 <div id="system_crash_refresh" style="position:fixed; z-index:99999999; top:0px; bottom:0px; left:0px; right:0px; background:rgba(0,0,0,0.95); display:none;">
-  <div style="background:#FFF; border-radius:2px; max-width:500px; margin:10% auto; position:relative; padding:50px 50px;">
+  <div style="background:#FFF; border-radius:2px; max-width:800px; margin:10% auto; position:relative; padding:30px 25px;">
     <p style="text-align:center; color:#D83214; font-size:32px"><i class="fa fa fa-warning fa-md m-b-2"></i></p>
     <p style="text-align:center; font-size:18px">Ooops... Something happening bad.</p>
     <p style="text-align:center; font-size:16px">Please Refresh the page and start working again.</p>

@@ -89,7 +89,7 @@
 	public function send($message = NULL)
 	{
 		global $app;
-		$mail = new PHPMailer;
+		$mail = new PHPMailer(true);
 		
 		if($message!=NULL && $this->template=="")
 		$this->template("default", array("message"=>$message));	
@@ -137,21 +137,23 @@
 		endif;
 		
 		
-			$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+		    $mail->isSMTP();
+			$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
 			$mail->SMTPAuth = true; // authentication enabled
 			$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
 			$mail->Host = "smtp.gmail.com";
 			$mail->Port = 465; // or 587
 			$mail->IsHTML(true);
 			$mail->Username = "support@safepcsupport.co.uk";
-			$mail->Password = "Support#567890";
+			$mail->Password = "pyccswvgsuijtmcm"; //APP Specific:  pyccswvgsuijtmcm Support#567890
+			//zqbtrbmtsemagwlg
 
 
-			$mail->setFrom(SYSTEM_EMAIL_SENDER, $app->siteName);		
+			$mail->setFrom("support@safepcsupport.co.uk", "Support System");		
 			$mail->Subject = $this->subject;
 			$mail->Body = $this->body;
 			$mail->AltBody = strip_tags($this->body);	
-			$mail->addCC($this->cc);
+			//$mail->addCC($this->cc);
 			if($this->bcc != null)
 			$mail->addBCC($this->bcc);
 			$mail->send();

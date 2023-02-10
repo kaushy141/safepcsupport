@@ -19,7 +19,7 @@ function getBaseAmount($amount, $currency, $baseCurrency = 'GBP'){
 		'EUR' => 1.1532,
 		'AED' => 5.02
 	);
-	return round($amount * ($currencyExchange[$baseCurrency]/$currencyExchange[$currency]), 2);
+	return $currencyExchange[$currency] ? round($amount * ($currencyExchange[$baseCurrency]/$currencyExchange[$currency]), 2) : 0;
 	//return round($amount * ($currencyExchange[$currency] / $currencyExchange[$baseCurrency]), 2);
 }
 
