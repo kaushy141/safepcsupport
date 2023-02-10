@@ -1,2 +1,5 @@
-<?php $formHeading	=	"Order List";?>
-<?php include("engine/inc/viewwebsiteorderlist.php"); ?>
+<?php 
+Modal::load(array('BuybackOrder'));
+$formHeading	=	"Order List";
+include("engine/inc/viewwebsiteorderlist.php"); 
+?>

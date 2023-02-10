@@ -21,6 +21,7 @@ if($contractRecord = $contract->getDetailsByUser($employeeRecord['user_id']))
 		"reporting_person" => $contractRecord['user_reporting_person'],
 		"working_time" => $contractRecord['user_working_time'],
 		"working_days" => $contractRecord['user_pay_working_days'],
+		"working_days_name" => $contractRecord['user_pay_working_days_name'],
 		"pay_shedule" => strtolower($contractRecord['user_pay_salary_invoicing']),
 		"employee_org_name"=>$storeOrgData['store_official_name'],
 		"employee_org_country"=>$storeOrgData['store_country_code']

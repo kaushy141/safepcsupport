@@ -153,7 +153,14 @@
           <div class="col-sm-4">
             <div class="form-group">
               <label for="user_pay_working_days">Working days</label>
-              <input class="form-control" id="user_pay_working_days" name="user_pay_working_days" maxlength="1" placeholder="Enter Employee working days" required="required" type="number" min="0" max="7" value="<?=isset($user_pay_working_days)?$user_pay_working_days:"5";?>">
+              <input class="form-control" id="user_pay_working_days" name="user_pay_working_days" maxlength="1" placeholder="Enter Employee working days" required="required" type="number" min="0" step=".5" max="7" value="<?=isset($user_pay_working_days)?$user_pay_working_days:"5";?>">
+            </div>
+          </div>
+		  
+		  <div class="col-sm-4">
+            <div class="form-group">
+              <label for="user_pay_working_days_name">Working days name </label>
+              <input class="form-control" id="user_pay_working_days_name" name="user_pay_working_days_name" maxlength="50" placeholder="Working days name Ex. 'Sat (if Mon-Fri)'" required="required" type="text"  value="<?=isset($user_pay_working_days_name)?$user_pay_working_days_name:"Sat (if Mon-Fri)";?>">
             </div>
           </div>
           

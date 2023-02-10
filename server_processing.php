@@ -340,4 +340,10 @@ function tagnotificationlist(){
 	$modal = new UserTag(0);
 	echo $modal->getJsonRecords($draw, $searchKeyword, $orderPosition, $orderDirection, $start, $length);
 }
+function viewbuybackorderlist(){
+	Modal::load(array('BuybackOrder'));
+	global $searchKeyword, $orderPosition, $orderDirection, $draw, $start, $length, $filter;
+	$buybackOrder = new BuybackOrder(0);
+	echo $buybackOrder->getJsonRecords($draw, $searchKeyword, $orderPosition, $orderDirection, $start, $length, $filter);
+}
 ?>

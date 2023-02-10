@@ -2,6 +2,7 @@
 class DB extends Basic{
 	public $sql = NULL;
 	public $SqlExceptLimit = NULL;
+	public $SqlCount = NULL;
 	public $resultSet;
 	public $connection;
 	public $count;
@@ -130,6 +131,7 @@ class DB extends Basic{
 				$this->searchCondition = " AND (".rtrim($this->searchCondition, "OR ").")";
 			}
 		}
+		$this->SqlCount = "SELECT COUNT(*) as total FROM ".$base_table." ".implode(" ",$join_array). " ";
 		return "SELECT ".implode(", ",$colum_array)." FROM ".$base_table." ".implode(" ",$join_array). " ";
 	}
 	function bindCondition($condition = NULL)
@@ -233,7 +235,16 @@ class DB extends Basic{
 	function getSql()
 	{
 		$this->SqlExceptLimit = $this->getSelect().$this->getCondition().$this->getGroupBy();
+		$this->SqlCount = $this->SqlCount.$this->getCondition();
 		return $this->SqlExceptLimit.$this->getOrderBy($this->orderPosition, $this->orderDirection).$this->getLimit();
+	}
+	
+	function getTotalCount(){
+	    //echo $this->SqlCount;
+	    $dbc 	= 	new DB();
+		$resultSet	=	$dbc->db_query($this->SqlCount);
+	    $record = $dbc->db_fetch_assoc(true);
+	    return $record['total'];
 	}
 }
 ?>

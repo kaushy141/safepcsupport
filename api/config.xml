@@ -12,11 +12,11 @@
 		<MarketplaceId1>A1F83G8C2ARO7P</MarketplaceId1>
 		<ProductionMode>1</ProductionMode>
 		<ServiceEnable>1</ServiceEnable>-->
-		<AWSAccessKeyId>AKIAILXIMVSTT6JUBLTQ</AWSAccessKeyId>
+		<AWSAccessKeyId>AKIAIHDC2O74M2Q4TCFQ</AWSAccessKeyId>
 		<ApplicationName>SPD Support System</ApplicationName>
 		<ApplicationVersion>amzn1.sellerapps.app.7875114b-581e-40e2-b4a0-0b6f888087ff</ApplicationVersion>
 		<SellerId>A3RTFQ78WCQ3O7</SellerId>
-		<ClientSecret>3E+038zm0bVPsm47T63UQkpIpBCbjsdAVlAfUAo/</ClientSecret>
+		<ClientSecret>EgF633Hd4PfApd0q8DxPTbhGGAjSwyPu6fFmUNbp</ClientSecret>
 		<SignatureVersion>2</SignatureVersion>
 		<SignatureMethod>HmacSHA256</SignatureMethod>
 		<Version>2013-09-01</Version>
@@ -25,11 +25,11 @@
 		<ServiceEnable>1</ServiceEnable>
 	</AmazonOrderApi>
 	<AmazonOrderApiUae>
-		<AWSAccessKeyId>AKIAILXIMVSTT6JUBLTQ</AWSAccessKeyId>
+		<AWSAccessKeyId>AKIAIHDC2O74M2Q4TCFQ</AWSAccessKeyId>
 		<ApplicationName>SPD Support System</ApplicationName>
 		<ApplicationVersion>amzn1.sellerapps.app.7875114b-581e-40e2-b4a0-0b6f888087ff</ApplicationVersion>
 		<SellerId>A2NFMHNN0R5EU8</SellerId>
-		<ClientSecret>3E+038zm0bVPsm47T63UQkpIpBCbjsdAVlAfUAo/</ClientSecret>
+		<ClientSecret>EgF633Hd4PfApd0q8DxPTbhGGAjSwyPu6fFmUNbp</ClientSecret>
 		<SignatureVersion>2</SignatureVersion>
 		<SignatureMethod>HmacSHA256</SignatureMethod>
 		<Version>2013-09-01</Version>

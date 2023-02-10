@@ -59,6 +59,7 @@ if(isset($_REQUEST['id']))
 		$data['invoice_date'] 		= 	date("d/m/Y", strtotime($data["sales_invoice_date"]));
 		$data['sales_payment_method'] = $data['sales_invoice_payment_mode'];
 		$data['invoice_vat'] = $storeData['store_vat_percent'];
+		$data['store_trn_number'] = $storeData['store_trn_number'] ? "TRN: {$storeData['store_trn_number']}" : "";
 		//echo $data['product_query'];die;
 		$sumAmount = $salesinvoice->getInvoiceSum($storeData['store_vat_percent']);
 		//echo $storeData['store_vat_percent'];
@@ -81,6 +82,7 @@ if(isset($_REQUEST['id']))
 			"HSN Code of main item" => null,
 			"Unique Invoice Reference Number" => $data['invoice_number'].'-'.$currency
 		);
+		$qrCodeData['Security'] = md5(APP_SALT.json_encode($qrCodeData).APP_SALT);
 		$data['qrcode'] = INVOICE_QR_CODE_IMAGE_PATH;
 		copy($app->basePath('qrcode.php?data='.urlencode(json_encode($qrCodeData))), INVOICE_QR_CODE_IMAGE_PATH);
 		$report			= new Report("Sales $invoice_type_name",true);

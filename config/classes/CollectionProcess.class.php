@@ -509,15 +509,17 @@ class CollectionProcess extends DB{
 		$joins WHERE 1 $conditions GROUP BY a.`wc_process_id`";
 		$_SESSION['QUERY']['COLLECTIONITEMLIST'] = $sqlWithoutLimit;
 		$sql = $sqlWithoutLimit . " ORDER BY $orderby LIMIT ".$this->length." OFFSET ".$this->start."";
-		
+		$sqlCount = "SELECT COUNT(a.`wc_process_id`) as total FROM  `app_wc_process` AS a  
+		LEFT JOIN `app_wc_item_master` AS b ON ( b.`wci_id` = a.`wc_process_item_id`  )  
+		$joins WHERE 1 $conditions";
 		
 		$dbc 	= 	new DB();
 		$result	=	$dbc->db_query($sql);
 		$num_rows_filtered= $dbc->db_num_rows($result);
 		
 		$dbcTotal 	= 	new DB();
-		$resultTotal = $dbcTotal->db_query($sqlWithoutLimit);
-		$num_rows_total= $dbcTotal->db_num_rows($resultTotal);	
+		$resultTotal = $dbcTotal->db_query($sqlCount);
+		$num_rows_total= $dbcTotal->db_fetch_assoc($resultTotal)['total'];	
 		$output =array("draw" => $draw, "recordsTotal" => $num_rows_total, "recordsFiltered" => $num_rows_total,"data"=>array(), "sql"=>$sql);
 		while($row = $dbc->db_fetch_assoc()){					
 			$output["data"][] = array(

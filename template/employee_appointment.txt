@@ -13,7 +13,7 @@ Your commencing salary will be <b>{{employee_salary}} {{currency_code}}</b> {{pa
 You will report to <b>{{reporting_person}}</b> on Management matters.
 
 Your working timings will be {{working_time}} {{employee_org_country}} Time.
-Your Working Days will be {{working_days}} & 'Sat (if Mon-Fri)' upon emergency call.
+Your Working Days will be {{working_days}} & '{{working_days_name}}' upon emergency call.
 
 We would appreciate your written acceptance of this offer we look forward to formally welcome you to {{employee_org_name}}.
 

@@ -45,6 +45,7 @@ if(isset($_REQUEST['id']))
 		$data['invoice_type_name']	= 	$invoice_type_name;
 		$data['invoice_date'] 		= 	date("d/m/Y", strtotime($data["web_order_created_date"]));
 		$data['wo_payment_method']  =   $data['web_order_payment_method'];
+		$data['shipping_charges']  =   "$currency ".number_format($data['web_order_total_shipping'],2);;
 		$data['invoice_vat'] = $storeData['store_vat_percent'];
 		//echo $data['product_query'];die;
 		$sumAmount = $weborder->getInvoiceSum($storeData['store_vat_percent']);
@@ -54,7 +55,7 @@ if(isset($_REQUEST['id']))
 		$data['product_sum_amount']	= "$currency ".number_format($storeData['store_is_vat_disabled'] ? ($sumAmount['product_sum_amount'] + $sumAmount['product_sum_vat']) : $sumAmount['product_sum_amount'],2);
 		$data['product_sum_vat']	= "$currency ".number_format($sumAmount['product_sum_vat'],2);
 		$data['product_discount']	= "$currency ".number_format($data['wo_discount_amount'],2);
-		$data['product_sum_total']	= "$currency ".number_format(($sumAmount['product_sum_vat'] + $sumAmount['product_sum_amount'] - $data['wo_discount_amount']),2);
+		$data['product_sum_total']	= "$currency ".number_format(($sumAmount['product_sum_vat'] + $sumAmount['product_sum_amount'] + $data['web_order_total_shipping'] - $data['wo_discount_amount']),2);
 		$data['wo_payment_remain_amount']	= "$currency ".number_format(0,2);
 		$data['wo_payment_paid_amount']	= "$currency ".number_format($data['web_order_total_amount'],2);
 

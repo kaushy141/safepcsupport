@@ -34,7 +34,7 @@ if(isset($parameter1) && $parameter1 != ''){
 		
 		extract($productData);
 	}
-	if($parameter1 == 'S'){
+	elseif($parameter1 == 'S'){
 		$salesinvoice = new SalesInvoice($parameter2);
 		$salesData = $salesinvoice->getDetails();
 		$customer = new Customer($salesData['sales_invoice_customer_id']);
@@ -54,6 +54,22 @@ if(isset($parameter1) && $parameter1 != ''){
 		$productData['complaint_store_id'] = $salesData['sales_invoice_store_id'];
 		
 		$productData['complaint_description'] = "Sales Invoice #{$salesData['sales_invoice_number']} Dated - ".date('D, d M Y h:i A', strtotime($salesData['sales_invoice_created_date']))."\n{$productInfo['product_name']}";
+		
+		extract($productData);
+	}
+	elseif($parameter1 == 'K'){
+		Modal::load(array('BuybackOrder'));
+		$buybackOrder = new BuybackOrder($parameter2);
+		$buybackData = $buybackOrder->load();
+		$customer = new Customer($buybackData['customer_id']);
+		$customerData = $customer->getDetails();		
+		extract($customerData);
+						
+		$productData['complaint_product_sku'] = $buybackData['product_sku'];
+		$productData['complaint_order_number'] = $buybackData['order_number'];
+		$productData['complaint_store_id'] = $buybackData['website_id'];
+		
+		$productData['complaint_description'] = "Buyback Order #{$buybackData['order_number']} Dated - ".date('D, d M Y h:i A', strtotime($buybackData['created_at']))."\n{$buybackData['product_name']}";
 		
 		extract($productData);
 	}

@@ -1,6 +1,6 @@
 <?php
 
-    $user_pay_working_hours = $user_pay_joining_date = $user_pay_salary_invoicing = $user_appointment_issue_date = $user_father_name = $user_cnic_number = $user_payment_currency = $user_reporting_person = $user_working_time = $user_department_name = $user_cont_file_path = $user_char_exp_file_path = "";
+    $user_pay_working_hours = $user_pay_joining_date = $user_pay_salary_invoicing = $user_appointment_issue_date = $user_father_name = $user_cnic_number = $user_payment_currency = $user_reporting_person = $user_working_time = $user_department_name = $user_cont_file_path = $user_char_exp_file_path = $user_pay_working_days_name = "";
 	$user_pay_sales_commision = $user_pay_salary  = $user_pay_previous_balance = $user_pay_user_id =  $user_contract_store = $user_pay_working_days = $user_pay_id = $send_email_to_employee = 0;
 	$user_pay_status = $user_appointment_upgrade_version = 0;
     $data         = sanitizePostData($_POST);
@@ -20,6 +20,7 @@
 				"user_pay_salary" => $user_pay_salary,
 				"user_pay_previous_balance" => $user_pay_previous_balance,
 				"user_pay_working_days" => $user_pay_working_days,
+				"user_pay_working_days_name" => $user_pay_working_days_name,
 				"user_pay_status" => $user_pay_status,
 				"user_appointment_issue_date" => $user_appointment_issue_date,
 				"user_father_name" => $user_father_name,
