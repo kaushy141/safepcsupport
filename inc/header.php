@@ -64,6 +64,10 @@ var FETCH_PAID_INVOICE_ENABLED = true;
 var USER_CAN_SEE_ORDER_NOTIFICATION = <?php echo $navbar->isModulePemissionAllow(82) ? 1: 0;?>;
 var ORDER_NOTIFICATION_SOUND = sitePath + 'assets/audio/order_notification.mp3';
 var USER_ONLINE_NOTIF_SOUND = sitePath + 'assets/audio/user_online.mp3';
+<<<<<<< HEAD
+=======
+var USER_SESSION_EXPIRE_SOUND = sitePath + 'assets/audio/session-expire-alarm.mp3';
+>>>>>>> 77a717f (Version 2)
 var USER_NEW_CUSTOMER_SITE_SOUND = sitePath + 'assets/audio/new_customer_on_website.mp3';
 var SALES_INVOICE_PAID_SUCCESS = sitePath + 'assets/audio/sales_invoice_paid_success.mp3';
 
@@ -100,6 +104,11 @@ var GOOGLE_FIREBASE_API_MEASUREMENT_ID='<?php echo GOOGLE_FIREBASE_API_MEASUREME
 <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-messaging.js"></script>
+<<<<<<< HEAD
+=======
+
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/0489299c62c36b01ead938fdf/3f285fd842d57baf698c28a7b.js");</script>
+>>>>>>> 77a717f (Version 2)
 </head>
 
 <div id="session_live_popup" style="z-index:10000; display:none; position:fixed; top:0px; bottom:0px; left:0px; right:0px; background:rgba(0,0,0,0.85);">

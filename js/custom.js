@@ -501,7 +501,11 @@ function loadPage(path, isHistory) {
                 checkSystemUpdate(contextData['version']);
             } catch (err) {
                 $("#system_crash_refresh").show();
+<<<<<<< HEAD
                 $("#system_crash_refresh .system_crash_error").html(output.replace( /(<([^>]+)>)/ig, ''));
+=======
+                $("#system_crash_refresh .system_crash_error").text(output);
+>>>>>>> 77a717f (Version 2)
             }
         },
         error: function(xmlhttprequest, textstatus, messagecontent) {
@@ -2786,6 +2790,14 @@ $(document).ready(function(e) {
         $(this).val($(this).val().toUpperCase());
     });
 
+<<<<<<< HEAD
+=======
+    var isTimeOutPlaying = false;
+    var audioTimeOutPlaying = new Audio(USER_SESSION_EXPIRE_SOUND);
+    audioTimeOutPlaying.addEventListener('ended', function(){
+        audioTimeOutPlaying.play();
+    });
+>>>>>>> 77a717f (Version 2)
     if (typeof(window.localStorage.getItem('user_sign_in')) !== "undefined" && window.localStorage.getItem('user_sign_in') == "true") {
         if (typeof(window.Storage) !== "undefined") {
             var di = new Date();
@@ -2801,6 +2813,13 @@ $(document).ready(function(e) {
                     var dc = new Date();
                     var seconds = Math.floor((dc.getTime() - window.localStorage.getItem("live_session")) / 1000);
                     if (seconds > max_idle_limit && getCookie("LOGOFF") != true) {
+<<<<<<< HEAD
+=======
+                        if(!isTimeOutPlaying){
+                            audioTimeOutPlaying.play();
+                            isTimeOutPlaying = true;
+                        }
+>>>>>>> 77a717f (Version 2)
                         var remaingTime = Math.floor(parseInt(max_clock_run - seconds)) > 0 ? Math.floor(parseInt(max_clock_run - seconds)) : 0;
                         $("#session_live_popup").show();
                         $("#session_live_count").html(remaingTime);
@@ -2812,6 +2831,11 @@ $(document).ready(function(e) {
                     } else {
                         $("#session_live_popup").hide();
                         document.title = documentPageTitle;
+<<<<<<< HEAD
+=======
+                        isTimeOutPlaying = false;
+                        audioTimeOutPlaying.pause();
+>>>>>>> 77a717f (Version 2)
                     }
                 }, 1700);
             }, 5000);
@@ -2825,9 +2849,19 @@ $(document).ready(function(e) {
         var du = new Date();
         window.localStorage.setItem("live_session", du.getTime());
         $("#session_live_popup").hide();
+<<<<<<< HEAD
     });
 
     $(document).on("click", "#logedmeoutsession", function() {
+=======
+        isTimeOutPlaying = false;
+        audioTimeOutPlaying.pause();
+    });
+
+    $(document).on("click", "#logedmeoutsession", function() {
+        audioTimeOutPlaying.pause();
+        isTimeOutPlaying = false;
+>>>>>>> 77a717f (Version 2)
         window.location = logoutUrl;
     });
 
@@ -3522,7 +3556,19 @@ $(document).on("mouseenter", '[data-toggle="popover-ajax"]', function() {
 		}
 	}	
 });
+<<<<<<< HEAD
 
+=======
+/*
+$(document).on("mouseenter", '[data-toggle="popover"]', function() {		
+	var e = $(this);
+	e.popover('dispose');
+	var div_id =  "tmp-id-" + $.now();	
+	//showPopOverBox(e, div_id, popoverState['popover-state-'+div_id]);
+	showPopOverBox(e, div_id, e.attr('data-content'));
+});
+*/
+>>>>>>> 77a717f (Version 2)
 function openReturnForm(title, module_code, module_id, module_reference){
 	modal.Title(title);
 	modal.Body(LOADING_HTML);
@@ -3626,7 +3672,11 @@ function showPopOverBox(e, div_id, content){
 		}).popover('show');
 }
 
+<<<<<<< HEAD
 $(document).on('mouseenter', '[data-toggle="popover-ajax"]', function () {
+=======
+$(document).on('mouseenter', '[data-toggle="popover-ajax"], [data-toggle="popover"]', function () {
+>>>>>>> 77a717f (Version 2)
     var self = this;
     jQuery(this).popover("show");
     jQuery(".popover").on('mouseleave', function () {

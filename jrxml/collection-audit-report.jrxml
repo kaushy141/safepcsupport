@@ -116,7 +116,11 @@
 			<textField>
 				<reportElement x="0" y="33" width="575" height="20" uuid="4a5ebb3a-ae97-4a2b-b4a8-d36715e83a05"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
+<<<<<<< HEAD
 					<font size="12"/>
+=======
+					<font size="10"/>
+>>>>>>> 77a717f (Version 2)
 				</textElement>
 				<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
 			</textField>

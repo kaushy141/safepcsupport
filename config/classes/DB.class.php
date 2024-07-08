@@ -28,7 +28,11 @@ class DB extends Basic{
 	function db_query($sql)
 	{
 		if(!$this->resultSet	=	mysqli_query($this->connection, $sql)){
+<<<<<<< HEAD
 			Log::Text("SQL Error : ".$sql, 'SQL');
+=======
+			Log::Text("SQL Error : ".$sql.'\n'.mysqli_error($this->connection), 'SQL');
+>>>>>>> 77a717f (Version 2)
 			die("Server Could Not Listen. DB Exception Error.<br/><br/>".$sql."<br/><br/>".mysqli_error($this->connection));
 		}
 		return $this->resultSet;
@@ -235,7 +239,11 @@ class DB extends Basic{
 	function getSql()
 	{
 		$this->SqlExceptLimit = $this->getSelect().$this->getCondition().$this->getGroupBy();
+<<<<<<< HEAD
 		$this->SqlCount = $this->SqlCount.$this->getCondition();
+=======
+		$this->SqlCount = $this->SqlCount.$this->getCondition().$this->getGroupBy();
+>>>>>>> 77a717f (Version 2)
 		return $this->SqlExceptLimit.$this->getOrderBy($this->orderPosition, $this->orderDirection).$this->getLimit();
 	}
 	
@@ -243,8 +251,17 @@ class DB extends Basic{
 	    //echo $this->SqlCount;
 	    $dbc 	= 	new DB();
 		$resultSet	=	$dbc->db_query($this->SqlCount);
+<<<<<<< HEAD
 	    $record = $dbc->db_fetch_assoc(true);
 	    return $record['total'];
+=======
+		if($this->getGroupBy())
+		return $dbc->db_num_rows();
+		else{
+	    $record = $dbc->db_fetch_assoc(true);
+	    return $record['total'];
+		}
+>>>>>>> 77a717f (Version 2)
 	}
 }
 ?>

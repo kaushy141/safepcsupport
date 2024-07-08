@@ -67,7 +67,12 @@ if($aouth!=NULL && (in_array($DATA['AOUTH'],
                     'product_sku' => $product_sku, 
 					'product_url' => $product_url, 
 					'product_image' => $product_image, 
+<<<<<<< HEAD
                     'product_name' => $product_name, 
+=======
+                    'product_name' => $product_name,
+                    'product_specification' => $product_specification,
+>>>>>>> 77a717f (Version 2)
                     'product_quantity' => $product_quantity, 
                     'buy_price' => $buy_price, 
                     'buy_currency' => $buy_currency, 

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="complaint-invoice" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3c254fa5-bc94-4088-9925-a423c414d1c8">
 	<property name="ireport.zoom" value="1.5"/>
+<<<<<<< HEAD
 	<property name="ireport.x" value="125"/>
 	<property name="ireport.y" value="0"/>
+=======
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="480"/>
+>>>>>>> 77a717f (Version 2)
 	<parameter name="address" class="java.lang.String"/>
 	<parameter name="heading" class="java.lang.String"/>
 	<parameter name="reportdate" class="java.lang.String"/>
@@ -46,6 +51,10 @@
 	<parameter name="sales_payment_method" class="java.lang.String"/>
 	<parameter name="invoice_vat" class="java.lang.String"/>
 	<parameter name="sales_invoice_payment_reference" class="java.lang.String"/>
+<<<<<<< HEAD
+=======
+	<parameter name="shipping_charges" class="java.lang.String"/>
+>>>>>>> 77a717f (Version 2)
 	<queryString>
 		<![CDATA[$P{product_query}]]>
 	</queryString>
@@ -115,7 +124,11 @@
 			<textField>
 				<reportElement x="429" y="24" width="122" height="24" forecolor="#FF0000" uuid="e55af295-1b05-4e87-a46f-1cc3a874b822"/>
 				<textElement textAlignment="Right">
+<<<<<<< HEAD
 					<font size="16"/>
+=======
+					<font size="11"/>
+>>>>>>> 77a717f (Version 2)
 				</textElement>
 				<textFieldExpression><![CDATA[$P{invoice_number}]]></textFieldExpression>
 			</textField>
@@ -448,14 +461,22 @@
 				<textFieldExpression><![CDATA[$P{product_sum_vat}]]></textFieldExpression>
 			</textField>
 			<staticText>
+<<<<<<< HEAD
 				<reportElement x="323" y="77" width="141" height="14" uuid="e84f8b00-3bcc-4ed6-9901-da7a3116fa8d"/>
+=======
+				<reportElement x="323" y="94" width="141" height="14" uuid="e84f8b00-3bcc-4ed6-9901-da7a3116fa8d"/>
+>>>>>>> 77a717f (Version 2)
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Grand total :]]></text>
 			</staticText>
 			<textField>
+<<<<<<< HEAD
 				<reportElement x="464" y="78" width="88" height="14" uuid="33b461b7-170b-42d6-98bb-fb29929158e6"/>
+=======
+				<reportElement x="464" y="95" width="88" height="14" uuid="33b461b7-170b-42d6-98bb-fb29929158e6"/>
+>>>>>>> 77a717f (Version 2)
 				<textElement textAlignment="Right" verticalAlignment="Top">
 					<font size="9" isBold="true"/>
 				</textElement>
@@ -502,7 +523,11 @@
 				<imageExpression><![CDATA[$P{qrcode}]]></imageExpression>
 			</image>
 			<line>
+<<<<<<< HEAD
 				<reportElement x="324" y="92" width="229" height="1" forecolor="#333333" uuid="0a1dd938-2266-4890-9cf7-5d257c47fcb1"/>
+=======
+				<reportElement x="324" y="109" width="229" height="1" forecolor="#333333" uuid="0a1dd938-2266-4890-9cf7-5d257c47fcb1"/>
+>>>>>>> 77a717f (Version 2)
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
@@ -542,6 +567,29 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{margin_vat_label}]]></textFieldExpression>
 			</textField>
+<<<<<<< HEAD
+=======
+			<textField>
+				<reportElement x="463" y="79" width="88" height="14" uuid="deafd521-8f9d-468f-81d2-985d7d0fef9b"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{shipping_charges}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="322" y="78" width="141" height="14" uuid="a962a8d5-d3b2-4466-adba-bc8146dfaf35"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Shipping Charges]]></text>
+			</staticText>
+			<line>
+				<reportElement x="322" y="93" width="229" height="1" forecolor="#333333" uuid="d257232f-1baf-4963-b0f5-c1071be627cf"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+>>>>>>> 77a717f (Version 2)
 		</band>
 	</summary>
 </jasperReport>

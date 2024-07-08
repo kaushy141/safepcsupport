@@ -7,7 +7,15 @@
 	if($store->isExist()){		
 		$storeData = $store->getDetails();
 		$ch = curl_init();
+<<<<<<< HEAD
 		curl_setopt( $ch,CURLOPT_URL, $storeData['store_link'].'orderpush.php?order_id='.$order_id );
+=======
+		if($storeData['store_order_fetch_endpoint']){
+		    curl_setopt( $ch,CURLOPT_URL, $storeData['store_order_fetch_endpoint'].$order_id );
+		}else{
+		    curl_setopt( $ch,CURLOPT_URL, $storeData['store_link'].'orderpush.php?order_id='.$order_id );
+		}
+>>>>>>> 77a717f (Version 2)
 		curl_setopt( $ch,CURLOPT_POST, true );
 		curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
 		$response = curl_exec($ch );	

@@ -1,11 +1,19 @@
 <?php include("setup.php"); ?>
 <?php
+<<<<<<< HEAD
+=======
+$DATA = sanitizePostData($_POST);
+Log::Text(json_encode($DATA));
+>>>>>>> 77a717f (Version 2)
 $DeviceManager = new DeviceManager();
 $firebaseIds = $DeviceManager->getAllUserDevice();
 $registration_ids = explode("," , $firebaseIds);
 
+<<<<<<< HEAD
 $DATA = sanitizePostData($_POST);
 Log::Text(json_encode($DATA));
+=======
+>>>>>>> 77a717f (Version 2)
 $title 		= isset($DATA['TITLE'])	? getData($DATA['TITLE'])	:	NULL;
 $message 	= isset($DATA['BODY'])	? getData($DATA['BODY'])	:	NULL;
 $aouth		= isset($DATA['AOUTH'])	? getData($DATA['AOUTH'])	:	NULL;
@@ -61,6 +69,10 @@ if($title!=NULL && $message!=NULL && $aouth!=NULL && (in_array($DATA['AOUTH'],
 	$websiteOrder =  new WebsiteOrder();
 	
 	if(defined('ENABLE_NEWPAY_PENDING_ORDER') && !ENABLE_NEWPAY_PENDING_ORDER && $web_order_payment_method == 'retailfinance' && $web_order_is_paid != 'Yes'){
+<<<<<<< HEAD
+=======
+	    echo "Can't process pending & finance order";
+>>>>>>> 77a717f (Version 2)
 		die;
 	}
 	
@@ -108,6 +120,13 @@ if($title!=NULL && $message!=NULL && $aouth!=NULL && (in_array($DATA['AOUTH'],
 				"web_order_status" => $web_order_status
 				)
 			);
+<<<<<<< HEAD
+=======
+		if(!$web_order_id){
+		    echo "Order save failed";
+		    die;
+		}
+>>>>>>> 77a717f (Version 2)
 			
 		$websiteOrderProduct = new WebsiteOrderProduct();
 		$websiteOrderProduct->wo_web_order_id = $web_order_id;
@@ -138,7 +157,11 @@ if($title!=NULL && $message!=NULL && $aouth!=NULL && (in_array($DATA['AOUTH'],
 								"wo_product_url" 		=> $wo_product_url,
 								"wo_product_image" 		=> $wo_product_image,
 								"wo_product_options"	=> $wo_product_options,
+<<<<<<< HEAD
 								"wo_product_premium" 	=> $wo_product_premium,
+=======
+								"wo_product_premium" 	=> $wo_product_premium?? 0,
+>>>>>>> 77a717f (Version 2)
 								"wo_process_code" 		=> $wo_process_code
 							)
 						);
@@ -149,7 +172,15 @@ if($title!=NULL && $message!=NULL && $aouth!=NULL && (in_array($DATA['AOUTH'],
 		
 		send_android_notification($registration_ids, $title, $message, $icon, $url, $status);
 		WebsiteOrder::checkFulfillment();
+<<<<<<< HEAD
 	}
+=======
+	}else{
+	    echo "Order already exist";
+	}
+}else{
+    echo "Token failed";
+>>>>>>> 77a717f (Version 2)
 }
 
 

@@ -38,11 +38,21 @@
 5.2.	As part of the Company policy, you must hold a bank account for gross salary payment.
 <b>6.	Holidays</b>
 
+<<<<<<< HEAD
 6.1.	Our holiday year runs from 1 April to 31 March. All holidays must be agreed in advance with your manager. Your annual entitlement will be 20 holiday days. Plus bank holidays.
 6.2.	Before booking any holidays, you must confirm with your Line Manager if that is all OK. The company will not be responsible for any financial/ other losses to you in case you have not taken written permission from your Line Manager before booking holidays.
 6.3.	We may ask you to work on public holidays. If that happens, you will be paid normal working hours rate and any such day would not be counted towards your leave entitlement.
 6.4.	If you join or leave during a holiday year, your entitlement in respect of that year will be calculated based on completed months of service. When your employment ends, any accrued holiday pay due to you will be calculated based on your gross salary. If you have taken more holidays than your entitlement for the number of full months worked, we will deduct excess number of days from your final month’s gross salary.
 6.5.	For more information on entitlement and how holidays are allocated refer to your line manager.
+=======
+6.1.	Our holiday year runs from 1 April to 31 March. All holidays must be agreed in advance with your manager.
+		Your annual entitlement will be 20 holiday days. Plus bank holidays.
+6.2. 	Before booking any holidays, you must confirm with your Line Manager if that is all OK. The company will not be responsible for any financial/ other losses to you in case you have not taken written permission from your Line Manager before booking holidays.
+6.3. 	We may ask you to work on public holidays. If that happens, you will be paid normal working hours rate and any such day would not be counted towards your leave entitlement.
+6.4. 	If you join or leave during a holiday year, your entitlement in respect of that year will be calculated based on completed months of service. When your employment ends, any accrued holiday pay due to you will be calculated based on your gross salary. If you have taken more holidays than your entitlement for the number of full months worked, we will deduct excess number of days from your final month’s gross salary.
+6.5. 	For more information on entitlement and how holidays are allocated refer to your line manager.
+
+>>>>>>> 77a717f (Version 2)
 <b>7.	Confidentiality</b>
 
 7.1.	Except in the proper performance of your duties, you will not either during your employment or anytime afterwards use or communicate to any person, and during your employment you will use your best endeavours to prevent the disclosure of, any information of a confidential nature concerning the business of the Company or of any customer, supplier or any other person having dealings with the Company and which comes to your knowledge during the course of your employment.

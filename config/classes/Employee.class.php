@@ -48,6 +48,22 @@ class Employee extends DB{
 		else
 			return false;
 	}
+<<<<<<< HEAD
+=======
+	
+	function getContractByEmail($mail, $start_date, $end_date=null)
+	{
+	    $end_date = $end_date?$end_date:date('Y-m-d');
+		$sql="SELECT a.*, CONCAT(a.`user_fname`, ' ', a.`user_lname`) as user_name, b.`user_type_name` FROM `app_system_user` as a INNER JOIN `app_user_type` as b ON a.`user_type_id` = b.`user_type_id` WHERE `user_email` = '".$mail."' AND (`employee_contract_date` BETWEEN '$start_date' AND '$end_date') ORDER BY `employee_contract_date` DESC LIMIT 1";	
+		$dbc 	= 	new DB();
+		$result	=	$dbc->db_query($sql);
+		if($dbc->db_num_rows($result))		
+			return $dbc->db_fetch_assoc(true);
+		else
+			return false;
+	}
+	
+>>>>>>> 77a717f (Version 2)
 	function setFCMToken($user_fcm_token)
 	{
 		$this->update(
@@ -653,9 +669,28 @@ class ContractEmployee extends DB{
 		$this->id	=	$employee_id;
 	}
 	
+<<<<<<< HEAD
 	public function getContractDetailsByEmail($employee_email){
 		$employee_email = strtolower(trim($employee_email));
 		$sql = "SELECT * FROM `app_employee_contract` WHERE LOWER(TRIM(`employee_email`)) = '$employee_email' ORDER BY `employee_contract_date` DESC LIMIT 1";
+=======
+	public function getContractDetailsByEmail($employee_email, $start_date=null){
+	    $start_date_order = $start_date?"DATEDIFF('$start_date', `employee_contract_date`) ASC":"`employee_contract_date` DESC";
+		$employee_email = strtolower(trim($employee_email));
+		$sql = "SELECT * FROM `app_employee_contract` WHERE LOWER(TRIM(`employee_email`)) = '$employee_email' ORDER BY $start_date_order LIMIT 1";
+		$dbc 	= 	new DB();
+		$result	=	$dbc->db_query($sql);
+		if($dbc->db_num_rows($result))		
+			return $dbc->db_fetch_assoc(true);
+		else
+			return false;
+	}
+	
+	function getContractByEmail($mail, $start_date, $end_date=null)
+	{
+	    $end_date = $end_date?$end_date:date('Y-m-d');
+		$sql="SELECT a.*, CONCAT(a.`user_fname`, ' ', a.`user_lname`) as user_name, b.`user_type_name` FROM `app_system_user` as a INNER JOIN `app_user_type` as b ON a.`user_type_id` = b.`user_type_id` WHERE `user_email` = '".$mail."' AND (`employee_contract_date` BETWEEN '$start_date' AND '$end_date') ORDER BY `employee_contract_date` DESC LIMIT 1";	
+>>>>>>> 77a717f (Version 2)
 		$dbc 	= 	new DB();
 		$result	=	$dbc->db_query($sql);
 		if($dbc->db_num_rows($result))		

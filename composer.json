@@ -1,0 +1,15 @@
+{
+    "require": {
+        "amazon-php/sp-api-sdk": "^4.0",
+        "nyholm/psr7": "^1.8",
+        "php-http/buzz-adapter": "^1.0",
+        "monolog/monolog": "^2.9",
+        "guzzlehttp/guzzle": "^7.8",
+        "jlevers/selling-partner-api": "^5.10"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}

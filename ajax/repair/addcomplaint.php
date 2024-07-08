@@ -75,7 +75,11 @@
         "complaint_due_date" => $complaint_due_date,
         "complaint_priority" => $complaint_priority,
         "complaint_sales_record_number" => $complaint_sales_record_number,
+<<<<<<< HEAD
 		"complaint_order_number" => $complaint_order_number,
+=======
+		//"complaint_order_number" => $complaint_order_number,
+>>>>>>> 77a717f (Version 2)
         "complaint_estimated_cost" => $complaint_estimated_cost,
         "complaint_product_condition_at_receiving" => $complaint_product_condition_at_receiving,
         "complaint_technician_id" => $complaint_technician_id,
@@ -83,8 +87,13 @@
 		"complaint_created_date" => "NOW()",
 		"complaint_created_by" => getLoginId(),
         "complaint_status" => $complaint_status,
+<<<<<<< HEAD
 		"complaint_dispatched_store" =>$complaint_dispatched_store,
 		"complaint_refund_status" => $complaint_refund_status
+=======
+		//"complaint_dispatched_store" =>$complaint_dispatched_store,
+		//"complaint_refund_status" => $complaint_refund_status
+>>>>>>> 77a717f (Version 2)
     ));
     //$complaint_id     = $Complaint->add($customer_type_id, $complaint_store_id, $complaint_customer_id, $customer_address_id, $complaint_ticket_number, $complaint_product_serial, $complaint_product_sku, $complaint_product_model, $complaint_is_backup, $complaint_product_password, $complaint_is_disk_provided, $complaint_product_is_under_waranty, $complaint_product_operating_system, $complaint_product_antivirus, $complaint_description, $complaint_problem_details, $complaint_product_hardware_not_working_string, $complaint_due_date, $complaint_priority, $complaint_sales_record_number, $complaint_order_number, $complaint_estimated_cost, $complaint_product_condition_at_receiving, $complaint_technician_id, $complaint_tax_id, $complaint_created_by, $complaint_status, $complaint_dispatched_store, $complaint_refund_status);
 	//$complaint_id     = $Complaint->insert($repairValues);

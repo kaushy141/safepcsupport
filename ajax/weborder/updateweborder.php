@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 	$web_order_id = $web_order_status = $web_order_is_picked = $web_order_is_packed = $web_order_is_processed =$web_order_picking_user = $web_order_packing_user = $web_order_process_user = $web_order_assign_technician = $web_order_assign_technician_chk = $web_order_commission_user_chk = $web_order_commission_user = $web_order_complement_warranty = 0;
+=======
+	$web_order_id = $web_order_status = $web_order_is_picked = $web_order_is_packed = $web_order_is_processed =$web_order_picking_user = $web_order_packing_user = $web_order_process_user = $web_order_assign_technician = $web_order_assign_technician_chk = $web_order_commission_user_chk = $web_order_commission_user = $web_order_complement_warranty = $web_order_store_bank_id = 0;
+>>>>>>> 77a717f (Version 2)
 	$web_order_picking_time =  $web_order_packing_time = $web_order_process_time = $web_order_assign_technician_date = $web_order_dispatched_store = "";
 	
 	$wo_process_code = $wo_shipping_charges = array();
@@ -66,7 +70,12 @@
 						"web_order_status" 		 => $web_order_status,
 						"web_order_assign_technician" => $web_order_assign_technician,
 						"web_order_assign_technician_date" => $web_order_assign_technician_date,
+<<<<<<< HEAD
 						"web_order_dispatched_store" => $web_order_dispatched_store
+=======
+						"web_order_dispatched_store" => $web_order_dispatched_store,
+						"web_order_store_bank_id" => $web_order_store_bank_id
+>>>>>>> 77a717f (Version 2)
 						
 								)
 							 );

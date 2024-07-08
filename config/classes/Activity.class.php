@@ -217,7 +217,11 @@ final class Activity extends DB{
 			return false;	
 	}
 	
+<<<<<<< HEAD
 	public static function archiveActivity($duration = 6)
+=======
+	public static function archiveActivity($duration = 12)
+>>>>>>> 77a717f (Version 2)
 	{
 		global $app;
 		
@@ -237,7 +241,11 @@ final class Activity extends DB{
 			return false;	
 	}
 	
+<<<<<<< HEAD
 	public static function archiveLoginLog($duration = 6)
+=======
+	public static function archiveLoginLog($duration = 12)
+>>>>>>> 77a717f (Version 2)
 	{
 		global $app;
 		

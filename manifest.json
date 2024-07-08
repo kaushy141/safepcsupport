@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
  "//": "Some browsers will use this to enable push notifications.",
  "//": "It is the same for all projects, this is not your project's sender ID",
  "gcm_sender_id": "103953800507"
@@ -17,3 +18,19 @@
  "display": "standalone",
  "scope": "/"
 }
+=======
+  "short_name": "SPD Live System",
+  "name": "SPD Live System | SafePcSupport Statem",
+  "icons": [
+    {
+      "src": "img/favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#2c7be5",
+  "background_color": "#edf2f9"
+}
+>>>>>>> 77a717f (Version 2)

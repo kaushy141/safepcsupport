@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 upload/
 var/
 .well-known/
@@ -7,4 +8,15 @@ safecsupport-error.log
 XOLTResult.xml
 DPD_LOGIN_Result.xml
 XOLTResultRequest.xml
+=======
+config.php
+php.ini
+.php.ini
+.php.version
+/var
+*.zip
+*.log
+*.sql
+*.xml
+>>>>>>> 77a717f (Version 2)
 error_log

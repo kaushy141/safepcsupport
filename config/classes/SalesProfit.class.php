@@ -99,7 +99,11 @@ class SalesProfit extends DB{
 		INNER JOIN `app_customer` AS c ON ( c.`customer_id` = a.`web_order_customer_id` )  
 		WHERE a.web_order_status = '1' $ordercondition 
 		
+<<<<<<< HEAD
 		UNION 
+=======
+		UNION ALL
+>>>>>>> 77a717f (Version 2)
 		
 		SELECT a.`sales_invoice_currency` AS currency, 'Sales invoice' AS source, s.`store_name` as store, CONCAT(c.`customer_fname`, ' ', c.`customer_lname`) AS customer, a.`sales_invoice_date` AS invoice_date, a.`sales_invoice_id` as id, a.`sales_invoice_number` AS order_number, p.`sipd_product_sku` as product_sku, i.`product_name` as product_name, p.`sipd_product_price` AS purchase_price, p.`sipd_product_price` AS sell_price, 0 AS shipping_intake, '' as options, p.`sipd_purchase_amount` as purchase_base_amount, 0 as shipping_paid, a.`sales_invoice_payment_mode` as payment FROM `app_sales_invoice` AS a 
 		INNER JOIN `app_sales_invoice_product_detail` AS p ON ( p.`sipd_invoice_id` = a.`sales_invoice_id` ) 

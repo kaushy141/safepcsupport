@@ -65,8 +65,13 @@ $departure_time  = 	date("h:i A",strtotime($wcData['wc_departure_time']));
 $arrival_time  = 	date("h:i A",strtotime($wcData['wc_arrival_time']));		
 $data = array(
 			"wc_waste_removed_from" => $customerData['customer_name']."<br/>".$customerAddressData['full_address'].($customerData['customer_company']!=""?"<br/>Company: $customerData[customer_company]":""),
+<<<<<<< HEAD
 			"wc_waste_taken_to" => $info['wc_collection_address'],					 
 			"wc_carrier_name" => $info['wc_collection_address'], 						
+=======
+			"wc_waste_taken_to" => $crrierData['carrier_address']?$crrierData['carrier_address'] :$info['wc_collection_address'],					 
+			"wc_carrier_name" => $crrierData['carrier_name']? $crrierData['carrier_name']: $info['wc_collection_address'], 						
+>>>>>>> 77a717f (Version 2)
 			"wc_consignor_name" => $customerData['customer_name'],
 			"wc_ewc_identification_html" => $wc_ewc_identification_html,
 			"wc_on_behalf_of_user" => $wcData['wc_on_behalf_of_user'],

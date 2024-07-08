@@ -408,7 +408,11 @@ function saveMonthVoting(){
 }
 </script>
 <div id="system_crash_refresh" style="position:fixed; z-index:99999999; top:0px; bottom:0px; left:0px; right:0px; background:rgba(0,0,0,0.95); display:none;">
+<<<<<<< HEAD
   <div style="background:#FFF; border-radius:2px; max-width:800px; margin:10% auto; position:relative; padding:30px 25px;">
+=======
+  <div style="background:#FFF; border-radius:2px; max-width:500px; margin:10% auto; position:relative; padding:50px 50px;">
+>>>>>>> 77a717f (Version 2)
     <p style="text-align:center; color:#D83214; font-size:32px"><i class="fa fa fa-warning fa-md m-b-2"></i></p>
     <p style="text-align:center; font-size:18px">Ooops... Something happening bad.</p>
     <p style="text-align:center; font-size:16px">Please Refresh the page and start working again.</p>
@@ -464,7 +468,11 @@ function geo_success(position) {
 				  lat: position.coords.latitude,
 				  lng: position.coords.longitude
               };
+<<<<<<< HEAD
 	if(last_position_update_time + (10*60*1000) < Date.now())
+=======
+	if(last_position_update_time + (30*60*1000) < Date.now())
+>>>>>>> 77a717f (Version 2)
 	{
 		last_position_update_time = Date.now();
 		if(window.localStorage.getItem('old_location_lat') != new_location.lat || window.localStorage.getItem('old_location_lng') != new_location.lng)
@@ -523,7 +531,11 @@ wpidCalback();
 	<div class="" style="display:block; margin:10% auto; max-width:400px; ">
         
             <div class="col-sm-12" style="min-height:200px; ">
+<<<<<<< HEAD
             	<div style="position:relative;padding:40px;">
+=======
+            	<div style="position:relative;padding:40px;background-color: #202;">
+>>>>>>> 77a717f (Version 2)
                 <div class="" style="margin-top:20px; margin-bottom:20px; text-align:center;">
                     <img style="" class="img-circle" src="<?=$app->imagePath($_SESSION['user_image'])?>" height="120px">
                     
@@ -535,7 +547,11 @@ wpidCalback();
                 <div class="" style="margin-top:15px; margin-bottom:30px; color:#fff; text-align:center;">
                 <a id="signinlogoff" class="btn btn-success btn-lg"><i class="fa fa-sign-in"></i> Clock in</a>
                 </div>
+<<<<<<< HEAD
                 <div class="" style="margin-top:15px; margin-bottom:0px; color:#999; text-align:center;">
+=======
+                <div class="" style="margin-top:15px; margin-bottom:0px; color:#fff; text-align:center;font-size: 2em;">
+>>>>>>> 77a717f (Version 2)
                 Clock Out time <span id="log_off_time_passed_label"></span>
                 </div>
             </div>
@@ -577,7 +593,17 @@ $(document).ready(function(){
 		(Math.ceil(Math.random()*10)%2) ? party.confetti(e) : party.sparkles(e);
 	});
 	
+<<<<<<< HEAD
 });
 
+=======
+	
+});
+
+$(document).on('mouseenter', '[data-toggle="popover"]', function(){
+    $(this).popover();
+})
+
+>>>>>>> 77a717f (Version 2)
 </script>
 <?php }?>

@@ -1,0 +1,85 @@
+{
+    "name": "amazon-php/sp-api-sdk",
+    "description": "Amazon Selling Partner API - PHP SDK",
+    "keywords": ["amazon", "selling-partner-api", "php", "sdk", "rest", "api"],
+    "homepage": "https://openapi-generator.tech",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Norbert Orzechowicz",
+            "homepage": "https://norbert.tech"
+        },
+        {
+            "name": "OpenAPI-Generator contributors",
+            "homepage": "https://openapi-generator.tech"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ~8.0 || ~8.1",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "psr/http-client": "^1.0.1",
+        "psr/http-factory": "^1.0",
+        "psr/log": "^1.1",
+        "symfony/polyfill-uuid": "^1.23"
+    },
+    "require-dev": {
+        "nyholm/psr7": "^1.4",
+        "kriswallsmith/buzz": "^1.2",
+        "symfony/var-dumper": "^5.2",
+        "monolog/monolog": "^2.2",
+        "symfony/dotenv": "^5.4"
+    },
+    "autoload": {
+        "psr-4": { "AmazonPHP\\" : "src/AmazonPHP/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "AmazonPHP\\Test\\" : "tests/" }
+    },
+    "scripts": {
+        "clean": [
+            "rm -rf src/AmazonPHP/SellingPartner/Api",
+            "rm -rf src/AmazonPHP/SellingPartner/Model"
+        ],
+        "generate": [
+            "Composer\\Config::disableProcessTimeout",
+            "@clean",
+            "bin/generate.sh",
+            "@rector:process:force:php",
+            "@cs:php:fix"
+        ],
+        "build": [
+            "@static:analyze"
+        ],
+        "static:analyze": [
+            "tools/vendor/bin/php-cs-fixer fix --dry-run",
+            "tools/vendor/bin/psalm"
+        ],
+        "test": [
+            "@test:unit"
+        ],
+        "test:unit": [
+            "tools/vendor/bin/phpunit --testsuite unit"
+        ],
+        "test:functional": [
+            "tools/vendor/bin/phpunit --testsuite functional"
+        ],
+        "rector:process:php": [
+            "Composer\\Config::disableProcessTimeout",
+            "tools/vendor/bin/rector process --config=rector-php.php --dry-run"
+        ],
+        "rector:process:force:php": [
+            "Composer\\Config::disableProcessTimeout",
+            "tools/vendor/bin/rector process --no-diffs --no-progress-bar --config=rector-php.php"
+        ],
+        "cs:php:fix": "tools/vendor/bin/php-cs-fixer fix",
+        "tools:install": "composer install --working-dir=./tools",
+        "post-install-cmd": [
+            "@tools:install"
+        ],
+        "post-update-cmd": [
+            "@tools:install"
+        ]
+    }
+}

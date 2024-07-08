@@ -28,13 +28,32 @@ class MarketplaceWebServiceOrders_Model_ResponseHeaderMetadata {
 
   private $metadata = array();
 
+<<<<<<< HEAD
   public function __construct($requestId = null, $responseContext = null, $timestamp = null,
                               $quotaMax = null, $quotaMax = null, $quotaResetsAt = null) {
+=======
+//   public function __construct($requestId = null, $responseContext = null, $timestamp = null,
+//                               $quotaMax = null, $quotaMax = null, $quotaResetsAt = null) {
+//     $this->metadata[self::REQUEST_ID] = $requestId;
+//     $this->metadata[self::RESPONSE_CONTEXT] = $responseContext;
+//     $this->metadata[self::TIMESTAMP] = $timestamp;
+//     $this->metadata[self::QUOTA_MAX] = $quotaMax;
+//     $this->metadata[self::QUOTA_REMAINING] = $quotaMax;
+//     $this->metadata[self::QUOTA_RESETS_AT] = $quotaResetsAt;
+//   }
+
+public function __construct($requestId = null, $responseContext = null, $timestamp = null,$quotaMax = null, $quotaRemaining = null, $quotaResetsAt = null){
+>>>>>>> 77a717f (Version 2)
     $this->metadata[self::REQUEST_ID] = $requestId;
     $this->metadata[self::RESPONSE_CONTEXT] = $responseContext;
     $this->metadata[self::TIMESTAMP] = $timestamp;
     $this->metadata[self::QUOTA_MAX] = $quotaMax;
+<<<<<<< HEAD
     $this->metadata[self::QUOTA_REMAINING] = $quotaMax;
+=======
+    //$this->metadata[self::QUOTA_REMAINING] = $quotaMax;
+    $this->metadata[self::QUOTA_REMAINING] = $quotaRemaining;
+>>>>>>> 77a717f (Version 2)
     $this->metadata[self::QUOTA_RESETS_AT] = $quotaResetsAt;
   }
 

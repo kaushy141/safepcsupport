@@ -5,6 +5,10 @@ $info = $SalaryRegister->getDetails();
 if($info)
 {
 	$month_name = date("M-Y", strtotime("20".substr($info['pay_slip_month_id'],0,2)."-".substr($info['pay_slip_month_id'],2,2)."-01"));
+<<<<<<< HEAD
+=======
+	$month_value = date("Y-m-d", strtotime("20".substr($info['pay_slip_month_id'],0,2)."-".substr($info['pay_slip_month_id'],2,2)."-01"));
+>>>>>>> 77a717f (Version 2)
 			
 	$employee	= new Employee($info['pay_slip_user_id']);
 	$empData = $employee->getDetails();	
@@ -13,7 +17,11 @@ if($info)
 	$contractData = $contract->getDetailsByUser($info['pay_slip_user_id']);	
 	
 	$contractEmployee = new ContractEmployee();
+<<<<<<< HEAD
 	$contractDetails = $contractEmployee->getContractDetailsByEmail($empData['user_email']);
+=======
+	$contractDetails = $contractEmployee->getContractDetailsByEmail($empData['user_email'], $month_value);
+>>>>>>> 77a717f (Version 2)
 	
 	$currency = "";
 	if($contractDetails){
@@ -36,7 +44,11 @@ if($info)
 					"account_signature" => $app->sitePath($mgrData['user_signature']),
 					"employee_name" => $empData['user_name'],
 					"employee_designation" => $empData['user_type_name'],
+<<<<<<< HEAD
 					"joining_date" => date("M d Y", strtotime($contractData['user_pay_joining_date'])),
+=======
+					"joining_date" => date("M d Y", strtotime($contractDetails['employee_contract_date'])),
+>>>>>>> 77a717f (Version 2)
 					"basic_salary" => $currency.' '.$info['pay_slip_basic_salary'],
 					"commission_rate" => $info['pay_slip_commision'],
 					"commission_amount" => $currency.' '.round(($info['pay_slip_total_sale']*$info['pay_slip_commision'])/100),

@@ -18,6 +18,13 @@ if(isset($_SESSION['WEB-ORDER']['WEBORDER']))
 			'Store',
 			'Product name',
 			'Product SKU',
+<<<<<<< HEAD
+=======
+			'Product SRNO',
+			'Product Purchase Price',
+			'Product Sell Price',
+			'Product Shipping Charges',
+>>>>>>> 77a717f (Version 2)
 			'Product Qty',
 			'Product URL',
 			'Comments'
@@ -45,6 +52,13 @@ if(isset($_SESSION['WEB-ORDER']['WEBORDER']))
 										$_wo['store_name'],
 										$_pro['wo_product_name'],
 										$_pro['wo_product_sku'],
+<<<<<<< HEAD
+=======
+										$_pro['wo_product_srno'],
+										$_pro['wo_product_purchase_base_amount'],
+										$_pro['wo_product_sell_base_price'],
+										$_pro['wo_product_shipping_base_price'],
+>>>>>>> 77a717f (Version 2)
 										$_pro['wo_product_quantity'],
 										$_pro['wo_product_url'],
 										$comment
@@ -53,12 +67,25 @@ if(isset($_SESSION['WEB-ORDER']['WEBORDER']))
 				}
 				else
 					fputcsv($f, array(
+<<<<<<< HEAD
 										'-',
 										'-',
 										'-',
 										'-',
 										$_pro['wo_product_name'],
 										$_pro['wo_product_sku'],
+=======
+										date('d/M/Y', strtotime($_wo['web_order_created_date'])),
+										$_wo['web_order_number'],
+										$_wo['wc_status_name'],
+										$_wo['store_name'],
+										$_pro['wo_product_name'],
+										$_pro['wo_product_sku'],
+										$_pro['wo_product_srno'],
+										$_pro['wo_product_purchase_base_amount'],
+										$_pro['wo_product_sell_base_price'],
+										$_pro['wo_product_shipping_base_price'],
+>>>>>>> 77a717f (Version 2)
 										$_pro['wo_product_quantity'],
 										$_pro['wo_product_url'],
 										''
