@@ -3,13 +3,10 @@ $wc_id	= intval($_REQUEST['id']);
 $type	= isset($_REQUEST['type']) && $_REQUEST['type'] == 'N' ? false : true;
 $collection			= new Collection($wc_id);
 $wcData = $collection->getDetails();
-<<<<<<< HEAD
-=======
 
 $carrier = new Carrier($wcData['wc_carrier_id']);
 $carrierData	= $carrier->getDetails();
 
->>>>>>> 77a717f (Version 2)
 $customer = new Customer($wcData['wc_customer_id']);
 $customerData = $customer->getDetails();
 
@@ -28,21 +25,12 @@ $companyData = $company->getDetails();
 $appInfo = 	new AppInfo();
 $info = $appInfo->getDetails();	
 		
-<<<<<<< HEAD
-$company_details_data = $companyData['company_name']. ", ".$info['wc_collection_address']
-	. "<br/>".str_replace("|", "<br/>", $companyData['company_contact'])
-	. "<br/>"."Registered in England and Wales : ".$companyData['company_registered_in_england_and_wales']
-	. "<br/>"."Environment Agency Registered Firm : ".$companyData['company_environment_permit_number']
-	. "<br/>"."Waste Carrier's License : ".$companyData['company_hazardous_waste_licence_number']
-	. "<br/>"."VAT No : ".$companyData['company_vat_registration_number'];
-=======
 $company_details_data = $companyData['company_name']. ", ".$carrierData['carrier_address']
 	. "<br/>".str_replace("|", "<br/>", $companyData['company_contact'])
 	. "<br/>"."Registered in England and Wales : ".$companyData['company_registered_in_england_and_wales']
 	. "<br/>"."Environment Agency Registered Firm : ".$carrierData['carrier_environment_number']
 	. "<br/>"."Waste Carrier's License : ".$carrierData['carrier_licence_number']
 	. "<br/>"."VAT No : ".$carrierData['carrier_vat_number'];
->>>>>>> 77a717f (Version 2)
 
 $report			= new Report("Collection Certificate $wcData[wc_code]",true);
 $report->addData($collMgr);

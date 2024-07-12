@@ -1,13 +1,4 @@
 <?php include("setup.php"); ?>
-<<<<<<< HEAD
-<?php 
-if(isset($_SESSION['app_log_type']))
-{
-	include($_SESSION['app_log_type'] == "E"?"config/session.php":"config/customer-session.php");
-}
-else
-{
-=======
 <?php
 if(isset($_SESSION['app_log_type']))
 { //echo "Found";
@@ -15,7 +6,6 @@ if(isset($_SESSION['app_log_type']))
 }
 else
 { //echo "Not found";
->>>>>>> 77a717f (Version 2)
 	header("location:".$app->basePath('main.php?return='.$_SERVER['REQUEST_URI']));
 	exit();
 }

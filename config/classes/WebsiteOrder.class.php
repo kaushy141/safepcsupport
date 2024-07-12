@@ -102,11 +102,7 @@ class WebsiteOrder extends DB{
 															"join" => array("type"=>"INNER JOIN", "table"=>"`app_website_order`", "on"=>array("`store_id`" => "`web_order_website_id`"))
 															),
 								"`app_website_order_product`" => array(
-<<<<<<< HEAD
-															"column"=> array("`wo_product_name`", "`wo_product_sku`", "`wo_product_srno`"),
-=======
 															"column"=> array("`wo_product_name`", "`wo_product_sku`", "SUM(`wo_product_quantity`) AS wo_product_quantity"),
->>>>>>> 77a717f (Version 2)
 															"reference" => "p",
 															"join" => array("type"=>"INNER JOIN", "table"=>"`app_website_order`", "on"=>array("`wo_web_order_id`" => "`web_order_id`"))
 															),
@@ -176,11 +172,7 @@ class WebsiteOrder extends DB{
 		//$resultTotal = $dbcTotal->db_query($this->SqlExceptLimit);
 		//$num_rows_total= $dbcTotal->db_num_rows($resultTotal);
 		$num_rows_total = $this->getTotalCount();
-<<<<<<< HEAD
-		$output =array("draw" => $draw, "recordsTotal" => $num_rows_total, "recordsFiltered" => $num_rows_total,"data"=>array(), "sql" => $sql );
-=======
 		$output =array("draw" => $draw, "recordsTotal" => $num_rows_total, "recordsFiltered" => $num_rows_total,"data"=>array(), "sql" => $this->SqlExceptLimit );
->>>>>>> 77a717f (Version 2)
 		$pa = new ProductAvailbility();
 		while($row = $dbc->db_fetch_assoc(true)){	
 			$availability="Not Checked";
@@ -259,11 +251,7 @@ class WebsiteOrder extends DB{
 							"join" => array("type"=>"LEFT JOIN", "table"=>"`app_website_order`", "on"=>array("`ff_order_id`" => "`web_order_id`"))
 							),
 						"`app_website_order_product`" => array(
-<<<<<<< HEAD
-							"column"=> array("`wo_product_name`", "`wo_product_sku`", "`wo_product_srno`"),
-=======
 							"column"=> array("`wo_product_name`", "`wo_product_sku`", "SUM(`wo_product_quantity`) AS wo_product_quantity"),
->>>>>>> 77a717f (Version 2)
 							"reference" => "p",
 							"join" => array("type"=>"INNER JOIN", "table"=>"`app_website_order`", "on"=>array("`wo_web_order_id`" => "`web_order_id`"))
 							)
@@ -340,11 +328,7 @@ class WebsiteOrder extends DB{
 		//$resultTotal = $dbcTotal->db_query($this->SqlExceptLimit);
 		//$num_rows_total= $dbcTotal->db_num_rows($resultTotal);	
 		$num_rows_total = $this->getTotalCount();
-<<<<<<< HEAD
-		$output =array("draw" => $draw, "recordsTotal" => $num_rows_total, "recordsFiltered" => $num_rows_total,"data"=>array(), "sql"=>$sql);
-=======
 		$output =array("draw" => $draw, "recordsTotal" => $num_rows_total, "recordsFiltered" => $num_rows_total,"data"=>array(), "sql"=>$this->SqlCount);
->>>>>>> 77a717f (Version 2)
 		$pa = new ProductAvailbility();
 		while($row = $dbc->db_fetch_assoc(true)){
 			$availability="Not Checked";

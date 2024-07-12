@@ -2,11 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="collection-waste-transfer-note" language="groovy" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="20" bottomMargin="20" uuid="3c254fa5-bc94-4088-9925-a423c414d1c8">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-<<<<<<< HEAD
-	<property name="ireport.y" value="687"/>
-=======
 	<property name="ireport.y" value="696"/>
->>>>>>> 77a717f (Version 2)
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -65,10 +61,7 @@
 	<parameter name="driver_signature" class="java.lang.String"/>
 	<parameter name="consigner_signature" class="java.lang.String"/>
 	<parameter name="collection_date" class="java.lang.String"/>
-<<<<<<< HEAD
-=======
 	<parameter name="departure_time" class="java.lang.String"/>
->>>>>>> 77a717f (Version 2)
 	<queryString>
 		<![CDATA[select 1]]>
 	</queryString>
@@ -399,11 +392,7 @@
 			<textField isStretchWithOverflow="true">
 				<reportElement x="62" y="250" width="225" height="24" isPrintWhenDetailOverflows="true" forecolor="#003399" uuid="9de775ad-c88f-4986-bbfc-995920fff9f6"/>
 				<textElement verticalAlignment="Top">
-<<<<<<< HEAD
-					<font size="8" isBold="false"/>
-=======
 					<font size="7" isBold="false"/>
->>>>>>> 77a717f (Version 2)
 				</textElement>
 				<textFieldExpression><![CDATA[$P{carrier_address}]]></textFieldExpression>
 			</textField>

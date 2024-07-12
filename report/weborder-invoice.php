@@ -30,9 +30,6 @@ if(isset($_REQUEST['id']))
 
 		$appInfo = 	new AppInfo();
 		$info = $appInfo->getDetails();
-<<<<<<< HEAD
-		if(trim($storeData['store_bank_details']) != "")
-=======
 		//echo $data['web_order_store_bank_id'];die;
 		if($data['web_order_store_bank_id']){
 			if($bankDetails = $store->getBankDetails($data['web_order_store_bank_id'])){
@@ -40,7 +37,6 @@ if(isset($_REQUEST['id']))
 			}
 		}
 		else if(trim($storeData['store_bank_details']) != "")
->>>>>>> 77a717f (Version 2)
 			$data['bank_detail']	= 	nl2br($storeData["store_bank_details"]);
 		else
 			$data['bank_detail']	= 	nl2br($info["info_app_bank_details"]);
@@ -87,10 +83,7 @@ if(isset($_REQUEST['id']))
 		$report->address = $storeData['store_address'];
 		$report->info_app_contact = $storeData['store_contact'];
 		$report->setFilename("Order $invoice_type_name ".$data["web_order_number"]);
-<<<<<<< HEAD
-=======
 		//print_r($data);die;
->>>>>>> 77a717f (Version 2)
 		$report->addData($data);
 		//$report->setPassword('123');
 

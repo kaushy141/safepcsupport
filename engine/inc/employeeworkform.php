@@ -167,11 +167,7 @@
 			var date = $(this).attr("data-date");
 			var user_id = $(this).attr("data-user-id");
 			var data={
-<<<<<<< HEAD
-			action		: 'getdaylogrecord',
-=======
 			action		: 'employee/getdaylogrecord',
->>>>>>> 77a717f (Version 2)
 			user_id 	: user_id,
 			date	 	: date	
 			};

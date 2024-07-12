@@ -106,18 +106,6 @@
 					    $productDataArray = isset($products[0][0]) ? $products[0] : $products;
 						foreach($productDataArray as $_product)
 						{
-<<<<<<< HEAD
-							$productData[] = array(
-								"wo_product_name" 			=> getData($_product['Title']),
-								"wo_product_sku" 			=> getData($_product['SellerSKU']),
-								"wo_product_quantity" 		=> 1,
-								"wo_product_sell_price" 	=> getData($_product['ItemPrice']['Amount']/$_product['QuantityOrdered']),
-								"wo_product_sell_base_price" => getBaseAmount(getData($_product['ItemPrice']['Amount']/$_product['QuantityOrdered']), $web_order_currency),
-								"wo_product_image"			=> AMAZON_PRODUCT_IMAGE,
-								"wo_product_premium"		=> (isset($order['IsPremiumOrder']) && $order['IsPremiumOrder'] == true) ? 1 : 0,
-								"wo_process_code"			=> ""
-							);
-=======
 						    for($i=0; $i< $_product['QuantityOrdered']; $i++)
 						    {
     							$productData[] = array(
@@ -131,7 +119,6 @@
     								"wo_process_code"			=> ""
     							);
 						    }
->>>>>>> 77a717f (Version 2)
 							$web_order_total_shipping += isset($_product['ShippingPrice']) ? $_product['ShippingPrice']['Amount']:0;
 						}
 					}

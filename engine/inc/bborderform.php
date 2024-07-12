@@ -168,11 +168,7 @@
                                     </dd>
                                     <dt class="col-xs-4">Dated :</dt>
                                     <dd class="col-xs-8">
-<<<<<<< HEAD
-                                        <?= isset($created_at) ? date("l, jS M-y h:iA", strtotime($web_order_created_date)) : "" ?>
-=======
                                         <?= isset($created_at) ? date("l, jS M-y h:iA", strtotime($created_at)) : "" ?>
->>>>>>> 77a717f (Version 2)
                                     </dd>
                                 </dl>
                             </div>
@@ -416,34 +412,6 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-    </div>
-
-    <div class="mt-2">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <a href="#" data-step="15" data-title="Add Comments"
-                                    data-intro="Add comments on order here" data-toggle="modal" data-target="#appModal"
-                                    class="btn btn-primary"
-                                    onClick="openChatLogForm('<?php echo $id; ?>|K', '<img class=\'img-avatar\' src=\'<?php echo $app->imagePath($store_icon) ?>\' style=\'height:24px; width:24px;\'> #<?php echo $order_number ?> Log Report')">Comments</a>
-                                <div class="btn-group dropup">
-                                    <button type="button" class="btn btn-default dropdown-toggle dropdown-toggle-split"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action<span
-                                            class="sr-only"></span></button>
-                                    <div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item redirect"
-                                            href="<?php echo $app->basePath("viewbuyackorder/$id"); ?>"><i
-                                                class="fa fa-refresh"></i> Reload</a>
-                                        <?php if (isAdmin()) { ?>
-                                        <a class="dropdown-item"
-                                            href="javascript:newWindow('<?php echo DOC::BBINVOICE($id) ?>');"><i
-                                                class="fa fa-file-pdf-o fa-fw text-danger"></i> Download Invoice</a>
-                                        <?php
-										} ?>
-=======
 
             <div class="row mt-2">
                 <div class="col-md-12">
@@ -471,23 +439,10 @@
                                             <?php
 											} ?>
                                         </div>
->>>>>>> 77a717f (Version 2)
                                     </div>
                                 </div>
                             </div>
                         </div>
-<<<<<<< HEAD
-                    </div>
-                    <input type="hidden" id="action" name="action"
-                        value="<?= isset($action) ? $action : "updatebborder"; ?>" />
-                    <input type="hidden" id="formcode" name="formcode" value="<?= App::getFormcode(); ?>" />
-                    <input type="hidden" id="id" name="id" value="<?= isset($id) ? $id : "0"; ?>" />
-                </div>
-            </div>
-        </div>
-    </div>
-    </form>
-=======
                         <input type="hidden" id="action" name="action"
                             value="<?= isset($action) ? $action : "updatebborder"; ?>" />
                         <input type="hidden" id="formcode" name="formcode" value="<?= App::getFormcode(); ?>" />
@@ -497,7 +452,6 @@
             </div>
         </form>
     </div>
->>>>>>> 77a717f (Version 2)
 </div>
 
 <script type="text/javascript">

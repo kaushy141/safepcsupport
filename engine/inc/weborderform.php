@@ -224,11 +224,7 @@
                   <div class="card-header"> <i class="fa fa-credit-card-alt"></i> Order Payments </div>
                   <div class="card-body">
                     <ul class="list-group mb-0">
-<<<<<<< HEAD
-                      <li class="list-group-item d-flex list-group-item-action justify-content-between align-items-center">Payment method -<span class="badge badge-pill">
-=======
                       <li class="list-group-item d-flex list-group-item-action justify-content-between align-items-center">Payment method -<span class="badge badge-pill text-primary">
->>>>>>> 77a717f (Version 2)
                         <?=isset($web_order_payment_method)?"<img style=\"margin:-10px 0px;\" clas='img img-responsive' src='".$app->basePath('img/system/gateway/'.$web_order_payment_method.'-min.png')."' alt='".$web_order_payment_method."'/>":"#######";?>
                         </span> </li>
                       <li class="list-group-item d-flex list-group-item-action justify-content-between align-items-center">Website Order's number -<span class="badge badge-info badge-pill">
@@ -241,15 +237,12 @@
                   </div>
                 </div>
               </div>
-<<<<<<< HEAD
-=======
               
               <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                   <p><label>Bank account list</label></p>
 				  <p class="bank_accounts_details_block"></p>
               </div>
               
->>>>>>> 77a717f (Version 2)
               <div class="col-xs-12 col-sm-12 col-md-12 mt-2" id="weborderstatusblock" data-step="13" data-title="Payment status notice" data-intro="Payment processed status">
                 <?php if($web_order_is_paid == 'Yes'):?>
                 <div class="alert alert-success text-center card" role="alert"> Customer successfully paid payment of amount <b>
@@ -1313,12 +1306,8 @@ function updateweborder()
 	if(validateFields(formFields))
 	{
 		var data={
-<<<<<<< HEAD
-					action		:	$("#action").val()				
-=======
 					action		:	$("#action").val(),
 					web_order_store_bank_id : $(".web_order_store_bank_id:checked").length ? $(".web_order_store_bank_id:checked").val() : 0
->>>>>>> 77a717f (Version 2)
 				};
 		data = $.extend(data, $("#werborderform").serializeFormJSON());		
 		$.ajax({type:'POST', data:data, url:sitePath +'ajax.php', 		
@@ -1646,9 +1635,6 @@ function sendweborderimagetocustomer(product_id){
 	});
 }
 appendPrevNext(<?php echo $weborder->getPrevNext($app->basePath('viewweborder'));?>);
-<<<<<<< HEAD
-$(document).ready(function(e) {	
-=======
 
 function getstorebankaccounts(){
     
@@ -1684,7 +1670,6 @@ const web_order_store_bank_id = '<?php echo $web_order_store_bank_id; ?>';
 
 $(document).ready(function(e) {	
     getstorebankaccounts();
->>>>>>> 77a717f (Version 2)
 	showMeIntro('intro-weborder');	
 	loadGallery(true, 'a.thumbnail');
 	$(".media_uploaded_image_box").each(function(){

@@ -42,13 +42,9 @@ class Store extends DB{
 		$dbc 	= 	new DB();
 		$result	=	$dbc->db_query($sql);
 		if($dbc->db_num_rows($result)){
-<<<<<<< HEAD
-			return $dbc->db_fetch_assoc(true);
-=======
 			$record =  $dbc->db_fetch_assoc(true);
 			//print_r($record);die;
 			return $record;
->>>>>>> 77a717f (Version 2)
 		}
 		else
 			return false;

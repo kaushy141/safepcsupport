@@ -1,10 +1,6 @@
 <?php 
 include("../../setup.php");
-<<<<<<< HEAD
-//ini_set('display_errors', 1);
-=======
 ini_set('display_errors', 1);
->>>>>>> 77a717f (Version 2)
 error_reporting(0);
 extract(App::exploreApiCredentilas('AmazonOrderApi'));
 require_once('Model/.config.inc.php');
@@ -20,10 +16,7 @@ $CreatedAfter	= (isset($_GET['t']) && $_GET['t'] !='')? gmdate('Y-m-d\TH:i:s', s
    'ProxyUsername' => null,
    'ProxyPassword' => null,
    'MaxErrorRetry' => 3,
-<<<<<<< HEAD
-=======
    'x-amz-access-token' => 'amzn1.oa2-cs.v1.79ee57f2e6778754a5f51faeb9f5fe09ac0358525202435515b9dfeae7c8016d'
->>>>>>> 77a717f (Version 2)
  );
 
  $service = new MarketplaceWebServiceOrders_Client(
@@ -78,10 +71,7 @@ $CreatedAfter	= (isset($_GET['t']) && $_GET['t'] !='')? gmdate('Y-m-d\TH:i:s', s
         $dom->formatOutput = true;
 		$xmlData = $dom->saveXML();
         $orderData = parseXmlToArray($xmlData);
-<<<<<<< HEAD
-=======
 		  
->>>>>>> 77a717f (Version 2)
 		$successImportOrder = 0;
 		if(isset($orderData['ListOrdersResult']['Orders']['Order']))
 		{

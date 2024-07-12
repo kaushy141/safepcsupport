@@ -70,11 +70,7 @@ class ChaseCustomer extends DB{
 	}
 	
 	static function getScheduledCustomer($nextInSeconds = 60, $conditions = ''){
-<<<<<<< HEAD
-		$sql = "SELECT * FROM `app_chase_customer` WHERE `chase_customer_schedule_date` IS NOT NULL AND `chase_customer_schedule_date` !='' AND `chase_customer_schedule_date` <= (SELECT NOW()- INTERVAL $nextInSeconds SECOND) $conditions ORDER BY `chase_customer_schedule_date`";
-=======
 		$sql = "SELECT * FROM `app_chase_customer` WHERE `chase_customer_schedule_date` IS NOT NULL AND  `chase_customer_schedule_date` <= (SELECT NOW()- INTERVAL $nextInSeconds SECOND) $conditions ORDER BY `chase_customer_schedule_date`";
->>>>>>> 77a717f (Version 2)
 		$dbc 	= 	new DB();
 		$result	=	$dbc->db_query($sql);
 		$dataArray = array();

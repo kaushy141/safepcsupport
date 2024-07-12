@@ -1,48 +1,48 @@
 <?php
 define('VERSION', '4.3.8');
 define('APP_SALT', 'APA91bHzhPuFwCkjqzOGkxVOiYcvdtNobqNRfHpwTDLivA6');
-define('MAX_SESSION_TIMEOUT', 60 * 60 * 24);
+define('MAX_SESSION_TIMEOUT', 60*60*24);
 define('DS', DIRECTORY_SEPARATOR);
 define('PS', PATH_SEPARATOR);
-define('CDS', '/');
-define('BP', str_replace("\\", CDS, __DIR__) . CDS);
+define('CDS','/');
+define('BP', str_replace("\\",CDS,__DIR__).CDS);
 date_default_timezone_set('Europe/London');
-define('CACHE_ROOT_DIR', BP . "var/");
-define('SESSION_SAVE_PATH', CACHE_ROOT_DIR . "session/");
-define('CACHE_DIR_NAME', str_replace(BP, '', CACHE_ROOT_DIR));
+define('CACHE_ROOT_DIR',BP."var/");
+define('SESSION_SAVE_PATH', CACHE_ROOT_DIR."session/");
+define('CACHE_DIR_NAME', str_replace(BP,'',CACHE_ROOT_DIR));
 $deafultHtaccessContent = "Options -Indexes";
-if (!is_dir(SESSION_SAVE_PATH)) {
+if(!is_dir(SESSION_SAVE_PATH))
+{
 	mkdir(SESSION_SAVE_PATH, 0777, true);
-	file_put_contents(SESSION_SAVE_PATH . ".htaccess", $deafultHtaccessContent, FILE_APPEND | LOCK_EX);
-	file_put_contents(CACHE_ROOT_DIR . ".htaccess", $deafultHtaccessContent, FILE_APPEND | LOCK_EX);
+	file_put_contents(SESSION_SAVE_PATH.".htaccess", $deafultHtaccessContent ,FILE_APPEND|LOCK_EX);
+	file_put_contents(CACHE_ROOT_DIR.".htaccess",$deafultHtaccessContent,FILE_APPEND|LOCK_EX);
 }
 session_save_path(SESSION_SAVE_PATH);
 ini_set('session.gc_probability', 1);
 ini_set("session.gc_maxlifetime", MAX_SESSION_TIMEOUT);
 ini_set("session.cookie_lifetime", MAX_SESSION_TIMEOUT);
 
-define('IP_ADDRESS', isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1');
+define('IP_ADDRESS', isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1'); 
 
 //error_reporting($_SERVER['HTTP_HOST']=='localhost:8081'?E_ALL:E_ALL);
 //ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED); 
 error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 //error_reporting(0);
-try {
-	if (isset($_GET['android_app_logged_in_session_id']))
-		session_id($_GET['android_app_logged_in_session_id']);
-	session_start();
-} catch (Exception $e) {
-}
-if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
+
+if(isset($_GET['android_app_logged_in_session_id']))
+	session_id($_GET['android_app_logged_in_session_id']);
+session_start();
+
+if(function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
 	$_POST		=	strip_slashes($_POST);
 	$_GET		=	strip_slashes($_GET);
 	$_REQUEST	=	strip_slashes($_REQUEST);
 }
 
-include(BP . "config.php");
-include(BP . "config/phpqrcode.php");
-include(BP . "ireport/phpjasperxml.inc.php");
-include(BP . "ireport/tcpdf/tcpdf.php");
+include(BP."config.php");
+include(BP."config/phpqrcode.php");
+include(BP."ireport/phpjasperxml.inc.php");
+include(BP."ireport/tcpdf/tcpdf.php");
 include("config/classes.php");
 include("config/minify.php");
 include("config/library.php");
@@ -50,14 +50,14 @@ include("config/barcode/index.php");
 
 loadSystemEntityConstants();
 
-defined('DEFAULT_IMAGE_PATH')  or  define('DEFAULT_IMAGE_PATH', 'img/system/default_user_img.jpg');
-defined('DEFAULT_USER_IMAGE')  or  define('DEFAULT_USER_IMAGE', 'img/system/default_user_img.jpg');
-defined('PREMIUM_ICON')  or  define('PREMIUM_ICON', 'img/system/icon_premium.png');
-defined('DEFAULT_SIGNATURE_IMAGE')  or  define('DEFAULT_SIGNATURE_IMAGE', 'img/default_signature.png');
-defined('AMAZON_PRODUCT_IMAGE')  or  define('AMAZON_PRODUCT_IMAGE', 'img/amazon_product_icon.png');
-defined('BACKMARKET_PRODUCT_IMAGE')  or  define('BACKMARKET_PRODUCT_IMAGE', 'img/backmarket_product_icon.png');
+defined('DEFAULT_IMAGE_PATH')  OR  define('DEFAULT_IMAGE_PATH', 'img/system/default_user_img.jpg');
+defined('DEFAULT_USER_IMAGE')  OR  define('DEFAULT_USER_IMAGE', 'img/system/default_user_img.jpg');
+defined('PREMIUM_ICON')  OR  define('PREMIUM_ICON', 'img/system/icon_premium.png');
+defined('DEFAULT_SIGNATURE_IMAGE')  OR  define('DEFAULT_SIGNATURE_IMAGE', 'img/default_signature.png');
+defined('AMAZON_PRODUCT_IMAGE')  OR  define('AMAZON_PRODUCT_IMAGE', 'img/amazon_product_icon.png');
+defined('BACKMARKET_PRODUCT_IMAGE')  OR  define('BACKMARKET_PRODUCT_IMAGE', 'img/backmarket_product_icon.png');
 
-defined('DEFAULT_TRANSFEROR_SIGNATURE_IMAGE')  or  define('DEFAULT_TRANSFEROR_SIGNATURE_IMAGE', 'img/default_tranferor_signature.png');
+defined('DEFAULT_TRANSFEROR_SIGNATURE_IMAGE')  OR  define('DEFAULT_TRANSFEROR_SIGNATURE_IMAGE', 'img/default_tranferor_signature.png');
 #defined('APP_PASSWORD_MIN_LENGTH')  OR  define('APP_PASSWORD_MIN_LENGTH', 5);
 #defined('SYSTEM_EMAIL_SENDER')  OR  define('SYSTEM_EMAIL_SENDER','support@safepcsupport.co.uk');
 #defined('SYSTEM_EMAIL_SENDER_CC')  OR  define('SYSTEM_EMAIL_SENDER_CC','info@mac4sale.co.uk');
@@ -72,59 +72,56 @@ defined('DEFAULT_TRANSFEROR_SIGNATURE_IMAGE')  or  define('DEFAULT_TRANSFEROR_SI
 
 #defined('SUCCESSFULL')  OR  define('SUCCESSFULL', '<span class="text-success"><i class="fa fa-check-circle fa-lg"></i> Successfull</span>');
 
-defined('DOC_UPLOAD_DIR')  or  define('DOC_UPLOAD_DIR', "upload/doc/");
-defined('DOC_TEMP_UPLOAD_DIR')  or  define('DOC_TEMP_UPLOAD_DIR', "upload/temp/");
+defined('DOC_UPLOAD_DIR')  OR  define('DOC_UPLOAD_DIR', "upload/doc/");
+defined('DOC_TEMP_UPLOAD_DIR')  OR  define('DOC_TEMP_UPLOAD_DIR', "upload/temp/");
 
-defined('INVOICE_BAR_CODE_IMAGE_PATH')  or  define('INVOICE_BAR_CODE_IMAGE_PATH', "upload/temp/barcode/invoice-barcode-image.png");
-defined('INVOICE_QR_CODE_IMAGE_PATH')  or  define('INVOICE_QR_CODE_IMAGE_PATH', "upload/temp/qrcode/invoice-qrcode-image.png");
-defined('INVOICE_PAID_IMAGE_PATH')  or  define('INVOICE_PAID_IMAGE_PATH', 'img/paid_invoice.png');
-defined('INVOICE_UNPAID_IMAGE_PATH')  or  define('INVOICE_UNPAID_IMAGE_PATH', 'img/unpaid_invoice.png');
-defined('INVOICE_CANCEL_IMAGE_PATH')  or  define('INVOICE_CANCEL_IMAGE_PATH', 'img/cancel_invoice.png');
+defined('INVOICE_BAR_CODE_IMAGE_PATH')  OR  define('INVOICE_BAR_CODE_IMAGE_PATH',"upload/temp/barcode/invoice-barcode-image.png");
+defined('INVOICE_QR_CODE_IMAGE_PATH')  OR  define('INVOICE_QR_CODE_IMAGE_PATH',"upload/temp/qrcode/invoice-qrcode-image.png");
+defined('INVOICE_PAID_IMAGE_PATH')  OR  define('INVOICE_PAID_IMAGE_PATH', 'img/paid_invoice.png');
+defined('INVOICE_UNPAID_IMAGE_PATH')  OR  define('INVOICE_UNPAID_IMAGE_PATH', 'img/unpaid_invoice.png');
+defined('INVOICE_CANCEL_IMAGE_PATH')  OR  define('INVOICE_CANCEL_IMAGE_PATH', 'img/cancel_invoice.png');
 
-spl_autoload_register(function () {
-	global $conn;
-	if ($conn != NULL) mysqli_close($conn);
-});
-$autoloadCSS	= array("bootstrap-datepicker.min", "bootstrap-datetimepicker.min", "simple-line-icons", "font-awesome.min", "style", "datatables.min", "bootstrap.min", "bootstrap", "bootstrap-ms-extension", "fullcalendar.min", "bootstrap-clockpicker.min", "intro.min", "intro-themes/introjs-modern", "custom", "font-awesome-animation.min", "jquery.mentiony", "toastr.min", "select2.min");
-$autoloadJS		= array("jquery.min", "jquery-ui1.8.min", "tether.min", "bootstrap.min", "pace.min", "chart.min", "app", "bootstrap-datepicker.min", "bootstrap-datetimepicker.min", "main", "datatables.bootstrap.min", "jquery.datatables.min", "md5", "signature_pad", "webcam", "moment.min", "fullcalendar.min", "bootstrap-clockpicker.min", "drag-arrange.min", "pdf", "pdf.worker", "jquery.ez-plus", "paste", "popper.min", "jquery.mentiony", "toastr.min", "intro.min", "custom", "websocket", "select2.min", "chase.customer");
+spl_autoload_register(function(){ global $conn; if($conn!=NULL)mysqli_close($conn);});
+$autoloadCSS	= array("bootstrap-datepicker.min","bootstrap-datetimepicker.min","simple-line-icons","font-awesome.min","style","datatables.min","bootstrap.min","bootstrap","bootstrap-ms-extension","fullcalendar.min","bootstrap-clockpicker.min", "intro.min", "intro-themes/introjs-modern","custom", "font-awesome-animation.min","jquery.mentiony", "toastr.min", "select2.min");
+$autoloadJS		= array("jquery.min","jquery-ui1.8.min","tether.min","bootstrap.min","pace.min","chart.min","app","bootstrap-datepicker.min","bootstrap-datetimepicker.min","main","datatables.bootstrap.min","jquery.datatables.min", "md5", "signature_pad", "webcam","moment.min","fullcalendar.min","bootstrap-clockpicker.min","drag-arrange.min", "pdf","pdf.worker","jquery.ez-plus", "paste", "popper.min", "jquery.mentiony","toastr.min", "intro.min","custom", "websocket", "select2.min","chase.customer");
 
 #-------------------------------Fixed Constants
 define('STATUS_PENDING', 2);
 
-define('PAY_FORMAT_HOURLY', 'Hourly');
+define('PAY_FORMAT_HOURLY','Hourly');
 define('PAY_FORMAT_WEEK', 'Weekly');
-define('PAY_FORMAT_15DAY', '15 Days');
-define('PAY_FORMAT_MONTH', 'Monthly');
-define('PAY_FORMAT_QUATR', 'Quaterly');
-define('PAY_FORMAT_HALFY', 'Half Yearly');
-define('PAY_FORMAT_YEAR', 'Yearly');
+define('PAY_FORMAT_15DAY','15 Days');
+define('PAY_FORMAT_MONTH','Monthly');
+define('PAY_FORMAT_QUATR','Quaterly');
+define('PAY_FORMAT_HALFY','Half Yearly');
+define('PAY_FORMAT_YEAR','Yearly');
 
-define('CURRENCY_GBP', 'GBP');
-define('CURRENCY_INR', 'INR');
-define('CURRENCY_PKR', 'PKR');
-define('CURRENCY_USD', 'USD');
-define('CURRENCY_AED', 'AED');
+define('CURRENCY_GBP','GBP');
+define('CURRENCY_INR','INR');
+define('CURRENCY_PKR','PKR');
+define('CURRENCY_USD','USD');
+define('CURRENCY_AED','AED');
 
-define('PAY_STATUS_PAID', 'Paid');
-define('PAY_STATUS_UNPAID', 'Unpaid');
+define('PAY_STATUS_PAID','Paid');
+define('PAY_STATUS_UNPAID','Unpaid');
 
-define('PAY_MODE_CHECK', 'Check');
-define('PAY_MODE_ONLINE', 'Online');
-define('PAY_MODE_CASH', 'Cash');
-define('PAY_MODE_OTHER', 'Other');
+define('PAY_MODE_CHECK','Check');
+define('PAY_MODE_ONLINE','Online');
+define('PAY_MODE_CASH','Cash');
+define('PAY_MODE_OTHER','Other');
 
 
-define('USER_GENDER_MALE', 'Male');
-define('USER_GENDER_FEMALE', 'Female');
-define('USER_GENDER_OTHER', 'Other');
+define('USER_GENDER_MALE','Male');
+define('USER_GENDER_FEMALE','Female');
+define('USER_GENDER_OTHER','Other');
 
 define('WEBSITE_CUSTOMER', 3);
 define('COLLECTION_STATUS_CANCEL', 3);
 
-define('COMP_CHK_LIST_INDUCTION', 'Induction Checklist');
-define('COMP_CHK_LIST_TERMINATION', 'Termination Checklist');
-define('COMP_CHK_LIST_TELEWORKING', 'Teleworking risk assesment Checklist');
-define('COMP_CHK_LIST_NON_CONFORMANCE', 'Non Conformance Report');
+define('COMP_CHK_LIST_INDUCTION','Induction Checklist');
+define('COMP_CHK_LIST_TERMINATION','Termination Checklist');
+define('COMP_CHK_LIST_TELEWORKING','Teleworking risk assesment Checklist');
+define('COMP_CHK_LIST_NON_CONFORMANCE','Non Conformance Report');
 
 define('SERIALIZED', 'Serialized');
 define('UNSERIALIZED', 'Unserialized');
@@ -136,7 +133,7 @@ define('REFUND_STATUS_FULL', 'Full Refund');
 define('REFUND_STATUS_PARTIAL', 'Partialy Refund');
 
 define('DESRUCTION_METHOD_SECURE_ERASING', 'Secure Erasing');
-define('LOG_DIR', CACHE_ROOT_DIR . "log/");
+define('LOG_DIR', CACHE_ROOT_DIR."log/");
 #----------------------------------------------
 
 #defined('APP_EMPLOYER_NAME')  OR  define('APP_EMPLOYER_NAME','eWorld U.K. LTD');
@@ -169,7 +166,7 @@ define('LOG_DIR', CACHE_ROOT_DIR . "log/");
 #Google API Credentials Details
 #Google Map
 #defined('GOOGLE_MAP_API_KEY')  OR  define('GOOGLE_MAP_API_KEY','AIzaSyAOirXs29PPTeN7jVhvw6Pyw8LBgrfs1ao');
-defined('GOOGLE_MAP_API_SCRIPT')  or  define('GOOGLE_MAP_API_SCRIPT', "<script src=\"https://maps.googleapis.com/maps/api/js?key=" . GOOGLE_MAP_API_KEY . "&libraries=places&callback=initAutocomplete\" async defer></script>");
+defined('GOOGLE_MAP_API_SCRIPT')  OR  define('GOOGLE_MAP_API_SCRIPT',"<script src=\"https://maps.googleapis.com/maps/api/js?key=".GOOGLE_MAP_API_KEY."&libraries=places&callback=initAutocomplete\" async defer></script>");
 #Google FireBase Messaging
 #defined('GOOGLE_FIREBASE_API_KEY')  OR  define('GOOGLE_FIREBASE_API_KEY','AIzaSyDw9SuyqepAKgtnFhR2VTCEw4BoYPTgp_o');
 #defined('GOOGLE_FIREBASE_API_AUTH_DOMAIN')  OR  define('GOOGLE_FIREBASE_API_AUTH_DOMAIN','safepcdisposal-support.firebaseapp.com');
@@ -195,3 +192,4 @@ defined('GOOGLE_MAP_API_SCRIPT')  or  define('GOOGLE_MAP_API_SCRIPT', "<script s
 #defined('FEDEX_DEVL_URL')  OR  define('FEDEX_DEVL_URL','https://wsbeta.fedex.com:443/web-services');
 
 $app = new App();
+?>

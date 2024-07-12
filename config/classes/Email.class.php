@@ -145,14 +145,9 @@
 			$mail->Port = 465; // or 587
 			$mail->IsHTML(true);
 			$mail->Username = "support@safepcsupport.co.uk";
-<<<<<<< HEAD
-			$mail->Password = "pyccswvgsuijtmcm"; //APP Specific:  pyccswvgsuijtmcm Support#567890
-			//zqbtrbmtsemagwlg
-=======
 			$mail->Password = "aeccddcrrefiluol"; 
 			//APP Specific:  aeccddcrrefiluol
 			//gdfgyrrbbbcvbcvf
->>>>>>> 77a717f (Version 2)
 
 
 			$mail->setFrom("support@safepcsupport.co.uk", "Support System");		

@@ -549,11 +549,7 @@ $(document).on("click", "#amazonorderrefresh", function(e){
 		checkingOrder = true;
 		e.preventDefault();
 		var data={};	
-<<<<<<< HEAD
-		$.ajax({type:'POST', data:data, url:sitePath +'api/amazon/orderlist.php', 		
-=======
 		$.ajax({type:'POST', data:data, url:sitePath +'api/sp-api/amazon/?days=2', 		
->>>>>>> 77a717f (Version 2)
 				beforeSend: function(){
 					$(".amazonorderrefreshloader").removeClass('bg-info fa-amazon');
 					$(".amazonorderrefreshloader").addClass('fa-spin text-info fa-refresh');
@@ -654,21 +650,14 @@ $(document).on("click", "#amazonordersinglesearch", function(e){
 			checkingOrder = true;
 			e.preventDefault();
 			var data={order_id : $("#order_id").val()};	
-<<<<<<< HEAD
-			$.ajax({type:'POST', data:data, url:sitePath +'api/amazon/ordersingle.php', 		
-=======
 			$.ajax({type:'POST', data:data, 
 			url:sitePath +'api/sp-api/amazon/index.php', 		
->>>>>>> 77a717f (Version 2)
 					beforeSend: function(){
 						$(".amazonorderrefreshloader").removeClass('bg-info fa-amazon');
 						$(".amazonorderrefreshloader").addClass('fa-spin text-info fa-refresh');
 				},		
 				success:function(output){
-<<<<<<< HEAD
-=======
 				    console.log(output);
->>>>>>> 77a717f (Version 2)
 					checkingOrder = false;
 					$(".amazonorderrefreshloader").addClass('bg-info fa-amazon');
 					$(".amazonorderrefreshloader").removeClass('fa-spin text-info fa-refresh');

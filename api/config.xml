@@ -12,24 +12,25 @@
 		<MarketplaceId1>A1F83G8C2ARO7P</MarketplaceId1>
 		<ProductionMode>1</ProductionMode>
 		<ServiceEnable>1</ServiceEnable>-->
-		<AWSAccessKeyId>AKIAIHDC2O74M2Q4TCFQ</AWSAccessKeyId>
+		<AWSAccessKeyId>AKIAJUM2SXUD7XGL5NIA</AWSAccessKeyId>
 		<ApplicationName>SPD Support System</ApplicationName>
 		<ApplicationVersion>amzn1.sellerapps.app.7875114b-581e-40e2-b4a0-0b6f888087ff</ApplicationVersion>
 		<SellerId>A3RTFQ78WCQ3O7</SellerId>
-		<ClientSecret>EgF633Hd4PfApd0q8DxPTbhGGAjSwyPu6fFmUNbp</ClientSecret>
+		<ClientSecret>qT2EkF4risFPzXy+cE5px4O6lESkr0otKu6kcurc</ClientSecret>
 		<SignatureVersion>2</SignatureVersion>
 		<SignatureMethod>HmacSHA256</SignatureMethod>
 		<Version>2013-09-01</Version>
 		<MarketplaceId1>A1F83G8C2ARO7P</MarketplaceId1>
 		<ProductionMode>1</ProductionMode>
 		<ServiceEnable>1</ServiceEnable>
+		<LwaAccessToken>amzn1.oa2-cs.v1.79ee57f2e6778754a5f51faeb9f5fe09ac0358525202435515b9dfeae7c8016d</LwaAccessToken>
 	</AmazonOrderApi>
 	<AmazonOrderApiUae>
-		<AWSAccessKeyId>AKIAIHDC2O74M2Q4TCFQ</AWSAccessKeyId>
+		<AWSAccessKeyId>AKIAJUM2SXUD7XGL5NIA</AWSAccessKeyId>
 		<ApplicationName>SPD Support System</ApplicationName>
 		<ApplicationVersion>amzn1.sellerapps.app.7875114b-581e-40e2-b4a0-0b6f888087ff</ApplicationVersion>
 		<SellerId>A2NFMHNN0R5EU8</SellerId>
-		<ClientSecret>EgF633Hd4PfApd0q8DxPTbhGGAjSwyPu6fFmUNbp</ClientSecret>
+		<ClientSecret>qT2EkF4risFPzXy+cE5px4O6lESkr0otKu6kcurc</ClientSecret>
 		<SignatureVersion>2</SignatureVersion>
 		<SignatureMethod>HmacSHA256</SignatureMethod>
 		<Version>2013-09-01</Version>
@@ -39,7 +40,8 @@
 		<MWSAuthToken>amzn.mws.c4c1a119-2945-46f4-8c13-77a35f9c2046</MWSAuthToken>
 	</AmazonOrderApiUae>
 	<BackMarket>
-		<Token>aW5mb0BtYWM0c2FsZS5jby51azpEZWxsMTIzNEA=</Token>
+		<!--<Token>aW5mb0BtYWM0c2FsZS5jby51azpEZWxsMTIzNEA=</Token>-->
+		<Token>ZDAyMWVjOWY0YjIzYzYyNTg0YWM0NTpCTVQtOTE1NzkzMjk4NWQ3YjQ4ZWNkYmY4ODBmOTJlZDQ4Y2QwMzVjMTEwMg==</Token>
 	</BackMarket>
 	<UpsShippingApi>
 		<accessLicenseNumber>CD7FC40C51706C12</accessLicenseNumber>

@@ -7,11 +7,7 @@ I am writing to confirm that <strong>{{user_name}}</strong> has been employed by
 {{user_pronoun}} has been employed for a full-me position. {{user_pronoun}} has worked on different positions during the whole Employment tenure and tasks related to {{user_work_positions}}.
 
 
-<<<<<<< HEAD
-During his working period we found {{user_pronoun}} dedicated, responsible and hardworking. {{user_pronoun}} has remained involved With {{user_object_pronoun}} duets and responsibilities assigned to him. We found him competent and active with sincerity and Determination. 
-=======
 During his/her working period we found {{user_pronoun}} dedicated, responsible and hardworking. {{user_pronoun}} has remained involved With {{user_object_pronoun}} duets and responsibilities assigned to him. We found him competent and active with sincerity and Determination. 
->>>>>>> 77a717f (Version 2)
 
 
 We wish him best of luck for future employments. 

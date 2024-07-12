@@ -869,10 +869,7 @@ var mediaSection = '<?=MediaSection::$salesLabelInvoiceMedia?>';
 <?php Modal::load(array('ProductAvailbility'));?>
 var availabilityList = <?php $productAvailbility = new ProductAvailbility(); echo json_encode($productAvailbility->getAvailbiltyChecked('S', $sales_invoice_id));?>;
 var sales_invoice_bank_account = <?php echo isset($sales_invoice_bank_account) ? $sales_invoice_bank_account : 0;?>; 
-<<<<<<< HEAD
-=======
 var sales_invoice_store_id = <?php echo isset($sales_invoice_store_id) ? $sales_invoice_store_id : 0;?>; 
->>>>>>> 77a717f (Version 2)
 $(document).off('change', '#sales_invoice_is_outsourced_chk', '.duplicatesalesinvoice', '#sales_invoice_store_id');
 $(".orderaction, .web_order_is_paid, .product_image_camera, .updateImageTitle, .metadataloader, .removepackinguser").off();
 var isInvoiceGenerated = <?php echo $isInvoiceGenerated ? 'true':'false';?>;
@@ -1050,11 +1047,7 @@ function getstorebankaccounts(store_id){
 			if(arr[0] == 200 && arr[2].length){
 				for(var i=0; i < arr[2].length; i++){
 					if(arr[2][i]['account_name'] != ''){
-<<<<<<< HEAD
-						$(".bank_accounts_details_block").append('<label><input type="radio" class="sales_invoice_bank_account" name="sales_invoice_bank_account" value="'+arr[2][i]['account_id']+'" '+(sales_invoice_bank_account == arr[2][i]['account_id'] ? 'checked' : '')+'> &nbsp;' + arr[2][i]['account_name'] + '</label>');
-=======
 						$(".bank_accounts_details_block").append('<label class="'+(arr[2][i]['account_status']==0 ? 'text-muted':'')+'"><input type="radio" class="sales_invoice_bank_account" name="sales_invoice_bank_account" value="'+arr[2][i]['account_id']+'" '+(sales_invoice_bank_account == arr[2][i]['account_id'] ? 'checked' : '')+' '+(arr[2][i]['account_status']==0 && sales_invoice_bank_account !=arr[2][i]['account_id'] ? 'disabled':'')+'> &nbsp;' + arr[2][i]['account_name'] + (arr[2][i]['account_status']==0 ? '&nbsp; <span class="badge badge-danger">Disabled</span> <i class="fa fa-info-circle" data-trigger="hover" data-html="true" data-toggle="popover" data-original-title="Bank account disabled" data-content="This bank account is no longer available to use for new Orders, However it can be keep continue using for old Orders only if it was previously selected."></i>':'')+'</label>');
->>>>>>> 77a717f (Version 2)
 					}
 				}
 			}
@@ -1201,13 +1194,8 @@ $(document).ready(function(){
 	$(".invoice_image_camera").on("click", function(){
 	openMediaUploader($(this).attr('data-media-section'), $(this).attr('data-id'), "invoice_record_image", "Select Sales Invoice's image source", null);	
 	});
-<<<<<<< HEAD
-	if(sales_invoice_bank_account){
-		getstorebankaccounts(sales_invoice_bank_account);
-=======
 	if(sales_invoice_store_id){
 		getstorebankaccounts(sales_invoice_store_id);
->>>>>>> 77a717f (Version 2)
 	}
 });
 	

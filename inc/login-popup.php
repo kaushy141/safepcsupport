@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<div id="loginPopup" class="modal open" role="dialog">
-=======
 <div id="loginPopup" class="modal open loginPopup" role="dialog">
->>>>>>> 77a717f (Version 2)
     <form name="modalform" id="modalform">
         <div class="modal-dialog">
             <div class="modal-content">                
@@ -64,11 +60,7 @@ function submitform()
 	{
 		if(forgot_email==""){
 			$("#forgot_email").focus();
-<<<<<<< HEAD
-			popmessage("danger|Please fill Registered Email.");
-=======
 			popLoginmessage("danger|Please fill Registered Email.");
->>>>>>> 77a717f (Version 2)
 			return false;
 		}
 		var data={
@@ -80,18 +72,6 @@ function submitform()
 		$.ajax({type:'POST', data:data, url:'aouth.php', 
 			
 			beforeSend: function(){
-<<<<<<< HEAD
-				popmessage("warning|Connecting...");
-			},		
-			success:function(output){
-				var arr	=	JSON.parse(output);
-				popmessage(arr[1]);
-			}
-		})
-	}
-	else
-	popmessage("warning|Captcha must be filled...");
-=======
 				popLoginmessage("warning|Connecting...");
 			},		
 			success:function(output){
@@ -124,6 +104,5 @@ function popLoginmessage(msg, isStable) {
 
 function popLoginhideMessage() {
     $(".popmsg").slideUp();
->>>>>>> 77a717f (Version 2)
 }
 </script>

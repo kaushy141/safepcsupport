@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-upload/
-var/
-.well-known/
-zarchive/
-safecsupport-access.log
-safecsupport-error.log
-XOLTResult.xml
-DPD_LOGIN_Result.xml
-XOLTResultRequest.xml
-=======
 config.php
 php.ini
 .php.ini
@@ -18,5 +7,4 @@ php.ini
 *.log
 *.sql
 *.xml
->>>>>>> 77a717f (Version 2)
 error_log

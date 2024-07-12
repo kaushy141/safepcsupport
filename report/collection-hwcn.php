@@ -12,11 +12,7 @@ $customer = new Customer($wcData['wc_customer_id']);
 $customerData = $customer->getDetails();
 
 $carrier = new Carrier($wcData['wc_carrier_id']);
-<<<<<<< HEAD
-$crrierData	= $carrier->getDetails();
-=======
 $carrierData	= $carrier->getDetails();
->>>>>>> 77a717f (Version 2)
 
 $collMgr = new Employee($wcData['wc_manager_id']);
 $wcMgerData	= $collMgr->getDetails();	
@@ -86,21 +82,13 @@ if(is_array($unique_ewc_code_array)&& count($unique_ewc_code_array)>0){
 }
 $wc_ewc_identification_html.="</table></styled/>";
 		
-<<<<<<< HEAD
-$info['wc_declaration_text'] = evalString($info['wc_declaration_text'], "wc_environment_permit", $info['wc_environment_permit'],"b");
-=======
 $info['wc_declaration_text'] = evalString($info['wc_declaration_text'], "wc_environment_permit", $carrierData['carrier_environment_number'] ? $carrierData['carrier_environment_number'] : $info['wc_environment_permit'],"b");
->>>>>>> 77a717f (Version 2)
 $completion_date =  date("d/M/Y",strtotime($wcData['wc_completion_date']));
 $departure_time  = 	date("h:i A",strtotime($wcData['wc_departure_time']));
 $arrival_time  = 	date("h:i A",strtotime($wcData['wc_arrival_time']));
 $data = array(
 				"wc_waste_removed_from" => $customerData['customer_name']."<br/>".$customerAddressData['full_address'].($customerData['customer_company']!=""?"<br/>Company: $customerData[customer_company]":""),
-<<<<<<< HEAD
-				"wc_waste_taken_to" => $info['wc_collection_address'],					 
-=======
 				"wc_waste_taken_to" => $carrierData['carrier_address'] ? $carrierData['carrier_address'] :  $info['wc_collection_address'],					 
->>>>>>> 77a717f (Version 2)
 				"wc_carrier_name" => $info['wc_collection_address'], 						
 				"wc_consignor_name" => $customerData['customer_name'],
 				"wc_ewc_identification_html" => $wc_ewc_identification_html,
@@ -119,11 +107,7 @@ $data = array(
 				"driver_signature" => $wcDriverData['user_signature']!=""?$app->sitePath($wcDriverData['user_signature']):$app->sitePath(DEFAULT_SIGNATURE_IMAGE),
 				"consigner_signature" => $wcData['wc_transferor_signature']!=""?$app->sitePath($wcData['wc_transferor_signature']):$app->sitePath(DEFAULT_TRANSFEROR_SIGNATURE_IMAGE),
 );
-<<<<<<< HEAD
-$crrierData['carrier_address'] = $info['wc_collection_address'];
-=======
 $carrierData['carrier_address'] = $carrierData['carrier_address']?$carrierData['carrier_address'] : $info['wc_collection_address'];
->>>>>>> 77a717f (Version 2)
 $generatorSVG = new Picqer\Barcode\BarcodeGeneratorPNG();			
 file_put_contents(INVOICE_BAR_CODE_IMAGE_PATH, $generatorSVG->getBarcode($wcData['wc_code'], $generatorSVG::TYPE_CODE_128));
 $data['barcode']		= 	$app->sitePath(INVOICE_BAR_CODE_IMAGE_PATH);	
@@ -132,11 +116,7 @@ $data['barcode']		= 	$app->sitePath(INVOICE_BAR_CODE_IMAGE_PATH);
 $report	= new Report("Hazard waste Collection $wcData[wc_code]",true);
 $report->addData($data);
 $report->addData($info);
-<<<<<<< HEAD
-$report->addData($crrierData);
-=======
 $report->addData($carrierData);
->>>>>>> 77a717f (Version 2)
 if($CarrierVehicleData)
 $report->addData($CarrierVehicleData);
 else{

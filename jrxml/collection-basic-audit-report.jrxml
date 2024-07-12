@@ -2,11 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="collection-basic-audit-report" language="groovy" pageWidth="595" pageHeight="842" orientation="Landscape" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="3c254fa5-bc94-4088-9925-a423c414d1c8">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-<<<<<<< HEAD
-	<property name="ireport.y" value="0"/>
-=======
 	<property name="ireport.y" value="117"/>
->>>>>>> 77a717f (Version 2)
 	<parameter name="address" class="java.lang.String"/>
 	<parameter name="heading" class="java.lang.String"/>
 	<parameter name="reportdate" class="java.lang.String"/>
@@ -21,13 +17,10 @@
 	<parameter name="customer_address" class="java.lang.String"/>
 	<parameter name="wc_collection_date" class="java.lang.String"/>
 	<parameter name="reportfootertext" class="java.lang.String"/>
-<<<<<<< HEAD
-=======
 	<parameter name="poc_number" class="java.lang.String"/>
 	<parameter name="environment_number" class="java.lang.String"/>
 	<parameter name="hazardous_licence_number" class="java.lang.String"/>
 	<parameter name="vat_number" class="java.lang.String"/>
->>>>>>> 77a717f (Version 2)
 	<queryString>
 		<![CDATA[$P{query}]]>
 	</queryString>
@@ -110,11 +103,7 @@
 			<textField>
 				<reportElement x="0" y="33" width="575" height="20" uuid="4a5ebb3a-ae97-4a2b-b4a8-d36715e83a05"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-<<<<<<< HEAD
-					<font size="12"/>
-=======
 					<font size="10"/>
->>>>>>> 77a717f (Version 2)
 				</textElement>
 				<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
 			</textField>
@@ -319,65 +308,36 @@
 				<textFieldExpression><![CDATA[$P{poweredlink}]]></textFieldExpression>
 			</textField>
 			<staticText>
-<<<<<<< HEAD
-				<reportElement x="38" y="21" width="524" height="16" forecolor="#000000" backcolor="#FFFFFF" uuid="5ed6304f-1f14-4d20-86cd-dd63e302ec50"/>
-=======
 				<reportElement x="38" y="21" width="290" height="16" forecolor="#000000" backcolor="#FFFFFF" uuid="5ed6304f-1f14-4d20-86cd-dd63e302ec50"/>
->>>>>>> 77a717f (Version 2)
 				<box leftPadding="5"/>
 				<textElement verticalAlignment="Top">
 					<font size="9" isBold="true"/>
 				</textElement>
-<<<<<<< HEAD
-				<text><![CDATA[Registered under the Control of Pollution (amendment) Act 1989: CBDU151414]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="38" y="37" width="524" height="16" forecolor="#000000" backcolor="#FFFFFF" uuid="a67dd723-589f-43f6-960a-783b15cf3c09"/>
-=======
 				<text><![CDATA[Registered under the Control of Pollution (amendment) Act 1989:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="38" y="37" width="118" height="16" forecolor="#000000" backcolor="#FFFFFF" uuid="a67dd723-589f-43f6-960a-783b15cf3c09"/>
->>>>>>> 77a717f (Version 2)
 				<box leftPadding="5"/>
 				<textElement verticalAlignment="Top">
 					<font size="9" isBold="true"/>
 				</textElement>
-<<<<<<< HEAD
-				<text><![CDATA[Environmental Permit No: NC2/061566/2020]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="38" y="53" width="524" height="16" forecolor="#000000" backcolor="#FFFFFF" uuid="5bb4f0ef-cf40-4ead-82d1-87e1df1a484e"/>
-=======
 				<text><![CDATA[Environmental Permit No: ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="38" y="53" width="178" height="16" forecolor="#000000" backcolor="#FFFFFF" uuid="5bb4f0ef-cf40-4ead-82d1-87e1df1a484e"/>
->>>>>>> 77a717f (Version 2)
 				<box leftPadding="5"/>
 				<textElement verticalAlignment="Top">
 					<font size="9" isBold="true"/>
 				</textElement>
-<<<<<<< HEAD
-				<text><![CDATA[Hazardous Waste Producer Licence No: SAFEPC]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="38" y="69" width="524" height="16" forecolor="#000000" backcolor="#FFFFFF" uuid="03356c68-55e4-493b-8d67-e76a9ebb2d19"/>
-=======
 				<text><![CDATA[Hazardous Waste Producer Licence No: ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="38" y="69" width="87" height="16" forecolor="#000000" backcolor="#FFFFFF" uuid="03356c68-55e4-493b-8d67-e76a9ebb2d19"/>
->>>>>>> 77a717f (Version 2)
 				<box leftPadding="5"/>
 				<textElement verticalAlignment="Top">
 					<font size="9" isBold="true"/>
 				</textElement>
-<<<<<<< HEAD
-				<text><![CDATA[VAT Registration: 931851228]]></text>
-=======
 				<text><![CDATA[VAT Registration: ]]></text>
->>>>>>> 77a717f (Version 2)
 			</staticText>
 			<line>
 				<reportElement x="0" y="13" width="575" height="1" forecolor="#999999" uuid="fe938df4-6f58-4839-a6c8-a651be688a39"/>
@@ -392,8 +352,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{reportfootertext}]]></textFieldExpression>
 			</textField>
-<<<<<<< HEAD
-=======
 			<textField isStretchWithOverflow="true">
 				<reportElement stretchType="RelativeToBandHeight" x="328" y="22" width="233" height="15" isPrintWhenDetailOverflows="true" uuid="d5283c62-97e4-401f-8ff4-ff8abefe8969"/>
 				<box leftPadding="5"/>
@@ -426,7 +384,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{vat_number}]]></textFieldExpression>
 			</textField>
->>>>>>> 77a717f (Version 2)
 		</band>
 	</pageFooter>
 </jasperReport>
