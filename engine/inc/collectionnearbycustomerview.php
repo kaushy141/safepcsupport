@@ -56,8 +56,8 @@ if ($customer_address_geo_location == "") {
 }
 
 if ($latitude != null && $longitude != null) {
-  $radius = 5 * 1000; //Meter
-  $nearByApiUrl =  "https://api.postcodes.io/postcodes/lon/{$longitude}/lat/{$latitude}?radius={$radius}";
+  $radius = 20 * 1000; //Meter
+  $nearByApiUrl =  "https://api.postcodes.io/postcodes/lon/{$longitude}/lat/{$latitude}?radius={$radius}&widesearch={$radius}";
   $options = array(
     CURLOPT_RETURNTRANSFER => true,   // return web page
     CURLOPT_HEADER         => false,  // don't return headers
