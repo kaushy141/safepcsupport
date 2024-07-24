@@ -73,5 +73,8 @@
 		<ProductionMode>0</ProductionMode>
 		<ServiceEnable>0</ServiceEnable>
 	</FedexShippingApi>
+	<Mailgun>
+	<ApiKey>d2e610a481a463393155db5cf59fe203-0f1db83d-d2e5852e</ApiKey>
+	</Mailgun>
 	
 </ApiCredentials>

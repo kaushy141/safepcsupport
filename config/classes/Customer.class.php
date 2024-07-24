@@ -145,6 +145,20 @@ class Customer extends DB
 		return $record_array;
 	}
 
+	function getCustomerAdministrativeAreaFilter()
+	{
+		$sql = "SELECT COUNT(a.`customer_id`) as record,  b.`customer_address_administrative_area` FROM `" . $this->table_name . "` AS a INNER JOIN `app_customer_address` AS b ON a.`customer_id` = b.`customer_id` GROUP BY b.`customer_address_administrative_area` ORDER BY b.`customer_address_administrative_area`";
+		$dbc 	= 	new DB();
+		$result	=	$dbc->db_query($sql);
+		$record_array = array();
+		if ($dbc->db_num_rows() > 0) {
+			while ($row = $dbc->db_fetch_assoc(true)) {
+				$record_array[] = $row;
+			}
+		}
+		return $record_array;
+	}
+
 	function getChatCustomer()
 	{
 		global $app;
@@ -262,7 +276,6 @@ class Customer extends DB
 	}
 
 
-
 	function getJsonRecords($draw, $searchKeyword, $orderPosition, $orderDirection, $start, $length, $filter = NULL)
 	{
 
@@ -293,13 +306,13 @@ class Customer extends DB
 
 		$conditionArray = array();
 		if ($filter != NULL && count($filter)) {
-			foreach ($filter as $filed => $values) {
+			foreach ($filter as $field => $values) {
 				$filedCondArray = array();
 				if (is_array($values)) {
 					foreach ($values as $_val)
-						$filedCondArray[] = array("a." . $filed, "=", sanitizePostData($_val));
+						$filedCondArray[] = array($this->getColumnReference($this->aColumn, $field), "=", sanitizePostData($_val));
 				} else
-					$filedCondArray[] = array("a." . $filed, "=", sanitizePostData($values));
+					$filedCondArray[] = array($this->getColumnReference($this->aColumn, $field), "=", sanitizePostData($values));
 				$conditionArray[] = $filedCondArray;
 			}
 		}

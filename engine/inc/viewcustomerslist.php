@@ -20,7 +20,7 @@
 								<label class="col-md-12 col-form-label">
 									<h5 class="filterheading">Customer Type <i data-id="<?php echo $field; ?>" class="filtercontroller pull-right fa fa-chevron-down"></i></h5>
 								</label>
-								<div id="label_<?php echo $field; ?>" class="col-md-12 col-form-label">
+								<div id="label_<?php echo $field; ?>" class="col-md-12 col-form-label" style="max-height:300px; overflow-y:scroll;">
 									<?php
 									$records = $customer->getCustomerTypeFilter();
 									if (count($records)) {
@@ -51,7 +51,7 @@
 								<label class="col-md-12 col-form-label">
 									<h5 class="filterheading">Country <i data-id="<?php echo $field; ?>" class="filtercontroller pull-right fa fa-chevron-down"></i></h5>
 								</label>
-								<div id="label_<?php echo $field; ?>" class="col-md-12 col-form-label">
+								<div id="label_<?php echo $field; ?>" class="col-md-12 col-form-label" style="max-height:300px; overflow-y:scroll;">
 									<?php
 									$records = $customer->getCustomerCountryFilter();
 									if (count($records)) {
@@ -62,6 +62,37 @@
 											<div class="form-check checkbox filtercheckbox">
 												<input class="form-check-input ml-0" data-label="<?php echo htmlspecialchars($item['customer_address_country']); ?>" name="<?php echo $field ?>" id="<?php echo $field . '_' . $i ?>" type="checkbox" value="<?php echo htmlspecialchars($item['customer_address_country']); ?>">
 												<label class="form-check-label" for="<?php echo $field . '_' . $i ?>"> <?php echo htmlspecialchars($item['customer_address_country']); ?> (<?php echo $item['record']; ?>)</label>
+											</div>
+									<?php
+										}
+									}
+									?>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div style="padding: 5px">
+						<div class="block-fluid table-sorting clearfix">
+							<div class="row">
+								<?php
+								$customer = new Customer();
+								$field = 'customer_address_administrative_area';
+								?>
+								<label class="col-md-12 col-form-label">
+									<h5 class="filterheading">State <i data-id="<?php echo $field; ?>" class="filtercontroller pull-right fa fa-chevron-down"></i></h5>
+								</label>
+								<div id="label_<?php echo $field; ?>" class="col-md-12 col-form-label" style="max-height:300px; overflow-y:scroll;">
+									<?php
+									$records = $customer->getCustomerAdministrativeAreaFilter();
+									if (count($records)) {
+										$i = 0;
+										foreach ($records as $item) {
+											$i++;
+									?>
+											<div class="form-check checkbox filtercheckbox">
+												<input class="form-check-input ml-0" data-label="<?php echo htmlspecialchars($item['customer_address_administrative_area']); ?>" name="<?php echo $field ?>" id="<?php echo $field . '_' . $i ?>" type="checkbox" value="<?php echo htmlspecialchars($item['customer_address_administrative_area']); ?>">
+												<label class="form-check-label" for="<?php echo $field . '_' . $i ?>"> <?php echo htmlspecialchars($item['customer_address_administrative_area']); ?> (<?php echo $item['record']; ?>)</label>
 											</div>
 									<?php
 										}
