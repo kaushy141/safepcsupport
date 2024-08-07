@@ -76,5 +76,8 @@
 	<Mailgun>
 	<ApiKey>d2e610a481a463393155db5cf59fe203-0f1db83d-d2e5852e</ApiKey>
 	</Mailgun>
+	<SendLayer>
+	<ApiKey>0E8C3394-544608E3-66723251-D9E0A5DD</ApiKey>
+	</SendLayer>
 	
 </ApiCredentials>

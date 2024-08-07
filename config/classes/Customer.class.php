@@ -335,7 +335,7 @@ class Customer extends DB
 		$output = array("draw" => $draw, "recordsTotal" => $num_rows_total, "recordsFiltered" => $num_rows_total, "data" => array());
 		while ($row = $dbc->db_fetch_assoc()) {
 			$output["data"][] = array(
-				"<img class=\"img-avatar\" src=\"" . getResizeImage($row["customer_image"], 50) . "\" height=\"40px\">",
+				"<input type=\"checkbox\" class=\"list-checkbox\" name=\"selected_items\" value=\"" . $row['customer_id'] . "\" />",
 				$row["customer_fname"] . " " . $row["customer_lname"] . "<br/><div class=\"small text-muted\">" . dateView($row["customer_created_date"], "NOW") . "</div>",
 				$row["customer_email"] . "<div>" . $row["customer_phone"] . "</div>",
 				$row["customer_type_name"],
