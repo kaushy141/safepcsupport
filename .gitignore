@@ -2,6 +2,7 @@ config.php
 php.ini
 .php.ini
 .php.version
+/node_modules
 /var
 *.zip
 *.log

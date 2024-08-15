@@ -139,6 +139,7 @@
 </div>
 
 <script type="text/javascript">
+	var editorId = 'email-editor';
 	function statusAction(field) {
 		var data = {
 			action: "customer/updatecustomerstatus",
@@ -296,14 +297,14 @@
 			success: function(output) {
 				var arr = JSON.parse(output);
 				message(arr[1], 2000);
+				closeCanvas();
 			}
 		});
 	}
-	var editorId = 'email-editor';
+	
 	var openEmailEditor = () => {
 
 		if (selectedItems?.length > 0) {
-
 
 			var options = {
 				items: selectedItems,
@@ -329,6 +330,7 @@
 
 	function closeCanvas() {
 		$("#" + editorId).removeClass('show');
+		tinymce.activeEditor.remove("#"+editorId);
 	}
 	closeCanvas();
 </script>

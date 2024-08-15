@@ -1,5 +1,6 @@
 <?php include("setup.php"); 
-$app = new App();
+error_reporting(0);
+//$app = new App();
 if(!isset($_SESSION['APP_ACCESS']))
 {
 	//die("Error... !!! Permission denied.");
@@ -12,6 +13,7 @@ if(isset($_GET['format']) && !is_array($_GET['format']) && trim($_GET['format'])
 		$incRequest = trim($_GET['format']);
 	}
 }
+ob_end_clean();
 $incFile = 'report/'.$incRequest.'.php';
 //echo $incFile;
 if(!(file_exists($incFile) && is_readable($incFile) && include_once($incFile))) {

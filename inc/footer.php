@@ -1,22 +1,16 @@
 <footer class="app-footer">
-	<a target="_blank" href="https://www.safepcdisposal.co.uk"><span class="server_potentail"></span> SPD</a> © <?= date(
-																													"Y"
-																												) ?> v-<?= VERSION ?>
+	<a target="_blank" href="https://www.safepcdisposal.co.uk"><span class="server_potentail"></span> SPD</a> © <?= date('Y') ?> v-<?= VERSION ?>
 	<span class="float-right">Powered by <a target="_blank" href="https://www.tecknosoft.com">TecknoSoft</a> </span>
 	<div class="bottom_notification_box"></div>
 </footer>
 <?php
-Modal::load(["Voting"]);
-if (0 && ENABLE_JS_CSS_CACHE) {
+Modal::load(array('Voting'));
+if (0 && ENABLE_JS_CSS_CACHE)
 	echo loadJS($autoloadJS);
-} else {
-	foreach ($autoloadJS as $jsFile) {
-		echo "<script type=\"text/javascript\" src=\"" .
-			$app->jsPath($jsFile) .
-			"\"></script> ";
-	}
-}
-?>
+else {
+	foreach ($autoloadJS as $jsFile)
+		echo "<script type=\"text/javascript\" src=\"" . $app->jsPath($jsFile) . "\"></script> ";
+} ?>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="application/javascript">
 	function Redirect(path, isHistory) {
@@ -26,9 +20,11 @@ if (0 && ENABLE_JS_CSS_CACHE) {
 			loadPage(path);
 		}
 	}
-	<?php if (isset($loadedFunction) && $loadedFunction != "") {
+	<?php
+	if (isset($loadedFunction) && $loadedFunction != "") {
 		echo $loadedFunction;
-	} ?>
+	}
+	?>
 
 	function showBottomNotification(html) {
 		$(".bottom_notification_box").fadeOut(1000).promise().done(function() {
@@ -38,10 +34,10 @@ if (0 && ENABLE_JS_CSS_CACHE) {
 			$('.bottom_notification_box').fadeIn(2000);
 		}, 10000);
 	}
-	var winnerHtml = "<?php echo Voting::getWinnerHtml(); ?>";
+	var winnerHtml = "<?php echo Voting::getWinnerHtml() ?>";
 	if (winnerHtml != '') {
 		bottomNotificationStack.push(winnerHtml);
-		<?php if (date("d") <= Voting::$votingOpenDays) { ?>
+		<?php if (date('d') <= Voting::$votingOpenDays) { ?>
 			if (getCookie('vottingResultSeen') != '1') {
 				showLastMonthWinnerTable();
 				setCookie('vottingResultSeen', 1, 1);
@@ -278,10 +274,8 @@ if (0 && ENABLE_JS_CSS_CACHE) {
 
 		bodyHtml += '<div class="row">';
 		bodyHtml += '<div class="col-md-6"><div class="form-group"><label for="schedule_due_date">Time<sup>*</sup></label> <div class="input-group date"> <input type="text" class="form-control" id="schedule_due_date" name="schedule_due_date" data-label="Reminder time" placeholder="YYYY-MM-DD HH:II" value="" /> <span class="input-group-addon"> <label style="margin-bottom:0px;" for="schedule_due_date"><i class="fa fa-calendar fa-lg m-t-2"></i></label> </span> </div></div></div>';
-		bodyHtml += '<div class="col-md-6"><div class="form-group"> <label for="schedule_status">Status<sup>*</sup></label> <select id="schedule_status" name="schedule_status" class="form-control" size="1"> <?php
-																																																				$Schedule = new Schedule(0);
-																																																				echo $Schedule->getOptions(1);
-																																																				?> </select> </div></div>';
+		bodyHtml += '<div class="col-md-6"><div class="form-group"> <label for="schedule_status">Status<sup>*</sup></label> <select id="schedule_status" name="schedule_status" class="form-control" size="1"> <?php $Schedule = new Schedule(0);
+																																																				echo $Schedule->getOptions(1); ?> </select> </div></div>';
 		bodyHtml += '</div>';
 
 		bodyHtml += '<div class="row">';
@@ -341,7 +335,7 @@ if (0 && ENABLE_JS_CSS_CACHE) {
 	}
 
 	function openEmployeeVoting() {
-		var employee = <?php echo json_encode(Employee::getVotingList()); ?>;
+		var employee = <?php echo json_encode(Employee::getVotingList()) ?>;
 		setPopup(0, "<i class='fa fa-user'></i> Employee of the month");
 		var bodyHtml = `<div class="col-md-12">
 						<div class="row">
@@ -369,9 +363,7 @@ if (0 && ENABLE_JS_CSS_CACHE) {
 
 	}
 	<?php
-	echo "var votingStartDate = '" .
-		Voting::getCurrentMonthVotingStartDate() .
-		"';";
+	echo "var votingStartDate = '" . Voting::getCurrentMonthVotingStartDate() . "';";
 	if (Voting::isCurrentMonthVotingStarted() && !Voting::isRated()) {
 		echo " openEmployeeVoting();";
 	}
@@ -528,9 +520,7 @@ if (0 && ENABLE_JS_CSS_CACHE) {
 <div id="chase_customer_notification" class="chase_customer_notification d-none">
 	<div class="ccn_header gradient_bg"><span class="ccn_text_heading">Customer schedule</span> <span class="schedule_chase_customer_count badge badge-info"></span> <a class="ccr_controll pull-right"><i class="fa fa-angle-up fa-fw"></i></a></div>
 	<div class="ccn_body chase_customer_list_block" style="height:400px;"></div>
-	<div class="ccn_footer p-1 text-center" style=" background-color:#fff"><a href="<?php echo $app->basePath(
-																						"chasecustomer"
-																					); ?>" class="text-xs text-muted redirect">Click to manage all customer</a></div>
+	<div class="ccn_footer p-1 text-center" style=" background-color:#fff"><a href="<?php echo $app->basePath('chasecustomer') ?>" class="text-xs text-muted redirect">Click to manage all customer</a></div>
 </div>
 
 <div id="signinlogoffbox" class="" style="display:none; position:fixed; top:0px; bottom:0px; left:0px; right:0px; z-index:1049; background:#000;">
@@ -539,14 +529,12 @@ if (0 && ENABLE_JS_CSS_CACHE) {
 		<div class="col-sm-12" style="min-height:200px; ">
 			<div style="position:relative;padding:40px;background-color: #202;">
 				<div class="" style="margin-top:20px; margin-bottom:20px; text-align:center;">
-					<img style="" class="img-circle" src="<?= $app->imagePath(
-																$_SESSION["user_image"]
-															) ?>" height="120px">
+					<img style="" class="img-circle" src="<?= $app->imagePath($_SESSION['user_image']) ?>" height="120px">
 
 
 				</div>
 				<div class="" style="margin-top:20px; margin-bottom:30px; font-size:20px; font-weight:600; color:#ccc; text-align:center;">
-					<?= $_SESSION["user_fname"] ?> <?= $_SESSION["user_lname"] ?>
+					<?= $_SESSION['user_fname'] ?> <?= $_SESSION['user_lname'] ?>
 				</div>
 				<div class="" style="margin-top:15px; margin-bottom:30px; color:#fff; text-align:center;">
 					<a id="signinlogoff" class="btn btn-success btn-lg"><i class="fa fa-sign-in"></i> Clock in</a>
@@ -583,12 +571,9 @@ if (0 && ENABLE_JS_CSS_CACHE) {
 		//sendSocketMessage('Joined app window');
 	});
 </script>
-<?php if (
-	time() >= strtotime(date("Y") . "-01-01") &&
-	strtotime(date("Y-m-d")) <= strtotime(date("Y") . "-01-03")
-) { ?>
+<?php if (time() >= strtotime(date('Y') . "-01-01") && strtotime(date('Y-m-d')) <= strtotime(date('Y') . "-01-03")) { ?>
 	<script>
-		bottomNotificationStack.push("🎉 Happy new year, <?php echo $_SESSION["user_fname"]; ?> !");
+		bottomNotificationStack.push("🎉 Happy new year, <?php echo $_SESSION['user_fname'] ?> !");
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
 	<script>

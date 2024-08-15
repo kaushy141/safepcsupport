@@ -1,95 +1,95 @@
-<?php include "phpmailer/PHPMailerAutoload.php"; ?>
-<?php include "phpexcel/PHPExcel.php"; ?>
-<?php include "classes/Doc.class.php"; ?>
-<?php include "classes/Emoji.class.php"; ?>
-<?php include "classes/Sms.class.php"; ?>
-<?php include "classes/Basic.class.php"; ?>
-<?php include "classes/DB.class.php"; ?>
-<?php include "classes/App.class.php"; ?>
-<?php include "classes/Entities.class.php"; ?>
-<?php include "classes/Values.class.php"; ?>
-<?php include "classes/StoreLocation.class.php"; ?>
-<?php include "classes/Employee.class.php"; ?>
-<?php include "classes/Complaint.class.php"; ?>
-<?php include "classes/HardwareType.class.php"; ?>
-<?php include "classes/CustomerType.class.php"; ?>
-<?php include "classes/HardwareProblem.class.php"; ?>
-<?php include "classes/Customer.class.php"; ?>
-<?php include "classes/CustomerAddress.class.php"; ?>
-<?php include "classes/ComplaintStatus.class.php"; ?>
-<?php include "classes/ComplaintProblemRecord.class.php"; ?>
-<?php include "classes/UserType.class.php"; ?>
-<?php include "classes/ComplaintLog.class.php"; ?>
-<?php include "classes/ComplaintLogViewer.class.php"; ?>
-<?php include "classes/Report.class.php"; ?>
-<?php include "classes/ComplaintTax.class.php"; ?>
-<?php include "classes/AppInfo.class.php"; ?>
-<?php include "classes/FcmManager.class.php"; ?>
-<?php include "classes/OtpManager.class.php"; ?>
-<?php include "classes/WcItemType.class.php"; ?>
-<?php include "classes/WcItem.class.php"; ?>
-<?php include "classes/WcStatus.class.php"; ?>
-<?php include "classes/Collection.class.php"; ?>
-<?php include "classes/WcrItem.class.php"; ?>
-<?php include "classes/Email.class.php"; ?>
-<?php include "classes/Carrier.class.php"; ?>
-<?php include "classes/CarrierVehicle.class.php"; ?>
-<?php include "classes/WcRecordMedia.class.php"; ?>
-<?php include "classes/EbaySaleData.class.php"; ?>
-<?php include "classes/EbayCsv.class.php"; ?>
-<?php include "classes/EventList.class.php"; ?>
-<?php include "classes/Activity.class.php"; ?>
-<?php include "classes/DeviceManager.class.php"; ?>
-<?php include "classes/OrderNotification.class.php"; ?>
-<?php include "classes/Feedback.class.php"; ?>
-<?php include "classes/Store.class.php"; ?>
-<?php include "classes/CrmEmailTemplate.class.php"; ?>
-<?php include "classes/CustomerGroup.class.php"; ?>
-<?php include "classes/CrmTask.class.php"; ?>
-<?php include "classes/Schedule.class.php"; ?>
-<?php include "classes/Product.class.php"; ?>
-<?php include "classes/SalesInvoice.class.php"; ?>
-<?php include "classes/Navbar.class.php"; ?>
-<?php include "classes/Unsubscribe.class.php"; ?>
-<?php include "classes/Pallet.class.php"; ?>
-<?php include "classes/CollectionProcess.class.php"; ?>
-<?php include "classes/Contract.class.php"; ?>
-<?php include "classes/SalaryRegister.class.php"; ?>
-<?php include "classes/Message.class.php"; ?>
-<?php include "classes/PhysicalAsset.class.php"; ?>
-<?php include "classes/Licences.class.php"; ?>
-<?php include "classes/ContractInsurance.class.php"; ?>
-<?php include "classes/Policies.class.php"; ?>
-<?php include "classes/SoftwareAssets.class.php"; ?>
-<?php include "classes/ManualTrainingDoc.class.php"; ?>
-<?php include "classes/Utilities.class.php"; ?>
-<?php include "classes/Barcode.class.php"; ?>
-<?php include "classes/DestructionMethod.class.php"; ?>
-<?php include "classes/Rfc.class.php"; ?>
-<?php include "classes/ChecklistReport.class.php"; ?>
-<?php include "classes/Isms.class.php"; ?>
-<?php include "classes/Company.class.php"; ?>
-<?php include "classes/CompanyInvoice.class.php"; ?>
-<?php include "classes/Supplier.class.php"; ?>
-<?php include "classes/PalletItems.class.php"; ?>
-<?php include "classes/Location.class.php"; ?>
-<?php include "classes/WebsiteOrder.class.php"; ?>
-<?php include "classes/Credentials.class.php"; ?>
-<?php include "classes/Templates.class.php"; ?>
-<?php include "classes/BatchProduct.class.php"; ?>
-<?php include "classes/Attribute.class.php"; ?>
-<?php include "classes/CollectionProcessItem.class.php"; ?>
-<?php include "classes/BatchProductSaleHistory.class.php"; ?>
-<?php include "classes/ProcessProductSaleHistory.class.php"; ?>
-<?php include "classes/Country.class.php"; ?>
-<?php include "classes/UserTag.class.php"; ?>
-<?php include "classes/JivoChat.class.php"; ?>
-<?php include "classes/EmailLog.class.php";
-?>
+ <?php
+ include("phpmailer/PHPMailerAutoload.php");
+ include("phpexcel/PHPExcel.php");
+ include("classes/Doc.class.php");
+ include("classes/Emoji.class.php");
+ include("classes/Sms.class.php");
+ include("classes/Basic.class.php");
+ include("classes/DB.class.php");
+ include("classes/App.class.php");
+ include("classes/Entities.class.php");
+ include("classes/Values.class.php");
+ include("classes/StoreLocation.class.php");
+ include("classes/Employee.class.php");
+ include("classes/Complaint.class.php");
+ include("classes/HardwareType.class.php");
+ include("classes/CustomerType.class.php");
+ include("classes/HardwareProblem.class.php");
+ include("classes/Customer.class.php");
+ include("classes/CustomerAddress.class.php");
+ include("classes/ComplaintStatus.class.php");
+ include("classes/ComplaintProblemRecord.class.php");
+ include("classes/UserType.class.php");
+ include("classes/ComplaintLog.class.php");
+ include("classes/ComplaintLogViewer.class.php");
+ include("classes/Report.class.php");
+ include("classes/ComplaintTax.class.php");
+ include("classes/AppInfo.class.php");
+ include("classes/FcmManager.class.php");
+ include("classes/OtpManager.class.php");
+ include("classes/WcItemType.class.php");
+ include("classes/WcItem.class.php");
+ include("classes/WcStatus.class.php");
+ include("classes/Collection.class.php");
+ include("classes/WcrItem.class.php");
+ include("classes/Email.class.php");
+ include("classes/Carrier.class.php");
+ include("classes/CarrierVehicle.class.php");
+ include("classes/WcRecordMedia.class.php");
+ include("classes/EbaySaleData.class.php");
+ include("classes/EbayCsv.class.php");
+ include("classes/EventList.class.php");
+ include("classes/Activity.class.php");
+ include("classes/DeviceManager.class.php");
+ include("classes/OrderNotification.class.php");
+ include("classes/Feedback.class.php");
+ include("classes/Store.class.php");
+ include("classes/CrmEmailTemplate.class.php");
+ include("classes/CustomerGroup.class.php");
+ include("classes/CrmTask.class.php");
+ include("classes/Schedule.class.php");
+ include("classes/Product.class.php");
+ include("classes/SalesInvoice.class.php");
+ include("classes/Navbar.class.php");
+ include("classes/Unsubscribe.class.php");
+ include("classes/Pallet.class.php");
+ include("classes/CollectionProcess.class.php");
+ include("classes/Contract.class.php");
+ include("classes/SalaryRegister.class.php");
+ include("classes/Message.class.php");
+ include("classes/PhysicalAsset.class.php");
+ include("classes/Licences.class.php");
+ include("classes/ContractInsurance.class.php");
+ include("classes/Policies.class.php");
+ include("classes/SoftwareAssets.class.php");
+ include("classes/ManualTrainingDoc.class.php");
+ include("classes/Utilities.class.php");
+ include("classes/Barcode.class.php");
+ include("classes/DestructionMethod.class.php");
+ include("classes/Rfc.class.php");
+ include("classes/ChecklistReport.class.php");
+ include("classes/Isms.class.php");
+ include("classes/Company.class.php");
+ include("classes/CompanyInvoice.class.php");
+ include("classes/Supplier.class.php");
+ include("classes/PalletItems.class.php");
+ include("classes/Location.class.php");
+ include("classes/WebsiteOrder.class.php");
+ include("classes/Credentials.class.php");
+ include("classes/Templates.class.php");
+ include("classes/BatchProduct.class.php");
+ include("classes/Attribute.class.php");
+ include("classes/CollectionProcessItem.class.php");
+ include("classes/BatchProductSaleHistory.class.php");
+ include("classes/ProcessProductSaleHistory.class.php");
+ include("classes/Country.class.php");
+ include("classes/UserTag.class.php");
+ include("classes/JivoChat.class.php");
+ include("classes/EmailLog.class.php");
 
-<?php
 class Modal
 {
+
 	static function load($modal_name = null)
 	{
 		if ($modal_name != null) {
@@ -98,14 +98,9 @@ class Modal
 					Modal::load($modal);
 				}
 			} else {
-				$modal_file_name =
-					str_replace(
-						".class",
-						"",
-						str_replace(".php", "", trim($modal_name))
-					) . ".class.php";
-				if (!file_exists("classes/" . $modal_file_name)) {
-					include "classes/" . $modal_file_name;
+				$modal_file_name = str_replace('.class', '', str_replace('.php', '', trim($modal_name))) . '.class.php';
+				if (!file_exists('classes/' . $modal_file_name)) {
+					include("classes/" . $modal_file_name);
 				} else {
 					die("Requested modal '$modal_name' could not loaded");
 				}
@@ -114,17 +109,18 @@ class Modal
 	}
 	static function loadMailer()
 	{
-		include "phpmailer/PHPMailerAutoload.php";
+		include("phpmailer/PHPMailerAutoload.php");
 	}
 	static function loadPhpExcel()
 	{
-		include "phpexcel/PHPExcel.php";
+		include("phpexcel/PHPExcel.php");
 	}
 	static function loadScript($script)
 	{
-		include BP . rtrim(trim($script), ".php") . ".php";
+		include(BP . rtrim(trim($script), '.php') . '.php');
 	}
 }
+
 class MediaSection
 {
 	public static $collectionMedia = "Collection Media";

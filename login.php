@@ -135,6 +135,7 @@ background-repeat: no-repeat;}
 <script src="<?=$app->jsPath('md5')?>"></script>
 <script type="text/javascript">
 		var ENABLE_LOGIN_CAPTCHA = <?php echo ENABLE_LOGIN_CAPTCHA; ?>;
+	
 		var ENABLE_QR_LOGIN_CHECK = true;
 		function refreshEMPLoginCaptcha()
 		{

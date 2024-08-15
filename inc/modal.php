@@ -49,7 +49,7 @@
     </div>
 </div>
 
-<div id="appModalMessage" class="modal open" role="dialog" style="background:rgba(0,0,0,0.6)">
+<div id="appModalMessage" class="modal open" role="dialog" style="background:rgba(0,0,0,0.6); z-index: 1055;">
     <div class="modal-dialog" style="margin:15% auto;">
       <div class="modal-content" style="padding:20px 20px;">        
         <div class="modal-body pb-0" style="font-size:17px; text-align:center;"></div> 
@@ -60,7 +60,7 @@
     </div>
 </div>
 
-<div id="appModalConfirm" class="modal open" role="dialog" style="background:rgba(0,0,0,0.4);">
+<div id="appModalConfirm" class="modal open" role="dialog" style="background:rgba(0,0,0,0.4); z-index: 1052;">
     <div class="modal-dialog" style="margin:15% auto;">
       <div class="modal-content" style="padding:12px 10px;">        
         <div class="modal-body" style="font-size:17px;">Are you sure to add this record...?</div> 
